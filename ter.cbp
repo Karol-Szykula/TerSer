@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ter" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/ter" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++11" />
+					<Add directory="$(BOOST_ROOT)" />
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+					<Add directory="asyncserial" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libwxmsw30u_richtext.a" />
+					<Add library="libwxmsw30u_aui.a" />
+					<Add library="libwxmsw30u_media.a" />
+					<Add library="libwxmsw30u_xrc.a" />
+					<Add library="libwxbase30u_xml.a" />
+					<Add library="libwxmsw30u_adv.a" />
+					<Add library="libwxmsw30u_html.a" />
+					<Add library="libwxmsw30u_core.a" />
+					<Add library="libwxbase30u.a" />
+					<Add library="libwxpng.a" />
+					<Add library="libwxjpeg.a" />
+					<Add library="libwxtiff.a" />
+					<Add library="libwxzlib.a" />
+					<Add library="libwxregexu.a" />
+					<Add library="libwxexpat.a" />
+					<Add library="C:/libs_C++/boost165/stage/lib/libboost_system-mgw51-mt-1_65_1.a" />
+					<Add library="C:/libs_C++/boost165/stage/lib/libboost_thread-mgw51-mt-1_65_1.a" />
+					<Add directory="$(BOOST_ROOT)/stage/lib" />
+					<Add directory="$(WXWIN)/lib/gcc_lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-D__GNUWIN32__" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-DwxUSE_UNICODE" />
+			<Add option="-Wall" />
+			<Add directory="$(WXWIN)/include" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="$(WXWIN)/include" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-mthreads" />
+			<Add library="libkernel32.a" />
+			<Add library="libuser32.a" />
+			<Add library="libgdi32.a" />
+			<Add library="libwinspool.a" />
+			<Add library="libcomdlg32.a" />
+			<Add library="libadvapi32.a" />
+			<Add library="libshell32.a" />
+			<Add library="libole32.a" />
+			<Add library="liboleaut32.a" />
+			<Add library="libuuid.a" />
+			<Add library="libcomctl32.a" />
+			<Add library="libwsock32.a" />
+			<Add library="libodbc32.a" />
+		</Linker>
+		<Unit filename="ConnectionSettingsFrame.cpp" />
+		<Unit filename="ConnectionSettingsFrame.h" />
+		<Unit filename="WindowSettingsDialog.cpp" />
+		<Unit filename="WindowSettingsDialog.h" />
+		<Unit filename="asyncserial/asyncSerial.cpp" />
+		<Unit filename="asyncserial/asyncSerial.hpp" />
+		<Unit filename="asyncserial/serialoptions.cpp" />
+		<Unit filename="asyncserial/serialoptions.h" />
+		<Unit filename="asyncserial/serialserverhandler.cpp" />
+		<Unit filename="asyncserial/serialserverhandler.h" />
+		<Unit filename="resource.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="terApp.cpp" />
+		<Unit filename="terApp.h" />
+		<Unit filename="terMain.cpp" />
+		<Unit filename="terMain.h" />
+		<Unit filename="wxsmith/ConnectionSettingsFrame.wxs" />
+		<Unit filename="wxsmith/WindowSettingsDialog.wxs" />
+		<Unit filename="wxsmith/terframe.wxs" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="terApp.cpp" main="terFrame" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxFrame wxs="wxsmith/terframe.wxs" src="terMain.cpp" hdr="terMain.h" fwddecl="0" i18n="1" name="terFrame" language="CPP" />
+					<wxFrame wxs="wxsmith/ConnectionSettingsFrame.wxs" src="ConnectionSettingsFrame.cpp" hdr="ConnectionSettingsFrame.h" fwddecl="0" i18n="1" name="ConnectionSettingsFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/WindowSettingsDialog.wxs" src="WindowSettingsDialog.cpp" hdr="WindowSettingsDialog.h" fwddecl="0" i18n="1" name="WindowSettingsDialog" language="CPP" />
+				</resources>
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
