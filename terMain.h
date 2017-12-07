@@ -29,7 +29,6 @@
 //*)
 
 #include <vector>
-#include "asyncserial/asyncSerial.hpp"
 #include "serialoptions.h"
 
 class terFrame: public wxFrame
@@ -111,7 +110,7 @@ class terFrame: public wxFrame
         ConnectionSettingsFrame * connectionSettingsFrame;	// frame for connection settings
         WindowSettingsDialog * windowSettingsDialog;		// dialog for window settings
 
-		CallbackAsyncSerial serialConnection;
+		//CallbackAsyncSerial serialConnection;
 		std::string serialReceived;
 		SerialOptions serialOptions;
 

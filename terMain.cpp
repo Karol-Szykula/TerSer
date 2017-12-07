@@ -193,8 +193,6 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     //*)
 
 	//SetMinSize(GetSize());
-
-	serialConnection.setCallback(boost::bind(&terFrame::OnSerialRecived, this, _1, _2));
 }
 
 terFrame::~terFrame()
@@ -220,15 +218,14 @@ void terFrame::OnTerminalSendTextEnter(wxCommandEvent& event)
 {
 	wxString enteredText = "";
     enteredText = TerminalSendTextCtrl->GetValue();	//get text from user
-
     TerminalSendTextCtrl->Clear();			// clear input widget
 
     std::string enteredStr = enteredText.ToStdString();
     enteredStr += "\r\n";
 
-    if(serialConnection.isOpen() == true)
+//    if( == true)
 	{
-        serialConnection.writeString(enteredStr);
+        //serialConnection.writeString(enteredStr);
 
 		//TerminalTextCtrlWidget->AppendText("<<<");				// add direction sign
 		TerminalTextCtrlWidget->AppendText(enteredStr);    // append the text to the message window
@@ -306,21 +303,22 @@ void terFrame::OnButtonConnectClick(wxCommandEvent& event)
 	boost::asio::serial_port_base::flow_control opt_flow = boost::asio::serial_port_base::flow_control(boost::asio::serial_port_base::flow_control::none);
     boost::asio::serial_port_base::stop_bits opt_stop = boost::asio::serial_port_base::stop_bits(boost::asio::serial_port_base::stop_bits::one);
 */
-	if(serialConnection.isOpen() == false)
+//	if( == false)
 	{
-		serialConnection.open(serialOptions.getPortName(), serialOptions.getBaudRate(), serialOptions.getParity(),
-							serialOptions.getDataBits(), serialOptions.getFlowControl(), serialOptions.getStopBits());
+//		serialConnection.open(serialOptions.getPortName(), serialOptions.getBaudRate(), serialOptions.getParity(),
+//							serialOptions.getDataBits(), serialOptions.getFlowControl(), serialOptions.getStopBits());
 
-		if(serialConnection.isOpen() == true)
+//		if( == true)
 		{
 			ButtonConnect->SetLabel(wxT("Disconnect"));
 			LabelConnectionStatus->SetLabel(wxT("CONNECTED"));
 		}
 
-	}else if(serialConnection.isOpen() == true)
+	}
+	//else if( == true)
 	{
-		serialConnection.close();
-		if(serialConnection.isOpen() == false)
+//		serialConnection.close();
+//		if( == false)
 		{
 			ButtonConnect->SetLabel(wxT("Connect"));
 			LabelConnectionStatus->SetLabel(wxT("DISCONNECTED"));
