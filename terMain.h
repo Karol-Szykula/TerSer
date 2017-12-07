@@ -11,7 +11,8 @@
 #define TERMAIN_H
 #include "ConnectionSettingsFrame.h"
 #include "WindowSettingsDialog.h"
-
+#include "bufferedasyncserial/BufferedAsyncSerial.h"
+#include <wx/timer.h>
 
 
 
@@ -102,6 +103,10 @@ class terFrame: public wxFrame
         //*)
 
 		void OnSerialRecived(const char * data, std::size_t len);	// serial callback function
+		void OnTimerSerialRead(wxTimerEvent  & event);
+
+		//void startSerialReadTimer();
+		//void stopSerialReadTimer();
 
         wxWindowID ID_CONSETFRAME;	// id for connection settings frame
         wxWindowID ID_WINSETDIALOG;	// id for window settings dialog
@@ -110,7 +115,8 @@ class terFrame: public wxFrame
         ConnectionSettingsFrame * connectionSettingsFrame;	// frame for connection settings
         WindowSettingsDialog * windowSettingsDialog;		// dialog for window settings
 
-		//CallbackAsyncSerial serialConnection;
+        wxTimer SerialReadTimer;
+		BufferedAsyncSerial serialConnection;
 		std::string serialReceived;
 		SerialOptions serialOptions;
 

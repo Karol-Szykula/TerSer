@@ -193,6 +193,8 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     //*)
 
 	//SetMinSize(GetSize());
+	SerialReadTimer.SetOwner( this );
+	this->Connect( SerialReadTimer.GetId(), wxEVT_TIMER, wxTimerEventHandler( terFrame::OnTimerSerialRead ), NULL, this );
 }
 
 terFrame::~terFrame()
@@ -223,11 +225,11 @@ void terFrame::OnTerminalSendTextEnter(wxCommandEvent& event)
     std::string enteredStr = enteredText.ToStdString();
     enteredStr += "\r\n";
 
-//    if( == true)
+    if(serialConnection.isOpen() == true)
 	{
-        //serialConnection.writeString(enteredStr);
+        serialConnection.writeString(enteredStr);
 
-		//TerminalTextCtrlWidget->AppendText("<<<");				// add direction sign
+		TerminalTextCtrlWidget->AppendText("<<<");				// add direction sign
 		TerminalTextCtrlWidget->AppendText(enteredStr);    // append the text to the message window
 		//TerminalTextCtrlWidget->AppendText("\n");
 	}
@@ -295,7 +297,8 @@ SerialOptions terFrame::getSerialOptions()
 
 void terFrame::OnButtonConnectClick(wxCommandEvent& event)
 {
-	/*
+
+/*
 	std::string portName = "com3";
 	unsigned int baud_rate = 9600;
 	boost::asio::serial_port_base::parity opt_parity = boost::asio::serial_port_base::parity(boost::asio::serial_port_base::parity::none);
@@ -303,30 +306,52 @@ void terFrame::OnButtonConnectClick(wxCommandEvent& event)
 	boost::asio::serial_port_base::flow_control opt_flow = boost::asio::serial_port_base::flow_control(boost::asio::serial_port_base::flow_control::none);
     boost::asio::serial_port_base::stop_bits opt_stop = boost::asio::serial_port_base::stop_bits(boost::asio::serial_port_base::stop_bits::one);
 */
-//	if( == false)
-	{
-//		serialConnection.open(serialOptions.getPortName(), serialOptions.getBaudRate(), serialOptions.getParity(),
-//							serialOptions.getDataBits(), serialOptions.getFlowControl(), serialOptions.getStopBits());
 
-//		if( == true)
+
+
+	if(serialConnection.isOpen() == false)
+	{
+		try{
+
+		serialConnection.open(serialOptions.getPortName(), serialOptions.getBaudRate(), serialOptions.getParity(),
+							serialOptions.getDataBits(), serialOptions.getFlowControl(), serialOptions.getStopBits());
+		}catch(boost::system::system_error& e)
+		{}
+
+		if(serialConnection.isOpen() == true)
 		{
+			SerialReadTimer.Start(10, wxTIMER_CONTINUOUS);
 			ButtonConnect->SetLabel(wxT("Disconnect"));
 			LabelConnectionStatus->SetLabel(wxT("CONNECTED"));
 		}
 
-	}
-	//else if( == true)
+	}else if(serialConnection.isOpen() == true)
 	{
-//		serialConnection.close();
-//		if( == false)
+		try{
+
+		serialConnection.close();
+
+		}catch(boost::system::system_error& e)
+		{}
+
+		if(serialConnection.isOpen() == false)
 		{
+			SerialReadTimer.Stop();
 			ButtonConnect->SetLabel(wxT("Connect"));
 			LabelConnectionStatus->SetLabel(wxT("DISCONNECTED"));
 		}
 	}
-
 }
 
 void terFrame::OnButtonStartServerClick(wxCommandEvent& event)
 {
+}
+
+void terFrame::OnTimerSerialRead(wxTimerEvent  & event)
+{
+	if(serialConnection.isOpen() == true)
+	{
+		serialReceived = serialConnection.readStringUntil("\r\n");
+		TerminalTextCtrlWidget->AppendText(serialReceived);
+	}
 }
