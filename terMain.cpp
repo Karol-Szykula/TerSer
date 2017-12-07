@@ -194,7 +194,8 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
 
 	//SetMinSize(GetSize());
 
-	serialConnection.setCallback(boost::bind(&terFrame::OnSerialRecived, this, _1, _2));
+	serialState = false;
+
 }
 
 terFrame::~terFrame()
@@ -226,9 +227,9 @@ void terFrame::OnTerminalSendTextEnter(wxCommandEvent& event)
     std::string enteredStr = enteredText.ToStdString();
     enteredStr += "\r\n";
 
-    if(serialConnection.isOpen() == true)
+    //if(serialConnection.isOpen() == true)
 	{
-        serialConnection.writeString(enteredStr);
+        //serialConnection.writeString(enteredStr);
 
 		//TerminalTextCtrlWidget->AppendText("<<<");				// add direction sign
 		TerminalTextCtrlWidget->AppendText(enteredStr);    // append the text to the message window
@@ -298,33 +299,24 @@ SerialOptions terFrame::getSerialOptions()
 
 void terFrame::OnButtonConnectClick(wxCommandEvent& event)
 {
-	/*
-	std::string portName = "com3";
-	unsigned int baud_rate = 9600;
-	boost::asio::serial_port_base::parity opt_parity = boost::asio::serial_port_base::parity(boost::asio::serial_port_base::parity::none);
-	boost::asio::serial_port_base::character_size opt_csize = boost::asio::serial_port_base::character_size(8);
-	boost::asio::serial_port_base::flow_control opt_flow = boost::asio::serial_port_base::flow_control(boost::asio::serial_port_base::flow_control::none);
-    boost::asio::serial_port_base::stop_bits opt_stop = boost::asio::serial_port_base::stop_bits(boost::asio::serial_port_base::stop_bits::one);
-*/
-	if(serialConnection.isOpen() == false)
-	{
-		serialConnection.open(serialOptions.getPortName(), serialOptions.getBaudRate(), serialOptions.getParity(),
-							serialOptions.getDataBits(), serialOptions.getFlowControl(), serialOptions.getStopBits());
 
-		if(serialConnection.isOpen() == true)
-		{
-			ButtonConnect->SetLabel(wxT("Disconnect"));
-			LabelConnectionStatus->SetLabel(wxT("CONNECTED"));
-		}
 
-	}else if(serialConnection.isOpen() == true)
+	std::string portName = serialOptions.getPortName();
+	unsigned int baudRate = serialOptions.getBaudRate();
+
+	if()
+    int CONNECTION = serialConnection.Open(portName.c_str(), baudRate);
+
+	if(serialState == true)	// if opened
 	{
-		serialConnection.close();
-		if(serialConnection.isOpen() == false)
-		{
-			ButtonConnect->SetLabel(wxT("Connect"));
-			LabelConnectionStatus->SetLabel(wxT("DISCONNECTED"));
-		}
+		ButtonConnect->SetLabel(wxT("Disconnect"));
+		LabelConnectionStatus->SetLabel(wxT("CONNECTED"));
+
+	}
+	else if(serialState != 1)
+	{
+		ButtonConnect->SetLabel(wxT("Connect"));
+		LabelConnectionStatus->SetLabel(wxT("DISCONNECTED"));
 	}
 
 }

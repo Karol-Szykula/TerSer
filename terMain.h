@@ -9,9 +9,13 @@
 
 #ifndef TERMAIN_H
 #define TERMAIN_H
+
 #include "ConnectionSettingsFrame.h"
 #include "WindowSettingsDialog.h"
-
+#include <vector>
+//#include "asyncserial/asyncSerial.hpp"
+#include "serial-lib/serialib.h"
+#include "serialoptions.h"
 
 
 
@@ -28,9 +32,7 @@
 #include <wx/statusbr.h>
 //*)
 
-#include <vector>
-#include "asyncserial/asyncSerial.hpp"
-#include "serialoptions.h"
+
 
 class terFrame: public wxFrame
 {
@@ -111,9 +113,11 @@ class terFrame: public wxFrame
         ConnectionSettingsFrame * connectionSettingsFrame;	// frame for connection settings
         WindowSettingsDialog * windowSettingsDialog;		// dialog for window settings
 
-		CallbackAsyncSerial serialConnection;
+		//CallbackAsyncSerial serialConnection;
+		serialib serialConnection;
 		std::string serialReceived;
 		SerialOptions serialOptions;
+		bool SERIALSTATE;
 
 		//SerialTerminalHandler
 		//SerialServerHandler
