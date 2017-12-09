@@ -222,17 +222,22 @@ void terFrame::OnTerminalSendTextEnter(wxCommandEvent& event)
     enteredText = TerminalSendTextCtrl->GetValue();	//get text from user
     TerminalSendTextCtrl->Clear();			// clear input widget
 
-    std::string enteredStr = enteredText.ToStdString();
-    enteredStr += "\r\n";
 
-    if(serialConnection.isOpen() == true)
-	{
-        serialConnection.writeString(enteredStr);
+	if(serialConnection.isOpen() == true)
+		{
 
-		TerminalTextCtrlWidget->AppendText("<<<");				// add direction sign
-		TerminalTextCtrlWidget->AppendText(enteredStr);    // append the text to the message window
-		//TerminalTextCtrlWidget->AppendText("\n");
-	}
+			std::string enteredSTDStr = enteredText.ToStdString();
+			enteredSTDStr += "\r\n";
+
+			SerialReadTimer.Stop();
+			serialConnection.writeString(enteredSTDStr);
+			SerialReadTimer.Start(true);
+
+			TerminalTextCtrlWidget->AppendText("<<<");				// add direction sign
+			TerminalTextCtrlWidget->AppendText(enteredSTDStr);    // append the text to the message window
+			//TerminalTextCtrlWidget->AppendText("\n");
+		}
+
 
 }
 
@@ -257,30 +262,6 @@ void terFrame::OnMenuItemWindowClicked(wxCommandEvent& event)
 	windowSettingsDialog->Show(true);
 }
 
-void terFrame::OnSerialRecived(const char * data, std::size_t len)	// callback function for serial communication
-{
-
-
-    for (std::size_t i = 0; i < len; ++i)
-    {
-        if(data[i] != '\r' && data[i] != '\n')
-		{
-			serialReceived += data[i];
-			//TerminalTextCtrlWidget->AppendText(data[i]);
-		}else if(data[i] == '\r' || data[i] == '\n')
-		{
-			serialReceived += "\0";
-			TerminalTextCtrlWidget->AppendText(serialReceived);
-			serialReceived = "";
-		}
-		//TerminalTextCtrlWidget->AppendText("\n");
-    }
-    //wxString received(serialReceived);
-	//TerminalTextCtrlWidget->AppendText(">>>");
-	//TerminalTextCtrlWidget->AppendText(serialReceived);
-
-
-}
 
 void terFrame::setSerialOptions(SerialOptions newSerialOptions)
 {
@@ -298,17 +279,6 @@ SerialOptions terFrame::getSerialOptions()
 void terFrame::OnButtonConnectClick(wxCommandEvent& event)
 {
 
-/*
-	std::string portName = "com3";
-	unsigned int baud_rate = 9600;
-	boost::asio::serial_port_base::parity opt_parity = boost::asio::serial_port_base::parity(boost::asio::serial_port_base::parity::none);
-	boost::asio::serial_port_base::character_size opt_csize = boost::asio::serial_port_base::character_size(8);
-	boost::asio::serial_port_base::flow_control opt_flow = boost::asio::serial_port_base::flow_control(boost::asio::serial_port_base::flow_control::none);
-    boost::asio::serial_port_base::stop_bits opt_stop = boost::asio::serial_port_base::stop_bits(boost::asio::serial_port_base::stop_bits::one);
-*/
-
-
-
 	if(serialConnection.isOpen() == false)
 	{
 		try{
@@ -320,7 +290,7 @@ void terFrame::OnButtonConnectClick(wxCommandEvent& event)
 
 		if(serialConnection.isOpen() == true)
 		{
-			SerialReadTimer.Start(10, wxTIMER_CONTINUOUS);
+			SerialReadTimer.Start(30, wxTIMER_CONTINUOUS);
 			ButtonConnect->SetLabel(wxT("Disconnect"));
 			LabelConnectionStatus->SetLabel(wxT("CONNECTED"));
 		}
@@ -351,7 +321,7 @@ void terFrame::OnTimerSerialRead(wxTimerEvent  & event)
 {
 	if(serialConnection.isOpen() == true)
 	{
-		serialReceived = serialConnection.readStringUntil("\r\n");
+		serialReceived = serialConnection.readString();
 		TerminalTextCtrlWidget->AppendText(serialReceived);
 	}
 }

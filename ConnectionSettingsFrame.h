@@ -5,6 +5,7 @@
 #include <wx/sizer.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
+#include <wx/checkbox.h>
 #include <wx/treebook.h>
 #include <wx/panel.h>
 #include <wx/choice.h>
@@ -30,6 +31,7 @@ class ConnectionSettingsFrame: public wxFrame
 
 		//(*Declarations(ConnectionSettingsFrame)
 		wxChoice* ConnectionSettingsStopBitsWidget;
+		wxPanel* Panel5;
 		wxChoice* ConnectionSettingsParityWidget;
 		wxStaticText* StaticText2;
 		wxPanel* Panel4;
@@ -41,9 +43,12 @@ class ConnectionSettingsFrame: public wxFrame
 		wxStaticText* StaticText1;
 		wxStaticText* StaticText3;
 		wxPanel* Panel3;
+		wxCheckBox* CheckBox1;
 		wxButton* Button3;
 		wxStaticText* StaticText5;
+		wxStaticText* StaticText7;
 		wxTreebook* Treebook1;
+		wxTextCtrl* TextCtrl1;
 		wxChoice* ConnectionSettingsDataBitsWidget;
 		wxPanel* Panel2;
 		wxStaticText* StaticText4;
@@ -53,6 +58,8 @@ class ConnectionSettingsFrame: public wxFrame
 	protected:
 
 		//(*Identifiers(ConnectionSettingsFrame)
+		static const long ID_CHECKBOX1;
+		static const long ID_PANEL5;
 		static const long ID_STATICTEXT1;
 		static const long ID_TEXTCTRL1;
 		static const long ID_STATICTEXT2;
@@ -66,6 +73,8 @@ class ConnectionSettingsFrame: public wxFrame
 		static const long ID_STATICTEXT6;
 		static const long ID_CHOICE6;
 		static const long ID_PANEL2;
+		static const long ID_STATICTEXT7;
+		static const long ID_TEXTCTRL2;
 		static const long ID_PANEL3;
 		static const long ID_TREEBOOK1;
 		static const long ID_BUTTON1;
@@ -79,7 +88,6 @@ class ConnectionSettingsFrame: public wxFrame
 		//(*Handlers(ConnectionSettingsFrame)
 		void OnConnectionSettingsOkButtonClick(wxCommandEvent& event);
 		void OnConnectionSettingsCancelButtonClick(wxCommandEvent& event);
-		void OnTreebook1PageChanged(wxNotebookEvent& event);
 		//*)
 
 		SerialOptions getSerialOptions();

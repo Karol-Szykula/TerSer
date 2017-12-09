@@ -78,12 +78,14 @@
 		<Unit filename="ConnectionSettingsFrame.h" />
 		<Unit filename="WindowSettingsDialog.cpp" />
 		<Unit filename="WindowSettingsDialog.h" />
-		<Unit filename="asyncserial/asyncSerial.cpp" />
-		<Unit filename="asyncserial/asyncSerial.hpp" />
 		<Unit filename="asyncserial/serialoptions.cpp" />
 		<Unit filename="asyncserial/serialoptions.h" />
 		<Unit filename="asyncserial/serialserverhandler.cpp" />
 		<Unit filename="asyncserial/serialserverhandler.h" />
+		<Unit filename="bufferedasyncserial/AsyncSerial.cpp" />
+		<Unit filename="bufferedasyncserial/AsyncSerial.h" />
+		<Unit filename="bufferedasyncserial/BufferedAsyncSerial.cpp" />
+		<Unit filename="bufferedasyncserial/BufferedAsyncSerial.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>

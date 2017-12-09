@@ -7,6 +7,8 @@
 //*)
 
 //(*IdInit(ConnectionSettingsFrame)
+const long ConnectionSettingsFrame::ID_CHECKBOX1 = wxNewId();
+const long ConnectionSettingsFrame::ID_PANEL5 = wxNewId();
 const long ConnectionSettingsFrame::ID_STATICTEXT1 = wxNewId();
 const long ConnectionSettingsFrame::ID_TEXTCTRL1 = wxNewId();
 const long ConnectionSettingsFrame::ID_STATICTEXT2 = wxNewId();
@@ -20,6 +22,8 @@ const long ConnectionSettingsFrame::ID_CHOICE5 = wxNewId();
 const long ConnectionSettingsFrame::ID_STATICTEXT6 = wxNewId();
 const long ConnectionSettingsFrame::ID_CHOICE6 = wxNewId();
 const long ConnectionSettingsFrame::ID_PANEL2 = wxNewId();
+const long ConnectionSettingsFrame::ID_STATICTEXT7 = wxNewId();
+const long ConnectionSettingsFrame::ID_TEXTCTRL2 = wxNewId();
 const long ConnectionSettingsFrame::ID_PANEL3 = wxNewId();
 const long ConnectionSettingsFrame::ID_TREEBOOK1 = wxNewId();
 const long ConnectionSettingsFrame::ID_BUTTON1 = wxNewId();
@@ -37,9 +41,14 @@ ConnectionSettingsFrame::ConnectionSettingsFrame(wxWindow* parent,wxWindowID id)
 {
 	//(*Initialize(ConnectionSettingsFrame)
 	wxBoxSizer* BoxSizer4;
+	wxStaticBoxSizer* StaticBoxSizer2;
+	wxFlexGridSizer* FlexGridSizer4;
 	wxFlexGridSizer* FlexGridSizer3;
+	wxFlexGridSizer* FlexGridSizer5;
 	wxFlexGridSizer* FlexGridSizer2;
 	wxBoxSizer* BoxSizer1;
+	wxStaticBoxSizer* StaticBoxSizer1;
+	wxFlexGridSizer* FlexGridSizer1;
 
 	Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE|wxFRAME_SHAPED, _T("wxID_ANY"));
 	SetMaxSize(wxSize(-1,-1));
@@ -47,6 +56,17 @@ ConnectionSettingsFrame::ConnectionSettingsFrame(wxWindow* parent,wxWindowID id)
 	Panel4 = new wxPanel(this, ID_PANEL4, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL4"));
 	BoxSizer4 = new wxBoxSizer(wxVERTICAL);
 	Treebook1 = new wxTreebook(Panel4, ID_TREEBOOK1, wxDefaultPosition, wxDefaultSize, wxBK_DEFAULT, _T("ID_TREEBOOK1"));
+	Panel5 = new wxPanel(Treebook1, ID_PANEL5, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL5"));
+	FlexGridSizer5 = new wxFlexGridSizer(0, 1, 0, 0);
+	FlexGridSizer5->AddGrowableCol(1);
+	StaticBoxSizer2 = new wxStaticBoxSizer(wxHORIZONTAL, Panel5, _("Label"));
+	CheckBox1 = new wxCheckBox(Panel5, ID_CHECKBOX1, _("Label"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX1"));
+	CheckBox1->SetValue(false);
+	StaticBoxSizer2->Add(CheckBox1, 1, wxALL|wxEXPAND, 0);
+	FlexGridSizer5->Add(StaticBoxSizer2, 1, wxALL|wxEXPAND, 0);
+	Panel5->SetSizer(FlexGridSizer5);
+	FlexGridSizer5->Fit(Panel5);
+	FlexGridSizer5->SetSizeHints(Panel5);
 	Panel2 = new wxPanel(Treebook1, ID_PANEL2, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL2"));
 	FlexGridSizer2 = new wxFlexGridSizer(0, 2, 0, 0);
 	FlexGridSizer2->AddGrowableCol(1);
@@ -108,6 +128,21 @@ ConnectionSettingsFrame::ConnectionSettingsFrame(wxWindow* parent,wxWindowID id)
 	FlexGridSizer2->Fit(Panel2);
 	FlexGridSizer2->SetSizeHints(Panel2);
 	Panel3 = new wxPanel(Treebook1, ID_PANEL3, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL3"));
+	FlexGridSizer1 = new wxFlexGridSizer(0, 1, 0, 0);
+	FlexGridSizer1->AddGrowableCol(0);
+	StaticBoxSizer1 = new wxStaticBoxSizer(wxVERTICAL, Panel3, _("Command template"));
+	FlexGridSizer4 = new wxFlexGridSizer(0, 2, 0, 0);
+	FlexGridSizer4->AddGrowableCol(1);
+	StaticText7 = new wxStaticText(Panel3, ID_STATICTEXT7, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT7"));
+	FlexGridSizer4->Add(StaticText7, 1, wxALL|wxEXPAND, 0);
+	TextCtrl1 = new wxTextCtrl(Panel3, ID_TEXTCTRL2, _("Text"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL2"));
+	FlexGridSizer4->Add(TextCtrl1, 1, wxALL|wxEXPAND, 0);
+	StaticBoxSizer1->Add(FlexGridSizer4, 1, wxALL|wxEXPAND, 0);
+	FlexGridSizer1->Add(StaticBoxSizer1, 1, wxALL|wxEXPAND, 0);
+	Panel3->SetSizer(FlexGridSizer1);
+	FlexGridSizer1->Fit(Panel3);
+	FlexGridSizer1->SetSizeHints(Panel3);
+	Treebook1->AddPage(Panel5, _("Window"), false);
 	Treebook1->AddPage(Panel2, _("Connection"), false);
 	Treebook1->AddPage(Panel3, _("Server"), false);
 	BoxSizer4->Add(Treebook1, 20, wxALL|wxEXPAND, 0);
