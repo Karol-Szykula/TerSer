@@ -30,6 +30,9 @@ class ConnectionSettingsFrame: public wxFrame
 
 
 		//(*Declarations(ConnectionSettingsFrame)
+		wxStaticText* StaticText10;
+		wxStaticText* StaticText9;
+		wxTextCtrl* TextCtrl4;
 		wxChoice* ConnectionSettingsStopBitsWidget;
 		wxPanel* Panel5;
 		wxChoice* ConnectionSettingsParityWidget;
@@ -39,6 +42,9 @@ class ConnectionSettingsFrame: public wxFrame
 		wxButton* Button1;
 		wxStaticText* StaticText6;
 		wxTextCtrl* ConnectionSettingsPortNameWidget;
+		wxStaticText* StaticText8;
+		wxStaticText* StaticText11;
+		wxCheckBox* CheckBox2;
 		wxPanel* Panel1;
 		wxStaticText* StaticText1;
 		wxStaticText* StaticText3;
@@ -47,11 +53,14 @@ class ConnectionSettingsFrame: public wxFrame
 		wxButton* Button3;
 		wxStaticText* StaticText5;
 		wxStaticText* StaticText7;
+		wxTextCtrl* TextCtrl2;
 		wxTreebook* Treebook1;
 		wxTextCtrl* TextCtrl1;
 		wxChoice* ConnectionSettingsDataBitsWidget;
 		wxPanel* Panel2;
+		wxTextCtrl* TextCtrl5;
 		wxStaticText* StaticText4;
+		wxTextCtrl* TextCtrl3;
 		wxChoice* ConnectionSettingsFlowControlWidget;
 		//*)
 
@@ -59,6 +68,7 @@ class ConnectionSettingsFrame: public wxFrame
 
 		//(*Identifiers(ConnectionSettingsFrame)
 		static const long ID_CHECKBOX1;
+		static const long ID_CHECKBOX2;
 		static const long ID_PANEL5;
 		static const long ID_STATICTEXT1;
 		static const long ID_TEXTCTRL1;
@@ -75,6 +85,14 @@ class ConnectionSettingsFrame: public wxFrame
 		static const long ID_PANEL2;
 		static const long ID_STATICTEXT7;
 		static const long ID_TEXTCTRL2;
+		static const long ID_STATICTEXT8;
+		static const long ID_TEXTCTRL3;
+		static const long ID_STATICTEXT9;
+		static const long ID_TEXTCTRL4;
+		static const long ID_STATICTEXT10;
+		static const long ID_TEXTCTRL5;
+		static const long ID_STATICTEXT11;
+		static const long ID_TEXTCTRL6;
 		static const long ID_PANEL3;
 		static const long ID_TREEBOOK1;
 		static const long ID_BUTTON1;
