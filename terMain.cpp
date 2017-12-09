@@ -59,7 +59,6 @@ const long terFrame::ID_NOTEBOOK1 = wxNewId();
 const long terFrame::ID_PANEL1 = wxNewId();
 const long terFrame::ID_MENUQUIT = wxNewId();
 const long terFrame::ID_MENUCONNECTION = wxNewId();
-const long terFrame::ID_MENUWINDOW = wxNewId();
 const long terFrame::ID_MENUABOUT = wxNewId();
 const long terFrame::ID_STATUSBAR1 = wxNewId();
 const long terFrame::wxID_PROPERTIES  = wxNewId();
@@ -159,8 +158,6 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     MenuItem1 = new wxMenu();
     MenuItem2 = new wxMenuItem(MenuItem1, ID_MENUCONNECTION, _("Connection"), wxEmptyString, wxITEM_NORMAL);
     MenuItem1->Append(MenuItem2);
-    MenuItem3 = new wxMenuItem(MenuItem1, ID_MENUWINDOW, _("Window"), wxEmptyString, wxITEM_NORMAL);
-    MenuItem1->Append(MenuItem3);
     menuBar->Append(MenuItem1, _("Settings"));
     menuHelp = new wxMenu();
     menuItemAbout = new wxMenuItem(menuHelp, ID_MENUABOUT, _("About\tF1"), _("Show info about this application"), wxITEM_NORMAL);
@@ -186,7 +183,6 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_TEXTCTRL2,wxEVT_COMMAND_TEXT_ENTER,(wxObjectEventFunction)&terFrame::OnTerminalSendTextEnter);
     Connect(ID_MENUQUIT,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnQuit);
     Connect(ID_MENUCONNECTION,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnToolBarSettingsClicked);
-    Connect(ID_MENUWINDOW,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnMenuItemWindowClicked);
     Connect(ID_MENUABOUT,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnAbout);
     Connect(wxID_PROPERTIES ,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&terFrame::OnToolBarSettingsClicked);
     Connect(ID_TOOLBARITEMQUIT,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&terFrame::OnQuit);
@@ -254,12 +250,6 @@ void terFrame::OnToolBarSettingsClicked(wxCommandEvent& event)
 	//connectionSettingsFrameDebug = new ConnectionSettingsFrame(this, ID_CONSETFRAMEDEBUG);
 	//connectionSettingsFrameDebug->setRelative(this);
 	//connectionSettingsFrameDebug->Show(true);
-}
-
-void terFrame::OnMenuItemWindowClicked(wxCommandEvent& event)
-{
-	windowSettingsDialog = new WindowSettingsDialog(this, ID_WINSETDIALOG);
-	windowSettingsDialog->Show(true);
 }
 
 

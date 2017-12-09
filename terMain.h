@@ -10,7 +10,6 @@
 #ifndef TERMAIN_H
 #define TERMAIN_H
 #include "ConnectionSettingsFrame.h"
-#include "WindowSettingsDialog.h"
 #include "bufferedasyncserial/BufferedAsyncSerial.h"
 #include <wx/timer.h>
 
@@ -50,7 +49,6 @@ class terFrame: public wxFrame
         void OnTerminalSendTextCtrlTextEnter(wxCommandEvent& event);
         void OnTerminalSendTextEnter(wxCommandEvent& event);
         void OnToolBarSettingsClicked(wxCommandEvent& event);
-        void OnMenuItemWindowClicked(wxCommandEvent& event);
         void OnButtonConnectClick(wxCommandEvent& event);
         void OnButtonStartServerClick(wxCommandEvent& event);
         //*)
@@ -71,7 +69,6 @@ class terFrame: public wxFrame
         static const long ID_PANEL1;
         static const long ID_MENUQUIT;
         static const long ID_MENUCONNECTION;
-        static const long ID_MENUWINDOW;
         static const long ID_MENUABOUT;
         static const long ID_STATUSBAR1;
         static const long wxID_PROPERTIES ;
@@ -92,7 +89,6 @@ class terFrame: public wxFrame
         wxStaticText* LabelConnectionStatus;
         wxToolBarToolBase* ToolBarItem1;
         wxTextCtrl* TerminalTextCtrlWidget;
-        wxMenuItem* MenuItem3;
         wxNotebook* NotebookWidget;
         wxStatusBar* statusBar;
         wxToolBarToolBase* toolBarItemQuit;
@@ -113,7 +109,6 @@ class terFrame: public wxFrame
 
 
         ConnectionSettingsFrame * connectionSettingsFrame;	// frame for connection settings
-        WindowSettingsDialog * windowSettingsDialog;		// dialog for window settings
 
         wxTimer SerialReadTimer;
 		BufferedAsyncSerial serialConnection;
