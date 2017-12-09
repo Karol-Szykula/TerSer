@@ -76,8 +76,6 @@
 		</Linker>
 		<Unit filename="ConnectionSettingsFrame.cpp" />
 		<Unit filename="ConnectionSettingsFrame.h" />
-		<Unit filename="WindowSettingsDialog.cpp" />
-		<Unit filename="WindowSettingsDialog.h" />
 		<Unit filename="asyncserial/serialoptions.cpp" />
 		<Unit filename="asyncserial/serialoptions.h" />
 		<Unit filename="asyncserial/serialserverhandler.cpp" />
@@ -94,7 +92,6 @@
 		<Unit filename="terMain.cpp" />
 		<Unit filename="terMain.h" />
 		<Unit filename="wxsmith/ConnectionSettingsFrame.wxs" />
-		<Unit filename="wxsmith/WindowSettingsDialog.wxs" />
 		<Unit filename="wxsmith/terframe.wxs" />
 		<Extensions>
 			<code_completion />
@@ -105,7 +102,6 @@
 				<resources>
 					<wxFrame wxs="wxsmith/terframe.wxs" src="terMain.cpp" hdr="terMain.h" fwddecl="0" i18n="1" name="terFrame" language="CPP" />
 					<wxFrame wxs="wxsmith/ConnectionSettingsFrame.wxs" src="ConnectionSettingsFrame.cpp" hdr="ConnectionSettingsFrame.h" fwddecl="0" i18n="1" name="ConnectionSettingsFrame" language="CPP" />
-					<wxDialog wxs="wxsmith/WindowSettingsDialog.wxs" src="WindowSettingsDialog.cpp" hdr="WindowSettingsDialog.h" fwddecl="0" i18n="1" name="WindowSettingsDialog" language="CPP" />
 				</resources>
 			</wxsmith>
 		</Extensions>
