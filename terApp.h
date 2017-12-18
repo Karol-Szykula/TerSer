@@ -12,9 +12,15 @@
 
 #include <wx/app.h>
 
+//!  A main application class, based on wxApp wxWidgets class.
+/*!
+  These class initialize application with overloaded OnInit function.
+*/
+
 class terApp : public wxApp
 {
     public:
+	//! A virtual member which runs at the beginning (wxWidgets).
         virtual bool OnInit();
 };
 
