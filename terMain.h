@@ -91,7 +91,6 @@ class terFrame: public wxFrame
         static const long ID_PANEL1;
         static const long ID_MENUQUIT;
         static const long ID_MENUCONNECTION;
-        static const long ID_MENUWINDOW;
         static const long ID_MENUABOUT;
         static const long ID_STATUSBAR1;
         static const long wxID_PROPERTIES ;
@@ -112,7 +111,6 @@ class terFrame: public wxFrame
         wxStaticText* LabelConnectionStatus;
         wxToolBarToolBase* ToolBarItem1;
         wxTextCtrl* TerminalTextCtrlWidget;
-        wxMenuItem* MenuItem3;
         wxNotebook* NotebookWidget;
         wxStatusBar* statusBar;
         wxToolBarToolBase* toolBarItemQuit;
