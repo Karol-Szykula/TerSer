@@ -255,11 +255,7 @@ void terFrame::OnToolBarSettingsClicked(wxCommandEvent& event)
 	//connectionSettingsFrameDebug->Show(true);
 }
 
-void terFrame::OnMenuItemWindowClicked(wxCommandEvent& event)
-{
-	windowSettingsDialog = new WindowSettingsDialog(this, ID_WINSETDIALOG);
-	windowSettingsDialog->Show(true);
-}
+
 
 
 void terFrame::setSerialOptions(SerialOptions newSerialOptions)

@@ -10,7 +10,6 @@
 #ifndef TERMAIN_H
 #define TERMAIN_H
 #include "ConnectionSettingsFrame.h"
-#include "WindowSettingsDialog.h"
 #include "bufferedasyncserial/BufferedAsyncSerial.h"
 #include <wx/timer.h>
 
@@ -149,12 +148,7 @@ class terFrame: public wxFrame
 		*/
         ConnectionSettingsFrame * connectionSettingsFrame;	// frame for connection settings
 
-        //! A dialog for the window settings.
-		/*!
-			\deprecated when settings will become a part of the application settings.
-			Displays and saves window settings.
-		*/
-        WindowSettingsDialog * windowSettingsDialog;		// dialog for window settings
+
 
         //! An wxTimer object for serial read sample interval.
         wxTimer SerialReadTimer;
