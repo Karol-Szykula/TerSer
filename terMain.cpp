@@ -255,10 +255,6 @@ void terFrame::OnToolBarSettingsClicked(wxCommandEvent& event)
 	//connectionSettingsFrameDebug->Show(true);
 }
 
-<<<<<<< ours
-=======
->>>>>>> theirs
-
 void terFrame::setSerialOptions(SerialOptions newSerialOptions)
 {
 	serialOptions = newSerialOptions;
