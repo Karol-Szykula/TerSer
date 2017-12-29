@@ -31,14 +31,34 @@
 #include <vector>
 #include "serialoptions.h"
 
+//!  A main frame class.
+/*!
+  The class inherits from wxWidgets wxFrame class.
+*/
+
 class terFrame: public wxFrame
 {
-    public:
 
+	public:
+		//! A constructor.
+		/*!
+            \param parent a pointer to wxWindow parent window.
+            \param id stores a wxWindowID number, default -1.
+		*/
         terFrame(wxWindow* parent,wxWindowID id = -1);
+        //! A virtual destructor.
         virtual ~terFrame();
 
+        //! A public member function, sets main SerialOptions object.
+        /*!
+			\param newSerialOptions passes new serial connection options.
+        */
         void setSerialOptions(SerialOptions newSerialOptions);
+
+		//! A public member function, returns main SerialOptions object.
+        /*!
+			\return SerialOptions object.
+        */
         SerialOptions getSerialOptions();
 
     private:
@@ -98,26 +118,53 @@ class terFrame: public wxFrame
         wxMenu* MenuItem1;
         //*)
 
+		//! A private member function, callback function for the AsyncSerial library.
+        /*!
+			\param data is a char array where received signs will be stored.
+			\param len is size_t variable, it stores array size.
+        */
 		void OnSerialRecived(const char * data, std::size_t len);	// serial callback function
+
+		//! A private event function, it reads checks every specified interval whether data arrived.
+        /*!
+			\param event is wxTimerEvent type.
+        */
 		void OnTimerSerialRead(wxTimerEvent  & event);
 
 		//void startSerialReadTimer();
 		//void stopSerialReadTimer();
 
-        wxWindowID ID_CONSETFRAME;	// id for connection settings frame
-        wxWindowID ID_WINSETDIALOG;	// id for window settings dialog
+		//! An id variable for connection settings frame.
+        wxWindowID ID_CONSETFRAME;
+
+        //! An id object for window settings dialog.
+        wxWindowID ID_WINSETDIALOG;
 
 
+		//! A frame for the settings.
+		/*!
+			Displays and saves application settings.
+		*/
         ConnectionSettingsFrame * connectionSettingsFrame;	// frame for connection settings
 
+
+
+        //! An wxTimer object for serial read sample interval.
         wxTimer SerialReadTimer;
+
+		//! An BufferedAsyncSerial object for serial device abstraction.
 		BufferedAsyncSerial serialConnection;
+
+		//! A string for received message.
 		std::string serialReceived;
+
+		//! An object which stores serial device options.
 		SerialOptions serialOptions;
 
 		//SerialTerminalHandler
 		//SerialServerHandler
 
+		//! A macro which declares events.
         DECLARE_EVENT_TABLE()
 };
 

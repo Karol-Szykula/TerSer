@@ -206,8 +206,11 @@ void terFrame::OnQuit(wxCommandEvent& event)
 
 void terFrame::OnAbout(wxCommandEvent& event)
 {
-    wxString msg = wxT("Author: Karol Szykula");
-    wxMessageBox(msg, _("About"));
+	wxString label = _("Author: ");
+	label += "Karol Szykula";
+    //wxString msg = wxT("Author: ");
+
+    wxMessageBox(label, _("About"));
 }
 
 
@@ -252,6 +255,9 @@ void terFrame::OnToolBarSettingsClicked(wxCommandEvent& event)
 	//connectionSettingsFrameDebug->Show(true);
 }
 
+<<<<<<< ours
+=======
+>>>>>>> theirs
 
 void terFrame::setSerialOptions(SerialOptions newSerialOptions)
 {
