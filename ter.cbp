@@ -18,6 +18,7 @@
 					<Add option="-m64" />
 					<Add option="-fno-keep-inline-dllexport" />
 					<Add option="-pthread" />
+					<Add option="-Wno-strict-aliasing" />
 					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
 					<Add directory="$(WXWIN)/lib/gcc_lib" />
 					<Add directory="$(BOOST)" />
