@@ -9,9 +9,7 @@
 
 #include "terApp.h"
 
-#ifdef _WIN32
-    #include <winsock2.h> // include for boost::asio in asyncserial
-#endif
+
 
 //(*AppHeaders
 #include "terMain.h"

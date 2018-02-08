@@ -12,8 +12,8 @@
 
 //(*InternalHeaders(terFrame)
 #include <wx/bitmap.h>
-#include <wx/intl.h>
 #include <wx/image.h>
+#include <wx/intl.h>
 #include <wx/string.h>
 //*)
 
@@ -79,20 +79,19 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
 	    //connectionSettingsFrame = new ConnectionSettingsFrame(this, ID_CONSETFRAME);
 
     //(*Initialize(terFrame)
-    wxMenuItem* menuItemAbout;
     wxBoxSizer* FramePanelSizer;
-    wxFlexGridSizer* FlexGridSizer4;
-    wxMenu* menuFile;
-    wxMenuItem* menuItemQuit;
     wxBoxSizer* FrameSizer;
-    wxFlexGridSizer* FlexGridSizer5;
-    wxFlexGridSizer* FlexGridSizer2;
-    wxMenu* menuHelp;
-    wxStaticBoxSizer* StaticBoxSizer1;
-    wxBoxSizer* RadiatorsSizer;
-    wxFlexGridSizer* FlexGridSizer1;
     wxBoxSizer* TerminalSizer;
+    wxFlexGridSizer* FlexGridSizer1;
+    wxFlexGridSizer* FlexGridSizer2;
+    wxFlexGridSizer* FlexGridSizer4;
+    wxFlexGridSizer* FlexGridSizer5;
+    wxMenu* menuFile;
+    wxMenu* menuHelp;
     wxMenuBar* menuBar;
+    wxMenuItem* menuItemAbout;
+    wxMenuItem* menuItemQuit;
+    wxStaticBoxSizer* StaticBoxSizer1;
 
     Create(parent, wxID_ANY, _("TerSer"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE|wxWANTS_CHARS, _T("wxID_ANY"));
     FrameSizer = new wxBoxSizer(wxHORIZONTAL);
@@ -137,13 +136,13 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     TerminalPanelWidget->SetSizer(TerminalSizer);
     TerminalSizer->Fit(TerminalPanelWidget);
     TerminalSizer->SetSizeHints(TerminalPanelWidget);
-    RadiatorsPanelWidget = new wxPanel(NotebookWidget, ID_PANEL3, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL|wxWANTS_CHARS, _T("ID_PANEL3"));
-    RadiatorsSizer = new wxBoxSizer(wxHORIZONTAL);
-    RadiatorsPanelWidget->SetSizer(RadiatorsSizer);
-    RadiatorsSizer->Fit(RadiatorsPanelWidget);
-    RadiatorsSizer->SetSizeHints(RadiatorsPanelWidget);
+    DevicesPanelWidget = new wxPanel(NotebookWidget, ID_PANEL3, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL|wxWANTS_CHARS, _T("ID_PANEL3"));
+    DevicesSizer = new wxBoxSizer(wxHORIZONTAL);
+    DevicesPanelWidget->SetSizer(DevicesSizer);
+    DevicesSizer->Fit(DevicesPanelWidget);
+    DevicesSizer->SetSizeHints(DevicesPanelWidget);
     NotebookWidget->AddPage(TerminalPanelWidget, _("Terminal"), false);
-    NotebookWidget->AddPage(RadiatorsPanelWidget, _("Radiators"), false);
+    NotebookWidget->AddPage(DevicesPanelWidget, _("Devices"), false);
     FramePanelSizer->Add(NotebookWidget, 1, wxALL|wxEXPAND, 0);
     FramePanel->SetSizer(FramePanelSizer);
     FramePanelSizer->Fit(FramePanel);
@@ -171,8 +170,8 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     statusBar->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(statusBar);
     toolBar = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_HORIZONTAL|wxNO_BORDER, _T("ID_TOOLBAR1"));
-    ToolBarItem1 = toolBar->AddTool(wxID_PROPERTIES , _("Connection"), wxBitmap(wxImage(_T("D:\\dokumenty\\programowanie\\C++\\CodeBlocks\\wx_t\\ter\\properties.png"))), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
-    toolBarItemQuit = toolBar->AddTool(ID_TOOLBARITEMQUIT, _("Quit"), wxBitmap(wxImage(_T("D:\\dokumenty\\programowanie\\C++\\CodeBlocks\\wx_t\\ter\\quit.png"))), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem1 = toolBar->AddTool(wxID_PROPERTIES , _("Connection"), wxBitmap(wxImage(_T("D:\\programowanie\\C++\\CodeBlocks\\wx_t\\ter\\properties.png"))), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    toolBarItemQuit = toolBar->AddTool(ID_TOOLBARITEMQUIT, _("Quit"), wxBitmap(wxImage(_T("D:\\programowanie\\C++\\CodeBlocks\\wx_t\\ter\\quit.png"))), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     toolBar->Realize();
     SetToolBar(toolBar);
     FrameSizer->Fit(this);

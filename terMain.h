@@ -9,23 +9,25 @@
 
 #ifndef TERMAIN_H
 #define TERMAIN_H
-#include "ConnectionSettingsFrame.h"
-#include "bufferedasyncserial/BufferedAsyncSerial.h"
+
 #include <wx/timer.h>
 
+#include "ConnectionSettingsFrame.h"
+#include "bufferedasyncserial/BufferedAsyncSerial.h"
+#include "devicegridwidget/devicegridwidget.h"
 
 
 //(*Headers(terFrame)
-#include <wx/notebook.h>
-#include <wx/sizer.h>
-#include <wx/stattext.h>
-#include <wx/menu.h>
-#include <wx/textctrl.h>
-#include <wx/toolbar.h>
-#include <wx/panel.h>
 #include <wx/button.h>
 #include <wx/frame.h>
+#include <wx/menu.h>
+#include <wx/notebook.h>
+#include <wx/panel.h>
+#include <wx/sizer.h>
+#include <wx/stattext.h>
 #include <wx/statusbr.h>
+#include <wx/textctrl.h>
+#include <wx/toolbar.h>
 //*)
 
 #include <vector>
@@ -97,25 +99,26 @@ class terFrame: public wxFrame
         //*)
 
         //(*Declarations(terFrame)
+        wxBoxSizer* DevicesSizer;
+        wxButton* ButtonConnect;
         wxButton* ButtonStartServer;
+        wxMenu* MenuItem1;
         wxMenuItem* MenuItem2;
-        wxPanel* RadiatorsPanelWidget;
-        wxToolBar* toolBar;
-        wxStaticText* TerminalSendLabel;
-        wxTextCtrl* TerminalSendTextCtrl;
+        wxNotebook* NotebookWidget;
+        wxPanel* DevicesPanelWidget;
         wxPanel* FramePanel;
+        wxPanel* TerminalPanelWidget;
+        wxStaticText* LabelConnectionStatus;
+        wxStaticText* LabelServerStatus;
         wxStaticText* StaticText1;
         wxStaticText* StaticText3;
-        wxStaticText* LabelConnectionStatus;
-        wxToolBarToolBase* ToolBarItem1;
-        wxTextCtrl* TerminalTextCtrlWidget;
-        wxNotebook* NotebookWidget;
+        wxStaticText* TerminalSendLabel;
         wxStatusBar* statusBar;
+        wxTextCtrl* TerminalSendTextCtrl;
+        wxTextCtrl* TerminalTextCtrlWidget;
+        wxToolBar* toolBar;
+        wxToolBarToolBase* ToolBarItem1;
         wxToolBarToolBase* toolBarItemQuit;
-        wxButton* ButtonConnect;
-        wxStaticText* LabelServerStatus;
-        wxPanel* TerminalPanelWidget;
-        wxMenu* MenuItem1;
         //*)
 
 		//! A private member function, callback function for the AsyncSerial library.
@@ -160,6 +163,9 @@ class terFrame: public wxFrame
 
 		//! An object which stores serial device options.
 		SerialOptions serialOptions;
+
+		//! A widget for devices displaying.
+		DeviceGridWidget * deviceGridWidget;
 
 		//SerialTerminalHandler
 		//SerialServerHandler

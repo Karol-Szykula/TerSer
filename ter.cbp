@@ -15,9 +15,12 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-std=c++11" />
-					<Add directory="$(BOOST_ROOT)" />
-					<Add directory="$(WXWIN)/lib/gcc510TDM_x64_dll/mswu" />
-					<Add directory="$(WXWIN)/lib/gcc510TDM_x64_dll" />
+					<Add option="-m64" />
+					<Add option="-fno-keep-inline-dllexport" />
+					<Add option="-pthread" />
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+					<Add directory="$(WXWIN)/lib/gcc_lib" />
+					<Add directory="$(BOOST)" />
 					<Add directory="asyncserial" />
 				</Compiler>
 				<ResourceCompiler>
@@ -25,6 +28,7 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-m64" />
 					<Add library="libwxmsw31u_richtext.a" />
 					<Add library="libwxmsw31u_aui.a" />
 					<Add library="libwxmsw31u_media.a" />
@@ -40,10 +44,13 @@
 					<Add library="libwxzlib.a" />
 					<Add library="libwxregexu.a" />
 					<Add library="libwxexpat.a" />
-					<Add library="C:/libs_C++/boost165/stage/lib/libboost_system-mgw51-mt-1_65_1.a" />
-					<Add library="C:/libs_C++/boost165/stage/lib/libboost_thread-mgw51-mt-1_65_1.a" />
-					<Add directory="$(BOOST_ROOT)/stage/lib" />
-					<Add directory="$(WXWIN)/lib/gcc510TDM_x64_dll" />
+					<Add library="$(BOOST)/stage/lib/libboost_system-mgw51-mt-1_65_1.a" />
+					<Add library="$(BOOST)/stage/lib/libboost_filesystem-mgw51-mt-1_65_1.a" />
+					<Add library="$(BOOST)/stage/lib/libboost_thread-mgw51-mt-1_65_1.a" />
+					<Add library="shlwapi" />
+					<Add library="version" />
+					<Add directory="$(BOOST)/stage/lib" />
+					<Add directory="$(WXWIN)/lib/gcc_lib" />
 				</Linker>
 			</Target>
 		</Build>
@@ -85,6 +92,8 @@
 		<Unit filename="bufferedasyncserial/AsyncSerial.h" />
 		<Unit filename="bufferedasyncserial/BufferedAsyncSerial.cpp" />
 		<Unit filename="bufferedasyncserial/BufferedAsyncSerial.h" />
+		<Unit filename="devicegridwidget/devicegridwidget.cpp" />
+		<Unit filename="devicegridwidget/devicegridwidget.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
