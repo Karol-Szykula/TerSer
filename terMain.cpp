@@ -190,6 +190,7 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
 	//SetMinSize(GetSize());
 	SerialReadTimer.SetOwner( this );
 	this->Connect( SerialReadTimer.GetId(), wxEVT_TIMER, wxTimerEventHandler( terFrame::OnTimerSerialRead ), NULL, this );
+	this->Center();
 }
 
 terFrame::~terFrame()
@@ -277,13 +278,21 @@ void terFrame::OnButtonConnectClick(wxCommandEvent& event)
 		serialConnection.open(serialOptions.getPortName(), serialOptions.getBaudRate(), serialOptions.getParity(),
 							serialOptions.getDataBits(), serialOptions.getFlowControl(), serialOptions.getStopBits());
 		}catch(boost::system::system_error& e)
-		{}
+		{
+		    std::string err(e.what());
+		}
 
-		if(serialConnection.isOpen() == true)
+		if(serialConnection.isOpen() == true)   // if serial connection opened
 		{
 			SerialReadTimer.Start(30, wxTIMER_CONTINUOUS);
 			ButtonConnect->SetLabel(wxT("Disconnect"));
 			LabelConnectionStatus->SetLabel(wxT("CONNECTED"));
+		}else if(serialConnection.isOpen() == false)    // if serial connection failed to open
+		{
+		    wxMessageDialog *dial = new wxMessageDialog(this,
+                                                  wxT("Cannot connect to specified port"),
+                                                  wxT("Error"), wxOK | wxICON_ERROR);
+            dial->ShowWindowModal();
 		}
 
 	}else if(serialConnection.isOpen() == true)
