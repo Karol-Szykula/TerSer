@@ -7,3 +7,5 @@ terMain.cpp.save-failed
 ter_build_log.html
 bin/
 obj/
+wxsmith/
+ter.cscope_file_list
