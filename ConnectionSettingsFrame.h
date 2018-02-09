@@ -2,15 +2,15 @@
 #define CONNECTIONSETTINGSFRAME_H
 
 //(*Headers(ConnectionSettingsFrame)
+#include <wx/button.h>
+#include <wx/checkbox.h>
+#include <wx/choice.h>
+#include <wx/frame.h>
+#include <wx/panel.h>
 #include <wx/sizer.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
-#include <wx/checkbox.h>
 #include <wx/treebook.h>
-#include <wx/panel.h>
-#include <wx/choice.h>
-#include <wx/button.h>
-#include <wx/frame.h>
 //*)
 
 #include "serialoptions.h"
@@ -30,38 +30,38 @@ class ConnectionSettingsFrame: public wxFrame
 
 
 		//(*Declarations(ConnectionSettingsFrame)
-		wxStaticText* StaticText10;
-		wxStaticText* StaticText9;
-		wxTextCtrl* TextCtrl4;
-		wxChoice* ConnectionSettingsStopBitsWidget;
-		wxPanel* Panel5;
-		wxChoice* ConnectionSettingsParityWidget;
-		wxStaticText* StaticText2;
-		wxPanel* Panel4;
-		wxChoice* ConnectionSettingsBaudRateWidget;
 		wxButton* Button1;
-		wxStaticText* StaticText6;
-		wxTextCtrl* ConnectionSettingsPortNameWidget;
-		wxStaticText* StaticText8;
-		wxStaticText* StaticText11;
-		wxCheckBox* CheckBox2;
-		wxPanel* Panel1;
-		wxStaticText* StaticText1;
-		wxStaticText* StaticText3;
-		wxPanel* Panel3;
-		wxCheckBox* CheckBox1;
 		wxButton* Button3;
-		wxStaticText* StaticText5;
-		wxStaticText* StaticText7;
-		wxTextCtrl* TextCtrl2;
-		wxTreebook* Treebook1;
-		wxTextCtrl* TextCtrl1;
+		wxCheckBox* CheckBox1;
+		wxCheckBox* CheckBox2;
+		wxChoice* ConnectionSettingsBaudRateWidget;
 		wxChoice* ConnectionSettingsDataBitsWidget;
-		wxPanel* Panel2;
-		wxTextCtrl* TextCtrl5;
-		wxStaticText* StaticText4;
-		wxTextCtrl* TextCtrl3;
 		wxChoice* ConnectionSettingsFlowControlWidget;
+		wxChoice* ConnectionSettingsParityWidget;
+		wxChoice* ConnectionSettingsStopBitsWidget;
+		wxPanel* Panel1;
+		wxPanel* Panel2;
+		wxPanel* Panel3;
+		wxPanel* Panel4;
+		wxPanel* Panel5;
+		wxStaticText* StaticText10;
+		wxStaticText* StaticText11;
+		wxStaticText* StaticText1;
+		wxStaticText* StaticText2;
+		wxStaticText* StaticText3;
+		wxStaticText* StaticText4;
+		wxStaticText* StaticText5;
+		wxStaticText* StaticText6;
+		wxStaticText* StaticText7;
+		wxStaticText* StaticText8;
+		wxStaticText* StaticText9;
+		wxTextCtrl* ConnectionSettingsPortNameWidget;
+		wxTextCtrl* TextCtrl1;
+		wxTextCtrl* TextCtrl2;
+		wxTextCtrl* TextCtrl3;
+		wxTextCtrl* TextCtrl4;
+		wxTextCtrl* TextCtrl5;
+		wxTreebook* Treebook1;
 		//*)
 
 	protected:

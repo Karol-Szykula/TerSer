@@ -49,15 +49,15 @@ END_EVENT_TABLE()
 ConnectionSettingsFrame::ConnectionSettingsFrame(wxWindow* parent,wxWindowID id)
 {
 	//(*Initialize(ConnectionSettingsFrame)
-	wxBoxSizer* BoxSizer4;
-	wxStaticBoxSizer* StaticBoxSizer2;
-	wxFlexGridSizer* FlexGridSizer4;
-	wxFlexGridSizer* FlexGridSizer3;
-	wxFlexGridSizer* FlexGridSizer5;
-	wxFlexGridSizer* FlexGridSizer2;
 	wxBoxSizer* BoxSizer1;
-	wxStaticBoxSizer* StaticBoxSizer1;
+	wxBoxSizer* BoxSizer4;
 	wxFlexGridSizer* FlexGridSizer1;
+	wxFlexGridSizer* FlexGridSizer2;
+	wxFlexGridSizer* FlexGridSizer3;
+	wxFlexGridSizer* FlexGridSizer4;
+	wxFlexGridSizer* FlexGridSizer5;
+	wxStaticBoxSizer* StaticBoxSizer1;
+	wxStaticBoxSizer* StaticBoxSizer2;
 
 	Create(parent, wxID_ANY, _("Settings"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE|wxFRAME_SHAPED, _T("wxID_ANY"));
 	SetMaxSize(wxSize(-1,-1));
@@ -140,6 +140,7 @@ ConnectionSettingsFrame::ConnectionSettingsFrame(wxWindow* parent,wxWindowID id)
 	FlexGridSizer2->Fit(Panel2);
 	FlexGridSizer2->SetSizeHints(Panel2);
 	Panel3 = new wxPanel(Treebook1, ID_PANEL3, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL3"));
+	Panel3->Disable();
 	FlexGridSizer1 = new wxFlexGridSizer(0, 1, 0, 0);
 	FlexGridSizer1->AddGrowableCol(0);
 	StaticBoxSizer1 = new wxStaticBoxSizer(wxVERTICAL, Panel3, _("Command template"));

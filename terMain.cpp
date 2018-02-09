@@ -117,6 +117,7 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     ButtonConnect = new wxButton(FramePanel, ID_BUTTON1, _("Connect"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
     FlexGridSizer5->Add(ButtonConnect, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     ButtonStartServer = new wxButton(FramePanel, ID_BUTTON2, _("Start"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON2"));
+    ButtonStartServer->Disable();
     FlexGridSizer5->Add(ButtonStartServer, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     FlexGridSizer2->Add(FlexGridSizer5, 1, wxALL|wxEXPAND, 0);
     StaticBoxSizer1->Add(FlexGridSizer2, 1, wxALL|wxEXPAND, 0);
@@ -137,6 +138,7 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     TerminalSizer->Fit(TerminalPanelWidget);
     TerminalSizer->SetSizeHints(TerminalPanelWidget);
     DevicesPanelWidget = new wxPanel(NotebookWidget, ID_PANEL3, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL|wxWANTS_CHARS, _T("ID_PANEL3"));
+    DevicesPanelWidget->Disable();
     DevicesSizer = new wxBoxSizer(wxHORIZONTAL);
     DevicesPanelWidget->SetSizer(DevicesSizer);
     DevicesSizer->Fit(DevicesPanelWidget);
