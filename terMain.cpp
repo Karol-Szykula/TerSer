@@ -7,8 +7,12 @@
  * License:
  **************************************************************/
 
-#include "terMain.h"
+
 #include <wx/msgdlg.h>
+
+#include "terMain.h"
+#include "images/quit.h"
+#include "images/properties.h"
 
 //(*InternalHeaders(terFrame)
 #include <wx/bitmap.h>
@@ -76,7 +80,7 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
 	ID_CONSETFRAME = 1;
 	ID_WINSETDIALOG = 2;
 
-	    //connectionSettingsFrame = new ConnectionSettingsFrame(this, ID_CONSETFRAME);
+	//connectionSettingsFrame = new ConnectionSettingsFrame(this, ID_CONSETFRAME);
 
     //(*Initialize(terFrame)
     wxBoxSizer* FramePanelSizer;
@@ -172,8 +176,8 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     statusBar->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(statusBar);
     toolBar = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_HORIZONTAL|wxNO_BORDER, _T("ID_TOOLBAR1"));
-    ToolBarItem1 = toolBar->AddTool(wxID_PROPERTIES , _("Connection"), wxBitmap(wxImage(_T("D:\\programowanie\\C++\\CodeBlocks\\wx_t\\ter\\properties.png"))), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
-    toolBarItemQuit = toolBar->AddTool(ID_TOOLBARITEMQUIT, _("Quit"), wxBitmap(wxImage(_T("D:\\programowanie\\C++\\CodeBlocks\\wx_t\\ter\\quit.png"))), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem1 = toolBar->AddTool(wxID_PROPERTIES , _("Connection"), _wxGetBitmapFromMemory(properties_png, sizeof(properties_png)), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    toolBarItemQuit = toolBar->AddTool(ID_TOOLBARITEMQUIT, _("Quit"), _wxGetBitmapFromMemory(quit_png, sizeof(quit_png)), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     toolBar->Realize();
     SetToolBar(toolBar);
     FrameSizer->Fit(this);

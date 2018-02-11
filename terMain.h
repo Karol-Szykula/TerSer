@@ -11,6 +11,7 @@
 #define TERMAIN_H
 
 #include <wx/timer.h>
+#include <wx/mstream.h>
 
 #include "ConnectionSettingsFrame.h"
 #include "bufferedasyncserial/BufferedAsyncSerial.h"
@@ -134,6 +135,13 @@ class terFrame: public wxFrame
         */
 		void OnTimerSerialRead(wxTimerEvent  & event);
 
+		//! A private function, the function converts an array with raw data to bitmap.
+        /*!
+			\param data is unsigned char array type.
+			\param length is int type
+        */
+		inline wxBitmap _wxGetBitmapFromMemory(const unsigned char *data, int length);
+
 		//void startSerialReadTimer();
 		//void stopSerialReadTimer();
 
@@ -173,5 +181,12 @@ class terFrame: public wxFrame
 		//! A macro which declares events.
         DECLARE_EVENT_TABLE()
 };
+
+
+inline wxBitmap terFrame::_wxGetBitmapFromMemory(const unsigned char *data, int length)
+{
+        wxMemoryInputStream is(data, length);
+        return wxBitmap(wxImage(is, wxBITMAP_TYPE_ANY, -1), -1);
+}
 
 #endif // TERMAIN_H
