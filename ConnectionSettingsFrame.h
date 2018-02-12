@@ -13,7 +13,7 @@
 #include <wx/treebook.h>
 //*)
 
-#include "serialoptions.h"
+#include "bufferedasyncserial/serialoptions.h"
 
 class terFrame;
 

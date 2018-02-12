@@ -95,6 +95,8 @@
 		<Unit filename="bufferedasyncserial/BufferedAsyncSerial.h" />
 		<Unit filename="devicegridwidget/devicegridwidget.cpp" />
 		<Unit filename="devicegridwidget/devicegridwidget.h" />
+		<Unit filename="images/properties.h" />
+		<Unit filename="images/quit.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>

@@ -12,10 +12,12 @@
 
 #include <wx/timer.h>
 #include <wx/mstream.h>
+#include <vector>
 
 #include "ConnectionSettingsFrame.h"
 #include "bufferedasyncserial/BufferedAsyncSerial.h"
 #include "devicegridwidget/devicegridwidget.h"
+#include "bufferedasyncserial/serialoptions.h"
 
 
 //(*Headers(terFrame)
@@ -30,9 +32,6 @@
 #include <wx/textctrl.h>
 #include <wx/toolbar.h>
 //*)
-
-#include <vector>
-#include "serialoptions.h"
 
 //!  A main frame class.
 /*!
