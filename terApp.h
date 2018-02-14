@@ -12,7 +12,6 @@
 
 #ifdef _WIN32
     #define BOOST_THREAD_PROVIDES_GENERIC_SHARED_MUTEX_ON_WIN
-    #define WIN32_LEAN_AND_MEAN     // stops including windows.h
 #endif
 
 #include <wx/app.h>
