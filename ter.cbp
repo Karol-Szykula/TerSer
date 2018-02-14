@@ -85,14 +85,12 @@
 		</Linker>
 		<Unit filename="ConnectionSettingsFrame.cpp" />
 		<Unit filename="ConnectionSettingsFrame.h" />
-		<Unit filename="asyncserial/serialoptions.cpp" />
-		<Unit filename="asyncserial/serialoptions.h" />
-		<Unit filename="asyncserial/serialserverhandler.cpp" />
-		<Unit filename="asyncserial/serialserverhandler.h" />
 		<Unit filename="bufferedasyncserial/AsyncSerial.cpp" />
 		<Unit filename="bufferedasyncserial/AsyncSerial.h" />
 		<Unit filename="bufferedasyncserial/BufferedAsyncSerial.cpp" />
 		<Unit filename="bufferedasyncserial/BufferedAsyncSerial.h" />
+		<Unit filename="bufferedasyncserial/serialoptions.cpp" />
+		<Unit filename="bufferedasyncserial/serialoptions.h" />
 		<Unit filename="devicegridwidget/devicegridwidget.cpp" />
 		<Unit filename="devicegridwidget/devicegridwidget.h" />
 		<Unit filename="images/properties.h" />
