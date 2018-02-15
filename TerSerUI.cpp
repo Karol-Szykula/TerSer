@@ -65,7 +65,7 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	FlexGridSizer1->Add(Panel6, 1, wxALL|wxEXPAND, 5);
 	BoxSizer6->Add(FlexGridSizer1, 1, wxALL|wxEXPAND, 5);
 	BoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
-	Panel7 = new wxPanel(Panel1, ID_PANEL7, wxDefaultPosition, wxSize(242,100), wxTAB_TRAVERSAL, _T("ID_PANEL7"));
+	Panel7 = new TabPanel(Panel1, ID_PANEL7, wxDefaultPosition, wxSize(242,100), wxTAB_TRAVERSAL, _T("ID_PANEL7"));
 	BoxSizer10->Add(Panel7, 1, wxALL|wxEXPAND, 5);
 	BoxSizer6->Add(BoxSizer10, 1, wxALL|wxEXPAND, 5);
 	BoxSizer4->Add(BoxSizer6, 7, wxALL|wxEXPAND, 5);

@@ -8,6 +8,7 @@
 //*)
 
 #include "connectionStatusPanel.h"
+#include "tabPanel.h"
 
 class TerSerUI: public wxFrame
 {
@@ -20,13 +21,13 @@ class TerSerUI: public wxFrame
 
 		//(*Declarations(TerSerUI)
 		ConnectionStatusPanel* Panel2;
+		TabPanel* Panel7;
 		wxFlexGridSizer* FlexGridSizer1;
 		wxPanel* Panel1;
 		wxPanel* Panel3;
 		wxPanel* Panel4;
 		wxPanel* Panel5;
 		wxPanel* Panel6;
-		wxPanel* Panel7;
 		//*)
 
 		//(*Identifiers(TerSerUI)
