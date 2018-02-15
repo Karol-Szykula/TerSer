@@ -7,6 +7,8 @@
 #include <wx/sizer.h>
 //*)
 
+#include "connectionStatusPanel.h"
+
 class TerSerUI: public wxFrame
 {
 	public:
@@ -17,9 +19,9 @@ class TerSerUI: public wxFrame
 	private:
 
 		//(*Declarations(TerSerUI)
+		ConnectionStatusPanel* Panel2;
 		wxFlexGridSizer* FlexGridSizer1;
 		wxPanel* Panel1;
-		wxPanel* Panel2;
 		wxPanel* Panel3;
 		wxPanel* Panel4;
 		wxPanel* Panel5;

@@ -40,7 +40,7 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	BoxSizer2 = new wxBoxSizer(wxVERTICAL);
 	BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
 	BoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
-	Panel2 = new wxPanel(Panel1, ID_PANEL2, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL2"));
+	Panel2 = new ConnectionStatusPanel(Panel1, ID_PANEL2, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL2"));
 	BoxSizer7->Add(Panel2, 1, wxALL|wxEXPAND, 5);
 	BoxSizer3->Add(BoxSizer7, 1, wxALL|wxEXPAND, 5);
 	BoxSizer8 = new wxBoxSizer(wxHORIZONTAL);

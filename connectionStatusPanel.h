@@ -2,7 +2,6 @@
 #define CONNECTIONSTATUSPANEL_H
 
 //(*Headers(ConnectionStatusPanel)
-#include <wx/checkbox.h>
 #include <wx/panel.h>
 #include <wx/sizer.h>
 #include <wx/stattext.h>
@@ -18,7 +17,6 @@ class ConnectionStatusPanel: public wxPanel
 	private:
 
 		//(*Declarations(ConnectionStatusPanel)
-		wxCheckBox* CheckBox1;
 		wxPanel* Panel1;
 		wxPanel* Panel2;
 		wxStaticText* StaticText1;
@@ -34,7 +32,6 @@ class ConnectionStatusPanel: public wxPanel
 		static const long ID_STATICTEXT5;
 		static const long ID_STATICTEXT1;
 		static const long ID_STATICTEXT4;
-		static const long ID_CHECKBOX1;
 		static const long ID_PANEL2;
 		static const long ID_PANEL1;
 		//*)

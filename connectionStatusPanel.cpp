@@ -11,7 +11,6 @@ const long ConnectionStatusPanel::ID_STATICTEXT3 = wxNewId();
 const long ConnectionStatusPanel::ID_STATICTEXT5 = wxNewId();
 const long ConnectionStatusPanel::ID_STATICTEXT1 = wxNewId();
 const long ConnectionStatusPanel::ID_STATICTEXT4 = wxNewId();
-const long ConnectionStatusPanel::ID_CHECKBOX1 = wxNewId();
 const long ConnectionStatusPanel::ID_PANEL2 = wxNewId();
 const long ConnectionStatusPanel::ID_PANEL1 = wxNewId();
 //*)
@@ -56,11 +55,8 @@ ConnectionStatusPanel::ConnectionStatusPanel(wxWindow* parent,wxWindowID id,cons
 	BoxSizer3->Add(StaticBoxSizer2, 1, wxALL|wxEXPAND, 5);
 	BoxSizer2->Add(BoxSizer3, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
 	BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
-	StaticText4 = new wxStaticText(Panel2, ID_STATICTEXT4, _("Label"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE, _T("ID_STATICTEXT4"));
-	BoxSizer4->Add(StaticText4, 1, wxALL|wxEXPAND, 5);
-	CheckBox1 = new wxCheckBox(Panel2, ID_CHECKBOX1, _("Label"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX1"));
-	CheckBox1->SetValue(false);
-	BoxSizer4->Add(CheckBox1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	StaticText4 = new wxStaticText(Panel2, ID_STATICTEXT4, _("Label"), wxDefaultPosition, wxSize(166,20), wxALIGN_CENTRE, _T("ID_STATICTEXT4"));
+	BoxSizer4->Add(StaticText4, 1, wxALL|wxEXPAND, 0);
 	BoxSizer2->Add(BoxSizer4, 1, wxALL|wxEXPAND, 5);
 	Panel2->SetSizer(BoxSizer2);
 	BoxSizer2->Fit(Panel2);
