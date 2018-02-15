@@ -20,7 +20,7 @@ BEGIN_EVENT_TABLE(TerSerUI,wxFrame)
 	//*)
 END_EVENT_TABLE()
 
-TerSerUI::TerSerUI(wxWindow* parent)
+TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 {
 	//(*Initialize(TerSerUI)
 	wxBoxSizer* BoxSizer10;
@@ -34,7 +34,7 @@ TerSerUI::TerSerUI(wxWindow* parent)
 	wxBoxSizer* BoxSizer8;
 	wxBoxSizer* BoxSizer9;
 
-	Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+	Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
 	BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
 	Panel1 = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
 	BoxSizer2 = new wxBoxSizer(wxVERTICAL);
@@ -77,6 +77,7 @@ TerSerUI::TerSerUI(wxWindow* parent)
 	SetSizer(BoxSizer1);
 	BoxSizer1->Fit(this);
 	BoxSizer1->SetSizeHints(this);
+	Center();
 
 	Panel6->Connect(wxEVT_PAINT,(wxObjectEventFunction)&TerSerUI::OnPanel6Paint,0,this);
 	//*)

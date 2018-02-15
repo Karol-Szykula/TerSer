@@ -338,4 +338,7 @@ void terFrame::OnTimerSerialRead(wxTimerEvent  & event)
 
 void terFrame::OnToolBarNewUiClicked(wxCommandEvent& event) // function for testing new ui
 {
+    ptrTerSerUI = new TerSerUI(this, ID_NUIA1);
+
+    ptrTerSerUI->Show(true);
 }

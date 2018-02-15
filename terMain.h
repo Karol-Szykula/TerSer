@@ -14,10 +14,13 @@
 #include <wx/mstream.h>
 #include <vector>
 
+#include <boost/scoped_ptr.hpp>
+
 #include "ConnectionSettingsFrame.h"
 #include "bufferedasyncserial/BufferedAsyncSerial.h"
 #include "devicegridwidget/devicegridwidget.h"
 #include "bufferedasyncserial/serialoptions.h"
+#include "terSerUI.h"
 
 
 //(*Headers(terFrame)
@@ -153,6 +156,11 @@ class terFrame: public wxFrame
         //! An id object for window settings dialog.
         wxWindowID ID_WINSETDIALOG;
 
+        //! An id for nuia1 frame
+        wxWindowID ID_NUIA1;
+
+        //! A smart pointer for nuia1 frame
+        TerSerUI * ptrTerSerUI;
 
 		//! A frame for the settings.
 		/*!
