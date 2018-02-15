@@ -54,7 +54,7 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	BoxSizer2->Add(BoxSizer3, 3, wxALL|wxEXPAND, 5);
 	BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
 	BoxSizer5 = new wxBoxSizer(wxVERTICAL);
-	Panel5 = new wxPanel(Panel1, ID_PANEL5, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL5"));
+	Panel5 = new DevicePanel(Panel1, ID_PANEL5, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL5"));
 	BoxSizer5->Add(Panel5, 1, wxALL|wxEXPAND, 5);
 	BoxSizer4->Add(BoxSizer5, 3, wxALL|wxEXPAND, 5);
 	BoxSizer6 = new wxBoxSizer(wxVERTICAL);
