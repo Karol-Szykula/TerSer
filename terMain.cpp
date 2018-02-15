@@ -61,6 +61,7 @@ const long terFrame::ID_PANEL2 = wxNewId();
 const long terFrame::ID_PANEL3 = wxNewId();
 const long terFrame::ID_NOTEBOOK1 = wxNewId();
 const long terFrame::ID_PANEL1 = wxNewId();
+const long terFrame::ID_MENUITEM1 = wxNewId();
 const long terFrame::ID_MENUQUIT = wxNewId();
 const long terFrame::ID_MENUCONNECTION = wxNewId();
 const long terFrame::ID_MENUABOUT = wxNewId();
@@ -157,6 +158,8 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     SetSizer(FrameSizer);
     menuBar = new wxMenuBar();
     menuFile = new wxMenu();
+    MenuItem3 = new wxMenuItem(menuFile, ID_MENUITEM1, _("New Ui"), wxEmptyString, wxITEM_NORMAL);
+    menuFile->Append(MenuItem3);
     menuItemQuit = new wxMenuItem(menuFile, ID_MENUQUIT, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
     menuFile->Append(menuItemQuit);
     menuBar->Append(menuFile, _("&File"));
@@ -186,6 +189,7 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&terFrame::OnButtonConnectClick);
     Connect(ID_BUTTON2,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&terFrame::OnButtonStartServerClick);
     Connect(ID_TEXTCTRL2,wxEVT_COMMAND_TEXT_ENTER,(wxObjectEventFunction)&terFrame::OnTerminalSendTextEnter);
+    Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnToolBarNewUiClicked);
     Connect(ID_MENUQUIT,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnQuit);
     Connect(ID_MENUCONNECTION,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnToolBarSettingsClicked);
     Connect(ID_MENUABOUT,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnAbout);
@@ -330,4 +334,8 @@ void terFrame::OnTimerSerialRead(wxTimerEvent  & event)
 		serialReceived = serialConnection.readString();
 		TerminalTextCtrlWidget->AppendText(serialReceived);
 	}
+}
+
+void terFrame::OnToolBarNewUiClicked(wxCommandEvent& event) // function for testing new ui
+{
 }
