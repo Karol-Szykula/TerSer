@@ -1,4 +1,4 @@
-#include "TerSerUI.h"
+#include "terSerUI.h"
 
 //(*InternalHeaders(TerSerUI)
 #include <wx/intl.h>
@@ -6,21 +6,13 @@
 //*)
 
 //(*IdInit(TerSerUI)
-const long TerSerUI::ID_CUSTOM1 = wxNewId();
-const long TerSerUI::ID_CUSTOM2 = wxNewId();
-const long TerSerUI::ID_PANEL5 = wxNewId();
-const long TerSerUI::ID_TEXTCTRL1 = wxNewId();
-const long TerSerUI::ID_BUTTON2 = wxNewId();
-const long TerSerUI::ID_BUTTON1 = wxNewId();
-const long TerSerUI::ID_TREECTRL1 = wxNewId();
-const long TerSerUI::ID_PANEL3 = wxNewId();
-const long TerSerUI::ID_TREECTRL2 = wxNewId();
-const long TerSerUI::ID_PANEL4 = wxNewId();
-const long TerSerUI::ID_NOTEBOOK1 = wxNewId();
 const long TerSerUI::ID_PANEL2 = wxNewId();
+const long TerSerUI::ID_PANEL3 = wxNewId();
+const long TerSerUI::ID_PANEL4 = wxNewId();
+const long TerSerUI::ID_PANEL5 = wxNewId();
+const long TerSerUI::ID_PANEL6 = wxNewId();
+const long TerSerUI::ID_PANEL7 = wxNewId();
 const long TerSerUI::ID_PANEL1 = wxNewId();
-const long TerSerUI::ID_TOOLBAR1 = wxNewId();
-const long TerSerUI::ID_STATUSBAR1 = wxNewId();
 //*)
 
 BEGIN_EVENT_TABLE(TerSerUI,wxFrame)
@@ -32,9 +24,6 @@ TerSerUI::TerSerUI(wxWindow* parent)
 {
 	//(*Initialize(TerSerUI)
 	wxBoxSizer* BoxSizer10;
-	wxBoxSizer* BoxSizer11;
-	wxBoxSizer* BoxSizer12;
-	wxBoxSizer* BoxSizer13;
 	wxBoxSizer* BoxSizer1;
 	wxBoxSizer* BoxSizer2;
 	wxBoxSizer* BoxSizer3;
@@ -46,78 +35,50 @@ TerSerUI::TerSerUI(wxWindow* parent)
 	wxBoxSizer* BoxSizer9;
 
 	Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
-	BoxSizer1 = new wxBoxSizer(wxVERTICAL);
+	BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
 	Panel1 = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
 	BoxSizer2 = new wxBoxSizer(wxVERTICAL);
 	BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
-	connectionStatusPanel = new ConnectionStatusPanel(Panel1,ID_CUSTOM1,wxDefaultPosition,wxDefaultSize,0,wxDefaultValidator,_T("ID_CUSTOM1"));
-	BoxSizer3->Add(connectionStatusPanel, 1, wxLEFT|wxRIGHT|wxEXPAND, 3);
-	Custom2 = new CustomClass(Panel1,ID_CUSTOM2,wxDefaultPosition,wxDefaultSize,0,wxDefaultValidator,_T("ID_CUSTOM2"));
-	BoxSizer3->Add(Custom2, 1, wxEXPAND, 3);
-	Panel5 = new wxPanel(Panel1, ID_PANEL5, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL5"));
-	BoxSizer3->Add(Panel5, 1, wxALL|wxEXPAND, 5);
-	BoxSizer2->Add(BoxSizer3, 10, wxALL|wxEXPAND, 1);
-	BoxSizer4 = new wxBoxSizer(wxVERTICAL);
-	BoxSizer6 = new wxBoxSizer(wxHORIZONTAL);
-	BoxSizer10 = new wxBoxSizer(wxVERTICAL);
-	BoxSizer11 = new wxBoxSizer(wxVERTICAL);
-	BoxSizer12 = new wxBoxSizer(wxHORIZONTAL);
-	TextCtrl1 = new wxTextCtrl(Panel1, ID_TEXTCTRL1, _("Device Name"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
-	BoxSizer12->Add(TextCtrl1, 1, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-	Button2 = new wxButton(Panel1, ID_BUTTON2, _("Add"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON2"));
-	BoxSizer12->Add(Button2, 1, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-	BoxSizer11->Add(BoxSizer12, 1, wxALL|wxEXPAND, 5);
-	Button1 = new wxButton(Panel1, ID_BUTTON1, _("Remove"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
-	BoxSizer11->Add(Button1, 1, wxEXPAND, 0);
-	BoxSizer10->Add(BoxSizer11, 1, wxALL|wxEXPAND, 5);
-	Notebook1 = new wxNotebook(Panel1, ID_NOTEBOOK1, wxDefaultPosition, wxDefaultSize, 0, _T("ID_NOTEBOOK1"));
-	Panel3 = new wxPanel(Notebook1, ID_PANEL3, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL3"));
-	BoxSizer5 = new wxBoxSizer(wxVERTICAL);
-	TreeCtrl1 = new wxTreeCtrl(Panel3, ID_TREECTRL1, wxDefaultPosition, wxDefaultSize, wxTR_DEFAULT_STYLE, wxDefaultValidator, _T("ID_TREECTRL1"));
-	BoxSizer5->Add(TreeCtrl1, 1, wxALL|wxEXPAND, 1);
-	Panel3->SetSizer(BoxSizer5);
-	BoxSizer5->Fit(Panel3);
-	BoxSizer5->SetSizeHints(Panel3);
-	Panel4 = new wxPanel(Notebook1, ID_PANEL4, wxDefaultPosition, wxSize(108,180), wxTAB_TRAVERSAL, _T("ID_PANEL4"));
-	BoxSizer8 = new wxBoxSizer(wxVERTICAL);
-	TreeCtrl2 = new wxTreeCtrl(Panel4, ID_TREECTRL2, wxDefaultPosition, wxDefaultSize, wxTR_DEFAULT_STYLE, wxDefaultValidator, _T("ID_TREECTRL2"));
-	BoxSizer8->Add(TreeCtrl2, 1, wxALL|wxEXPAND, 1);
-	Panel4->SetSizer(BoxSizer8);
-	SetSizer(BoxSizer8);
-	Layout();
-	Notebook1->AddPage(Panel3, _("Devices"), false);
-	Notebook1->AddPage(Panel4, _("Groups"), false);
-	BoxSizer10->Add(Notebook1, 2, wxALL|wxEXPAND, 0);
-	BoxSizer6->Add(BoxSizer10, 1, wxALL|wxEXPAND, 1);
-	BoxSizer7 = new wxBoxSizer(wxVERTICAL);
-	BoxSizer9 = new wxBoxSizer(wxVERTICAL);
-	BoxSizer13 = new wxBoxSizer(wxHORIZONTAL);
+	BoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
 	Panel2 = new wxPanel(Panel1, ID_PANEL2, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL2"));
-	BoxSizer13->Add(Panel2, 1, wxALL|wxEXPAND, 1);
-	BoxSizer9->Add(BoxSizer13, 1, wxALL|wxEXPAND, 1);
-	BoxSizer14 = new wxBoxSizer(wxHORIZONTAL);
-	BoxSizer9->Add(BoxSizer14, 1, wxALL|wxEXPAND, 1);
-	BoxSizer7->Add(BoxSizer9, 4, wxALL|wxEXPAND, 1);
-	BoxSizer6->Add(BoxSizer7, 1, wxALL|wxEXPAND, 1);
-	BoxSizer4->Add(BoxSizer6, 1, wxALL|wxEXPAND, 1);
-	BoxSizer2->Add(BoxSizer4, 40, wxEXPAND, 1);
+	BoxSizer7->Add(Panel2, 1, wxALL|wxEXPAND, 5);
+	BoxSizer3->Add(BoxSizer7, 1, wxALL|wxEXPAND, 5);
+	BoxSizer8 = new wxBoxSizer(wxHORIZONTAL);
+	Panel3 = new wxPanel(Panel1, ID_PANEL3, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL3"));
+	BoxSizer8->Add(Panel3, 1, wxALL|wxEXPAND, 5);
+	BoxSizer3->Add(BoxSizer8, 1, wxALL|wxEXPAND, 5);
+	BoxSizer9 = new wxBoxSizer(wxHORIZONTAL);
+	Panel4 = new wxPanel(Panel1, ID_PANEL4, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL4"));
+	BoxSizer9->Add(Panel4, 1, wxALL|wxEXPAND, 5);
+	BoxSizer3->Add(BoxSizer9, 1, wxALL|wxEXPAND, 5);
+	BoxSizer2->Add(BoxSizer3, 3, wxALL|wxEXPAND, 5);
+	BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
+	BoxSizer5 = new wxBoxSizer(wxVERTICAL);
+	Panel5 = new wxPanel(Panel1, ID_PANEL5, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL5"));
+	BoxSizer5->Add(Panel5, 1, wxALL|wxEXPAND, 5);
+	BoxSizer4->Add(BoxSizer5, 3, wxALL|wxEXPAND, 5);
+	BoxSizer6 = new wxBoxSizer(wxVERTICAL);
+	FlexGridSizer1 = new wxFlexGridSizer(0, 0, 0, 0);
+	FlexGridSizer1->AddGrowableCol(0);
+	FlexGridSizer1->AddGrowableRow(0);
+	Panel6 = new wxPanel(Panel1, ID_PANEL6, wxDefaultPosition, wxSize(65,28), wxTAB_TRAVERSAL, _T("ID_PANEL6"));
+	FlexGridSizer1->Add(Panel6, 1, wxALL|wxEXPAND, 5);
+	BoxSizer6->Add(FlexGridSizer1, 1, wxALL|wxEXPAND, 5);
+	BoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
+	Panel7 = new wxPanel(Panel1, ID_PANEL7, wxDefaultPosition, wxSize(242,100), wxTAB_TRAVERSAL, _T("ID_PANEL7"));
+	BoxSizer10->Add(Panel7, 1, wxALL|wxEXPAND, 5);
+	BoxSizer6->Add(BoxSizer10, 1, wxALL|wxEXPAND, 5);
+	BoxSizer4->Add(BoxSizer6, 7, wxALL|wxEXPAND, 5);
+	BoxSizer2->Add(BoxSizer4, 7, wxALL|wxEXPAND, 5);
 	Panel1->SetSizer(BoxSizer2);
 	BoxSizer2->Fit(Panel1);
 	BoxSizer2->SetSizeHints(Panel1);
 	BoxSizer1->Add(Panel1, 1, wxALL|wxEXPAND, 0);
 	SetSizer(BoxSizer1);
-	StatusBar1 = new wxStatusBar(this, ID_STATUSBAR1, 0, _T("ID_STATUSBAR1"));
-	int __wxStatusBarWidths_1[1] = { -10 };
-	int __wxStatusBarStyles_1[1] = { wxSB_NORMAL };
-	StatusBar1->SetFieldsCount(1,__wxStatusBarWidths_1);
-	StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
-	SetStatusBar(StatusBar1);
-	MenuBar1 = new wxMenuBar();
-	SetMenuBar(MenuBar1);
 	BoxSizer1->Fit(this);
 	BoxSizer1->SetSizeHints(this);
 
-	Connect(ID_NOTEBOOK1,wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED,(wxObjectEventFunction)&TerSerUI::OnNotebook1PageChanged);
+	Panel6->Connect(wxEVT_PAINT,(wxObjectEventFunction)&TerSerUI::OnPanel6Paint,0,this);
 	//*)
 }
 
@@ -127,3 +88,7 @@ TerSerUI::~TerSerUI()
 	//*)
 }
 
+
+void TerSerUI::OnPanel6Paint(wxPaintEvent& event)
+{
+}
