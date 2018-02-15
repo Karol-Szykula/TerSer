@@ -2,6 +2,7 @@
 #define TERSERUI_H
 
 //(*Headers(TerSerUI)
+#include "connectionStatusPanel.h"
 #include <wx/button.h>
 #include <wx/frame.h>
 #include <wx/menu.h>
@@ -11,7 +12,7 @@
 #include <wx/statusbr.h>
 #include <wx/textctrl.h>
 #include <wx/toolbar.h>
-#include <wx/treebook.h>
+#include <wx/treectrl.h>
 //*)
 
 class TerSerUI: public wxFrame
@@ -22,6 +23,10 @@ class TerSerUI: public wxFrame
 		virtual ~TerSerUI();
 
 		//(*Declarations(TerSerUI)
+		ConnectionStatusPanel* connectionStatusPanel;
+		CustomClass* Custom2;
+		CustomClass* Custom3;
+		wxBoxSizer* BoxSizer14;
 		wxButton* Button1;
 		wxButton* Button2;
 		wxMenuBar* MenuBar1;
@@ -33,22 +38,25 @@ class TerSerUI: public wxFrame
 		wxStatusBar* StatusBar1;
 		wxTextCtrl* TextCtrl1;
 		wxToolBar* ToolBar1;
-		wxTreebook* Treebook1;
-		wxTreebook* Treebook2;
+		wxTreeCtrl* TreeCtrl1;
+		wxTreeCtrl* TreeCtrl2;
 		//*)
 
 	protected:
 
 		//(*Identifiers(TerSerUI)
-		static const long ID_PANEL2;
+		static const long ID_CUSTOM1;
+		static const long ID_CUSTOM2;
+		static const long ID_CUSTOM3;
 		static const long ID_TEXTCTRL1;
 		static const long ID_BUTTON2;
 		static const long ID_BUTTON1;
-		static const long ID_TREEBOOK1;
+		static const long ID_TREECTRL1;
 		static const long ID_PANEL3;
-		static const long ID_TREEBOOK2;
+		static const long ID_TREECTRL2;
 		static const long ID_PANEL4;
 		static const long ID_NOTEBOOK1;
+		static const long ID_PANEL2;
 		static const long ID_PANEL1;
 		static const long ID_TOOLBAR1;
 		static const long ID_STATUSBAR1;

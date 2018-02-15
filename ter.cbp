@@ -85,6 +85,8 @@
 		</Linker>
 		<Unit filename="ConnectionSettingsFrame.cpp" />
 		<Unit filename="ConnectionSettingsFrame.h" />
+		<Unit filename="TerSerUI.cpp" />
+		<Unit filename="TerSerUI.h" />
 		<Unit filename="bufferedasyncserial/AsyncSerial.cpp" />
 		<Unit filename="bufferedasyncserial/AsyncSerial.h" />
 		<Unit filename="bufferedasyncserial/BufferedAsyncSerial.cpp" />
@@ -103,6 +105,7 @@
 		<Unit filename="terMain.cpp" />
 		<Unit filename="terMain.h" />
 		<Unit filename="wxsmith/ConnectionSettingsFrame.wxs" />
+		<Unit filename="wxsmith/TerSerUI.wxs" />
 		<Unit filename="wxsmith/terframe.wxs" />
 		<Extensions>
 			<code_completion />
@@ -113,6 +116,7 @@
 				<resources>
 					<wxFrame wxs="wxsmith/terframe.wxs" src="terMain.cpp" hdr="terMain.h" fwddecl="0" i18n="1" name="terFrame" language="CPP" />
 					<wxFrame wxs="wxsmith/ConnectionSettingsFrame.wxs" src="ConnectionSettingsFrame.cpp" hdr="ConnectionSettingsFrame.h" fwddecl="0" i18n="1" name="ConnectionSettingsFrame" language="CPP" />
+					<wxFrame wxs="wxsmith/TerSerUI.wxs" src="TerSerUI.cpp" hdr="TerSerUI.h" fwddecl="0" i18n="1" name="TerSerUI" language="CPP" />
 				</resources>
 			</wxsmith>
 			<DoxyBlocks>
