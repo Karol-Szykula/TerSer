@@ -58,9 +58,9 @@ ConnectionStatusPanel::ConnectionStatusPanel(wxWindow* parent,wxWindowID id,cons
 	BoxSizer3->Add(StaticBoxSizer2, 1, wxALL|wxEXPAND, 5);
 	BoxSizer2->Add(BoxSizer3, 2, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
 	BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
-	StaticText4 = new wxStaticText(Panel2, ID_STATICTEXT4, _("N/A"), wxDefaultPosition, wxSize(166,20), wxALIGN_CENTRE, _T("ID_STATICTEXT4"));
+	StaticText4 = new wxStaticText(Panel2, ID_STATICTEXT4, _("Status"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE, _T("ID_STATICTEXT4"));
 	BoxSizer4->Add(StaticText4, 1, wxALL|wxEXPAND, 0);
-	BoxSizer2->Add(BoxSizer4, 1, wxALL|wxEXPAND, 5);
+	BoxSizer2->Add(BoxSizer4, 0, wxALL|wxEXPAND, 5);
 	Panel2->SetSizer(BoxSizer2);
 	BoxSizer2->Fit(Panel2);
 	BoxSizer2->SetSizeHints(Panel2);
@@ -68,7 +68,7 @@ ConnectionStatusPanel::ConnectionStatusPanel(wxWindow* parent,wxWindowID id,cons
 	Panel1->SetSizer(StaticBoxSizer1);
 	StaticBoxSizer1->Fit(Panel1);
 	StaticBoxSizer1->SetSizeHints(Panel1);
-	BoxSizer1->Add(Panel1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+	BoxSizer1->Add(Panel1, 1, wxALL|wxEXPAND, 0);
 	SetSizer(BoxSizer1);
 	BoxSizer1->Fit(this);
 	BoxSizer1->SetSizeHints(this);
