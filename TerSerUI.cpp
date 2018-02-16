@@ -50,7 +50,7 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	BoxSizer8->Add(Panel3, 1, wxALL|wxEXPAND, 5);
 	BoxSizer3->Add(BoxSizer8, 1, wxALL|wxEXPAND, 5);
 	BoxSizer9 = new wxBoxSizer(wxHORIZONTAL);
-	Panel4 = new wxPanel(Panel1, ID_PANEL4, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL4"));
+	Panel4 = new DataFrameStatusPanel(Panel1, ID_PANEL4, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL4"));
 	Panel4->SetMinSize(wxSize(-1,-1));
 	BoxSizer9->Add(Panel4, 1, wxALL|wxEXPAND, 5);
 	BoxSizer3->Add(BoxSizer9, 1, wxALL|wxEXPAND, 5);
