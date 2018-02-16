@@ -31,7 +31,7 @@ TabPanel::TabPanel(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wx
 	BoxSizer2->Fit(Panel1);
 	BoxSizer2->SetSizeHints(Panel1);
 	Notebook1->AddPage(Panel1, _("Terminal"), false);
-	BoxSizer1->Add(Notebook1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+	BoxSizer1->Add(Notebook1, 1, wxALL|wxEXPAND, 0);
 	SetSizer(BoxSizer1);
 	BoxSizer1->Fit(this);
 	BoxSizer1->SetSizeHints(this);
