@@ -194,7 +194,7 @@ ConnectionSettingsFrame::ConnectionSettingsFrame(wxWindow* parent,wxWindowID id)
 	Panel7 = new wxPanel(Panel6, ID_PANEL7, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL7"));
 	StaticBoxSizer5 = new wxStaticBoxSizer(wxVERTICAL, Panel7, _("Time intervals"));
 	BoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
-	StaticText12 = new wxStaticText(Panel7, ID_STATICTEXT12, _("Event repeat [ms]:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT12"));
+	StaticText12 = new wxStaticText(Panel7, ID_STATICTEXT12, _("Event repeat time [ms]:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT12"));
 	BoxSizer7->Add(StaticText12, 1, wxALL, 5);
 	TextCtrl4 = new wxTextCtrl(Panel7, ID_TEXTCTRL5, _("10"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL5"));
 	BoxSizer7->Add(TextCtrl4, 0, wxALL, 5);

@@ -104,6 +104,8 @@
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
+		<Unit filename="serverStatusPanel.cpp" />
+		<Unit filename="serverStatusPanel.h" />
 		<Unit filename="tabPanel.cpp" />
 		<Unit filename="tabPanel.h" />
 		<Unit filename="terApp.cpp" />
@@ -114,6 +116,7 @@
 		<Unit filename="wxsmith/ConnectionStatusPanel.wxs" />
 		<Unit filename="wxsmith/DeviceControlPanel.wxs" />
 		<Unit filename="wxsmith/DevicePanel.wxs" />
+		<Unit filename="wxsmith/ServerStatusPanel.wxs" />
 		<Unit filename="wxsmith/TabPanel.wxs" />
 		<Unit filename="wxsmith/TerSerUI.wxs" />
 		<Unit filename="wxsmith/terframe.wxs" />
@@ -131,6 +134,7 @@
 					<wxPanel wxs="wxsmith/TabPanel.wxs" src="tabPanel.cpp" hdr="tabPanel.h" fwddecl="0" i18n="1" name="TabPanel" language="CPP" />
 					<wxPanel wxs="wxsmith/DevicePanel.wxs" src="devicePanel.cpp" hdr="devicePanel.h" fwddecl="0" i18n="1" name="DevicePanel" language="CPP" />
 					<wxPanel wxs="wxsmith/DeviceControlPanel.wxs" src="deviceControlPanel.cpp" hdr="deviceControlPanel.h" fwddecl="0" i18n="1" name="DeviceControlPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/ServerStatusPanel.wxs" src="serverStatusPanel.cpp" hdr="serverStatusPanel.h" fwddecl="0" i18n="1" name="ServerStatusPanel" language="CPP" />
 				</resources>
 			</wxsmith>
 			<DoxyBlocks>
