@@ -34,7 +34,7 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	wxBoxSizer* BoxSizer8;
 	wxBoxSizer* BoxSizer9;
 
-	Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
+	Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
 	BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
 	Panel1 = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
 	BoxSizer2 = new wxBoxSizer(wxVERTICAL);

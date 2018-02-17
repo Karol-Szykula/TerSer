@@ -45,8 +45,12 @@ class ConnectionSettingsFrame: public wxFrame
 		wxPanel* Panel4;
 		wxPanel* Panel5;
 		wxPanel* Panel6;
+		wxPanel* Panel7;
 		wxStaticText* StaticText10;
 		wxStaticText* StaticText11;
+		wxStaticText* StaticText12;
+		wxStaticText* StaticText13;
+		wxStaticText* StaticText14;
 		wxStaticText* StaticText1;
 		wxStaticText* StaticText2;
 		wxStaticText* StaticText3;
@@ -60,6 +64,9 @@ class ConnectionSettingsFrame: public wxFrame
 		wxTextCtrl* TextCtrl1;
 		wxTextCtrl* TextCtrl2;
 		wxTextCtrl* TextCtrl3;
+		wxTextCtrl* TextCtrl4;
+		wxTextCtrl* TextCtrl5;
+		wxTextCtrl* TextCtrl6;
 		wxTreebook* Treebook1;
 		//*)
 
@@ -91,6 +98,13 @@ class ConnectionSettingsFrame: public wxFrame
 		static const long ID_STATICTEXT10;
 		static const long ID_STATICTEXT11;
 		static const long ID_PANEL3;
+		static const long ID_STATICTEXT12;
+		static const long ID_TEXTCTRL5;
+		static const long ID_STATICTEXT14;
+		static const long ID_TEXTCTRL7;
+		static const long ID_STATICTEXT13;
+		static const long ID_TEXTCTRL6;
+		static const long ID_PANEL7;
 		static const long ID_PANEL6;
 		static const long ID_TREEBOOK1;
 		static const long ID_BUTTON1;
