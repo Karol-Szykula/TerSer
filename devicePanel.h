@@ -3,10 +3,10 @@
 
 //(*Headers(DevicePanel)
 #include <wx/button.h>
+#include <wx/notebook.h>
 #include <wx/panel.h>
 #include <wx/sizer.h>
 #include <wx/textctrl.h>
-#include <wx/treectrl.h>
 //*)
 
 class DevicePanel: public wxPanel
@@ -21,15 +21,17 @@ class DevicePanel: public wxPanel
 		//(*Declarations(DevicePanel)
 		wxButton* Button1;
 		wxButton* Button2;
+		wxNotebook* Notebook1;
+		wxPanel* Panel1;
 		wxTextCtrl* TextCtrl1;
-		wxTreeCtrl* TreeCtrl1;
 		//*)
 
 		//(*Identifiers(DevicePanel)
 		static const long ID_TEXTCTRL1;
 		static const long ID_BUTTON1;
 		static const long ID_BUTTON2;
-		static const long ID_TREECTRL1;
+		static const long ID_PANEL1;
+		static const long ID_NOTEBOOK1;
 		//*)
 
 		//(*Handlers(DevicePanel)

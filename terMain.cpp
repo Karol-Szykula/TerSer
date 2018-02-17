@@ -179,8 +179,8 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     statusBar->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(statusBar);
     toolBar = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_HORIZONTAL|wxNO_BORDER, _T("ID_TOOLBAR1"));
-    ToolBarItem1 = toolBar->AddTool(wxID_PROPERTIES , _("Connection"), terFrame::_wxGetBitmapFromMemory(properties_png,  sizeof(properties_png)), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
-    toolBarItemQuit = toolBar->AddTool(ID_TOOLBARITEMQUIT, _("Quit"), terFrame::_wxGetBitmapFromMemory(quit_png,  sizeof(quit_png)), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem1 = toolBar->AddTool(wxID_PROPERTIES , _("Connection"), _wxGetBitmapFromMemory(properties_png, sizeof(properties_png)), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    toolBarItemQuit = toolBar->AddTool(ID_TOOLBARITEMQUIT, _("Quit"), _wxGetBitmapFromMemory(quit_png, sizeof(quit_png)), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     toolBar->Realize();
     SetToolBar(toolBar);
     FrameSizer->Fit(this);

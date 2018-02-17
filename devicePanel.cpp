@@ -9,7 +9,8 @@
 const long DevicePanel::ID_TEXTCTRL1 = wxNewId();
 const long DevicePanel::ID_BUTTON1 = wxNewId();
 const long DevicePanel::ID_BUTTON2 = wxNewId();
-const long DevicePanel::ID_TREECTRL1 = wxNewId();
+const long DevicePanel::ID_PANEL1 = wxNewId();
+const long DevicePanel::ID_NOTEBOOK1 = wxNewId();
 //*)
 
 BEGIN_EVENT_TABLE(DevicePanel,wxPanel)
@@ -42,9 +43,10 @@ DevicePanel::DevicePanel(wxWindow* parent,wxWindowID id,const wxPoint& pos,const
 	BoxSizer2->Add(BoxSizer4, 0, wxALL|wxEXPAND, 5);
 	BoxSizer1->Add(BoxSizer2, 0, wxEXPAND, 0);
 	BoxSizer3 = new wxBoxSizer(wxVERTICAL);
-	TreeCtrl1 = new wxTreeCtrl(this, ID_TREECTRL1, wxDefaultPosition, wxSize(240,157), wxTR_DEFAULT_STYLE, wxDefaultValidator, _T("ID_TREECTRL1"));
-	wxTreeItemId TreeCtrl1_Item1 = TreeCtrl1->AddRoot(_T("None"));
-	BoxSizer3->Add(TreeCtrl1, 1, wxEXPAND, 2);
+	Notebook1 = new wxNotebook(this, ID_NOTEBOOK1, wxDefaultPosition, wxDefaultSize, 0, _T("ID_NOTEBOOK1"));
+	Panel1 = new wxPanel(Notebook1, ID_PANEL1, wxDefaultPosition, wxSize(172,120), wxTAB_TRAVERSAL, _T("ID_PANEL1"));
+	Notebook1->AddPage(Panel1, _("Device"), false);
+	BoxSizer3->Add(Notebook1, 1, wxALL|wxEXPAND, 5);
 	BoxSizer1->Add(BoxSizer3, 2, wxALL|wxEXPAND, 5);
 	SetSizer(BoxSizer1);
 	BoxSizer1->Fit(this);

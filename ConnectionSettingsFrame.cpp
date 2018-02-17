@@ -195,6 +195,7 @@ ConnectionSettingsFrame::ConnectionSettingsFrame(wxWindow* parent,wxWindowID id)
 	BoxSizer1->SetSizeHints(this);
 	Center();
 
+	Connect(ID_TREEBOOK1,wxEVT_COMMAND_TREEBOOK_PAGE_CHANGED,(wxObjectEventFunction)&ConnectionSettingsFrame::OnTreebook1PageChanged);
 	Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&ConnectionSettingsFrame::OnConnectionSettingsOkButtonClick);
 	Connect(ID_BUTTON3,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&ConnectionSettingsFrame::OnConnectionSettingsCancelButtonClick);
 	//*)
@@ -558,4 +559,8 @@ void ConnectionSettingsFrame::saveFlowControlFromWidget()
 		break;
 	}
 
+}
+
+void ConnectionSettingsFrame::OnTreebook1PageChanged(wxNotebookEvent& event)
+{
 }

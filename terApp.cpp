@@ -13,7 +13,6 @@
 
 //(*AppHeaders
 #include "terMain.h"
-#include <wx/xrc/xmlres.h>
 #include <wx/image.h>
 //*)
 
@@ -24,7 +23,6 @@ bool terApp::OnInit()
     //(*AppInitialize
     bool wxsOK = true;
     wxInitAllImageHandlers();
-    wxsOK = wxsOK && wxXmlResource::Get()->Load(_T("wxsmith\DataFrameStatusPanel.wxs"));
     if ( wxsOK )
     {
     	terFrame* Frame = new terFrame(0);

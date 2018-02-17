@@ -50,7 +50,7 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	BoxSizer8->Add(Panel3, 1, wxALL|wxEXPAND, 5);
 	BoxSizer3->Add(BoxSizer8, 1, wxALL|wxEXPAND, 5);
 	BoxSizer9 = new wxBoxSizer(wxHORIZONTAL);
-	Panel4 = new DataFrameStatusPanel(Panel1, ID_PANEL4, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL4"));
+	Panel4 = new wxPanel(Panel1, ID_PANEL4, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL4"));
 	Panel4->SetMinSize(wxSize(-1,-1));
 	BoxSizer9->Add(Panel4, 1, wxALL|wxEXPAND, 5);
 	BoxSizer3->Add(BoxSizer9, 1, wxALL|wxEXPAND, 5);
@@ -64,11 +64,11 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	FlexGridSizer1 = new wxFlexGridSizer(0, 0, 0, 0);
 	FlexGridSizer1->AddGrowableCol(0);
 	FlexGridSizer1->AddGrowableRow(0);
-	Panel6 = new DeviceStatusPanel(Panel1, ID_PANEL6, wxDefaultPosition, wxSize(65,28), wxTAB_TRAVERSAL, _T("ID_PANEL6"));
+	Panel6 = new wxPanel(Panel1, ID_PANEL6, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL6"));
 	FlexGridSizer1->Add(Panel6, 1, wxALL|wxEXPAND, 5);
 	BoxSizer6->Add(FlexGridSizer1, 1, wxALL|wxEXPAND, 5);
 	BoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
-	Panel7 = new TabPanel(Panel1, ID_PANEL7, wxDefaultPosition, wxSize(242,100), wxTAB_TRAVERSAL, _T("ID_PANEL7"));
+	Panel7 = new TabPanel(Panel1, ID_PANEL7, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL7"));
 	BoxSizer10->Add(Panel7, 1, wxALL|wxEXPAND, 5);
 	BoxSizer6->Add(BoxSizer10, 1, wxALL|wxEXPAND, 5);
 	BoxSizer4->Add(BoxSizer6, 7, wxALL|wxEXPAND, 5);

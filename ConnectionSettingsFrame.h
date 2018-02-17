@@ -106,6 +106,7 @@ class ConnectionSettingsFrame: public wxFrame
 		//(*Handlers(ConnectionSettingsFrame)
 		void OnConnectionSettingsOkButtonClick(wxCommandEvent& event);
 		void OnConnectionSettingsCancelButtonClick(wxCommandEvent& event);
+		void OnTreebook1PageChanged(wxNotebookEvent& event);
 		//*)
 
 		SerialOptions getSerialOptions();
