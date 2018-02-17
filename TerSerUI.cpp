@@ -8,7 +8,6 @@
 //(*IdInit(TerSerUI)
 const long TerSerUI::ID_PANEL2 = wxNewId();
 const long TerSerUI::ID_PANEL3 = wxNewId();
-const long TerSerUI::ID_PANEL4 = wxNewId();
 const long TerSerUI::ID_PANEL5 = wxNewId();
 const long TerSerUI::ID_PANEL6 = wxNewId();
 const long TerSerUI::ID_PANEL7 = wxNewId();
@@ -32,7 +31,6 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	wxBoxSizer* BoxSizer6;
 	wxBoxSizer* BoxSizer7;
 	wxBoxSizer* BoxSizer8;
-	wxBoxSizer* BoxSizer9;
 
 	Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
 	BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
@@ -49,11 +47,6 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	Panel3->SetMinSize(wxSize(-1,-1));
 	BoxSizer8->Add(Panel3, 1, wxALL|wxEXPAND, 5);
 	BoxSizer3->Add(BoxSizer8, 1, wxALL|wxEXPAND, 5);
-	BoxSizer9 = new wxBoxSizer(wxHORIZONTAL);
-	Panel4 = new wxPanel(Panel1, ID_PANEL4, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL4"));
-	Panel4->SetMinSize(wxSize(-1,-1));
-	BoxSizer9->Add(Panel4, 1, wxALL|wxEXPAND, 5);
-	BoxSizer3->Add(BoxSizer9, 1, wxALL|wxEXPAND, 5);
 	BoxSizer2->Add(BoxSizer3, 3, wxALL|wxEXPAND, 5);
 	BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
 	BoxSizer5 = new wxBoxSizer(wxVERTICAL);

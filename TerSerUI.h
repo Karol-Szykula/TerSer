@@ -27,14 +27,12 @@ class TerSerUI: public wxFrame
 		wxFlexGridSizer* FlexGridSizer1;
 		wxPanel* Panel1;
 		wxPanel* Panel3;
-		wxPanel* Panel4;
 		wxPanel* Panel6;
 		//*)
 
 		//(*Identifiers(TerSerUI)
 		static const long ID_PANEL2;
 		static const long ID_PANEL3;
-		static const long ID_PANEL4;
 		static const long ID_PANEL5;
 		static const long ID_PANEL6;
 		static const long ID_PANEL7;
