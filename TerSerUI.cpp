@@ -57,7 +57,7 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	FlexGridSizer1 = new wxFlexGridSizer(0, 0, 0, 0);
 	FlexGridSizer1->AddGrowableCol(0);
 	FlexGridSizer1->AddGrowableRow(0);
-	Panel6 = new wxPanel(Panel1, ID_PANEL6, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL6"));
+	Panel6 = new DeviceControlPanel(Panel1, ID_PANEL6, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL6"));
 	FlexGridSizer1->Add(Panel6, 1, wxALL|wxEXPAND, 5);
 	BoxSizer6->Add(FlexGridSizer1, 1, wxALL|wxEXPAND, 5);
 	BoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
