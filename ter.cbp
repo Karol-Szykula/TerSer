@@ -95,6 +95,8 @@
 		<Unit filename="bufferedasyncserial/serialoptions.h" />
 		<Unit filename="connectionStatusPanel.cpp" />
 		<Unit filename="connectionStatusPanel.h" />
+		<Unit filename="deviceControlPanel.cpp" />
+		<Unit filename="deviceControlPanel.h" />
 		<Unit filename="devicePanel.cpp" />
 		<Unit filename="devicePanel.h" />
 		<Unit filename="images/properties.h" />
@@ -110,6 +112,7 @@
 		<Unit filename="terMain.h" />
 		<Unit filename="wxsmith/ConnectionSettingsFrame.wxs" />
 		<Unit filename="wxsmith/ConnectionStatusPanel.wxs" />
+		<Unit filename="wxsmith/DeviceControlPanel.wxs" />
 		<Unit filename="wxsmith/DevicePanel.wxs" />
 		<Unit filename="wxsmith/TabPanel.wxs" />
 		<Unit filename="wxsmith/TerSerUI.wxs" />
@@ -119,8 +122,7 @@
 			<envvars />
 			<debugger />
 			<wxsmith version="1">
-				<gui name="wxWidgets" src="terApp.cpp" main="terFrame" init_handlers="necessary" language="CPP">
-				</gui>
+				<gui name="wxWidgets" src="terApp.cpp" main="terFrame" init_handlers="necessary" language="CPP" />
 				<resources>
 					<wxFrame wxs="wxsmith/terframe.wxs" src="terMain.cpp" hdr="terMain.h" fwddecl="0" i18n="1" name="terFrame" language="CPP" />
 					<wxFrame wxs="wxsmith/ConnectionSettingsFrame.wxs" src="ConnectionSettingsFrame.cpp" hdr="ConnectionSettingsFrame.h" fwddecl="0" i18n="1" name="ConnectionSettingsFrame" language="CPP" />
@@ -128,6 +130,7 @@
 					<wxPanel wxs="wxsmith/ConnectionStatusPanel.wxs" src="connectionStatusPanel.cpp" hdr="connectionStatusPanel.h" fwddecl="0" i18n="1" name="ConnectionStatusPanel" language="CPP" />
 					<wxPanel wxs="wxsmith/TabPanel.wxs" src="tabPanel.cpp" hdr="tabPanel.h" fwddecl="0" i18n="1" name="TabPanel" language="CPP" />
 					<wxPanel wxs="wxsmith/DevicePanel.wxs" src="devicePanel.cpp" hdr="devicePanel.h" fwddecl="0" i18n="1" name="DevicePanel" language="CPP" />
+					<wxPanel wxs="wxsmith/DeviceControlPanel.wxs" src="deviceControlPanel.cpp" hdr="deviceControlPanel.h" fwddecl="0" i18n="1" name="DeviceControlPanel" language="CPP" />
 				</resources>
 			</wxsmith>
 			<DoxyBlocks>
