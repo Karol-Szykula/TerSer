@@ -6,12 +6,10 @@
 //*)
 
 //(*IdInit(ConnectionStatusPanel)
-const long ConnectionStatusPanel::ID_STATICTEXT2 = wxNewId();
-const long ConnectionStatusPanel::ID_STATICTEXT3 = wxNewId();
-const long ConnectionStatusPanel::ID_STATICTEXT5 = wxNewId();
-const long ConnectionStatusPanel::ID_STATICTEXT6 = wxNewId();
 const long ConnectionStatusPanel::ID_STATICTEXT1 = wxNewId();
+const long ConnectionStatusPanel::ID_STATICTEXT3 = wxNewId();
 const long ConnectionStatusPanel::ID_STATICTEXT4 = wxNewId();
+const long ConnectionStatusPanel::ID_STATICTEXT2 = wxNewId();
 const long ConnectionStatusPanel::ID_PANEL2 = wxNewId();
 const long ConnectionStatusPanel::ID_PANEL1 = wxNewId();
 //*)
@@ -28,10 +26,11 @@ ConnectionStatusPanel::ConnectionStatusPanel(wxWindow* parent,wxWindowID id,cons
 	wxBoxSizer* BoxSizer2;
 	wxBoxSizer* BoxSizer3;
 	wxBoxSizer* BoxSizer4;
-	wxBoxSizer* BoxSizer6;
-	wxBoxSizer* BoxSizer7;
 	wxStaticBoxSizer* StaticBoxSizer1;
 	wxStaticBoxSizer* StaticBoxSizer2;
+	wxStaticBoxSizer* StaticBoxSizer3;
+	wxStaticBoxSizer* StaticBoxSizer4;
+	wxStaticBoxSizer* StaticBoxSizer5;
 
 	Create(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("wxID_ANY"));
 	BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
@@ -40,27 +39,25 @@ ConnectionStatusPanel::ConnectionStatusPanel(wxWindow* parent,wxWindowID id,cons
 	Panel2 = new wxPanel(Panel1, ID_PANEL2, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL2"));
 	BoxSizer2 = new wxBoxSizer(wxVERTICAL);
 	BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
-	BoxSizer6 = new wxBoxSizer(wxVERTICAL);
-	StaticText2 = new wxStaticText(Panel2, ID_STATICTEXT2, _("Speed"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
-	BoxSizer6->Add(StaticText2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-	StaticText3 = new wxStaticText(Panel2, ID_STATICTEXT3, _("-"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT3"));
-	BoxSizer6->Add(StaticText3, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-	BoxSizer3->Add(BoxSizer6, 1, wxALL|wxEXPAND, 5);
-	BoxSizer7 = new wxBoxSizer(wxVERTICAL);
-	StaticText5 = new wxStaticText(Panel2, ID_STATICTEXT5, _("Data"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT5"));
-	BoxSizer7->Add(StaticText5, 1, wxALL|wxEXPAND, 5);
-	StaticText6 = new wxStaticText(Panel2, ID_STATICTEXT6, _("-"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT6"));
-	BoxSizer7->Add(StaticText6, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-	BoxSizer3->Add(BoxSizer7, 1, wxALL|wxEXPAND, 5);
-	StaticBoxSizer2 = new wxStaticBoxSizer(wxVERTICAL, Panel2, _("Stop bits"));
-	StaticText1 = new wxStaticText(Panel2, ID_STATICTEXT1, _("-"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
-	StaticBoxSizer2->Add(StaticText1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	StaticBoxSizer2 = new wxStaticBoxSizer(wxVERTICAL, Panel2, _("Speed"));
+	StaticText1 = new wxStaticText(Panel2, ID_STATICTEXT1, _("-"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE, _T("ID_STATICTEXT1"));
+	StaticBoxSizer2->Add(StaticText1, 1, wxALL|wxEXPAND, 0);
 	BoxSizer3->Add(StaticBoxSizer2, 1, wxALL|wxEXPAND, 5);
-	BoxSizer2->Add(BoxSizer3, 2, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	StaticBoxSizer4 = new wxStaticBoxSizer(wxVERTICAL, Panel2, _("Parity"));
+	StaticText3 = new wxStaticText(Panel2, ID_STATICTEXT3, _("-"), wxDefaultPosition, wxSize(38,28), wxALIGN_CENTRE, _T("ID_STATICTEXT3"));
+	StaticBoxSizer4->Add(StaticText3, 1, wxALL|wxEXPAND, 0);
+	BoxSizer3->Add(StaticBoxSizer4, 1, wxALL|wxEXPAND, 5);
+	StaticBoxSizer5 = new wxStaticBoxSizer(wxVERTICAL, Panel2, _("Stop bits"));
+	StaticText4 = new wxStaticText(Panel2, ID_STATICTEXT4, _("-"), wxDefaultPosition, wxSize(53,32), wxALIGN_CENTRE, _T("ID_STATICTEXT4"));
+	StaticBoxSizer5->Add(StaticText4, 1, wxALL|wxEXPAND, 0);
+	BoxSizer3->Add(StaticBoxSizer5, 1, wxALL|wxEXPAND, 5);
+	BoxSizer2->Add(BoxSizer3, 2, wxALL|wxEXPAND, 0);
 	BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
-	StaticText4 = new wxStaticText(Panel2, ID_STATICTEXT4, _("Status"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE, _T("ID_STATICTEXT4"));
-	BoxSizer4->Add(StaticText4, 1, wxALL|wxEXPAND, 0);
-	BoxSizer2->Add(BoxSizer4, 0, wxALL|wxEXPAND, 5);
+	StaticBoxSizer3 = new wxStaticBoxSizer(wxHORIZONTAL, Panel2, _("Status"));
+	StaticText2 = new wxStaticText(Panel2, ID_STATICTEXT2, _("N/A"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE, _T("ID_STATICTEXT2"));
+	StaticBoxSizer3->Add(StaticText2, 1, wxALL|wxEXPAND, 0);
+	BoxSizer4->Add(StaticBoxSizer3, 1, wxALL|wxEXPAND, 0);
+	BoxSizer2->Add(BoxSizer4, 0, wxALL|wxEXPAND, 0);
 	Panel2->SetSizer(BoxSizer2);
 	BoxSizer2->Fit(Panel2);
 	BoxSizer2->SetSizeHints(Panel2);
