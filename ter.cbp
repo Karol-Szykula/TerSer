@@ -85,6 +85,8 @@
 		</Linker>
 		<Unit filename="ConnectionSettingsFrame.cpp" />
 		<Unit filename="ConnectionSettingsFrame.h" />
+		<Unit filename="TerSerUI.cpp" />
+		<Unit filename="TerSerUI.h" />
 		<Unit filename="bufferedasyncserial/AsyncSerial.cpp" />
 		<Unit filename="bufferedasyncserial/AsyncSerial.h" />
 		<Unit filename="bufferedasyncserial/BufferedAsyncSerial.cpp" />
@@ -93,10 +95,12 @@
 		<Unit filename="bufferedasyncserial/serialoptions.h" />
 		<Unit filename="connectionStatusPanel.cpp" />
 		<Unit filename="connectionStatusPanel.h" />
+		<Unit filename="dataFrameStatusPanel.cpp" />
+		<Unit filename="dataFrameStatusPanel.h" />
 		<Unit filename="devicePanel.cpp" />
 		<Unit filename="devicePanel.h" />
-		<Unit filename="devicegridwidget/devicegridwidget.cpp" />
-		<Unit filename="devicegridwidget/devicegridwidget.h" />
+		<Unit filename="deviceStatusPanel.cpp" />
+		<Unit filename="deviceStatusPanel.h" />
 		<Unit filename="images/properties.h" />
 		<Unit filename="images/quit.h" />
 		<Unit filename="resource.rc">
@@ -108,10 +112,9 @@
 		<Unit filename="terApp.h" />
 		<Unit filename="terMain.cpp" />
 		<Unit filename="terMain.h" />
-		<Unit filename="terSerUI.cpp" />
-		<Unit filename="terSerUI.h" />
 		<Unit filename="wxsmith/ConnectionSettingsFrame.wxs" />
 		<Unit filename="wxsmith/ConnectionStatusPanel.wxs" />
+		<Unit filename="wxsmith/DataFrameStatusPanel.wxs" />
 		<Unit filename="wxsmith/DevicePanel.wxs" />
 		<Unit filename="wxsmith/TabPanel.wxs" />
 		<Unit filename="wxsmith/TerSerUI.wxs" />
@@ -121,7 +124,9 @@
 			<envvars />
 			<debugger />
 			<wxsmith version="1">
-				<gui name="wxWidgets" src="terApp.cpp" main="terFrame" init_handlers="necessary" language="CPP" />
+				<gui name="wxWidgets" src="terApp.cpp" main="terFrame" init_handlers="necessary" language="CPP">
+					<load_resource file="wxsmith\DataFrameStatusPanel.wxs" />
+				</gui>
 				<resources>
 					<wxFrame wxs="wxsmith/terframe.wxs" src="terMain.cpp" hdr="terMain.h" fwddecl="0" i18n="1" name="terFrame" language="CPP" />
 					<wxFrame wxs="wxsmith/ConnectionSettingsFrame.wxs" src="ConnectionSettingsFrame.cpp" hdr="ConnectionSettingsFrame.h" fwddecl="0" i18n="1" name="ConnectionSettingsFrame" language="CPP" />
@@ -129,6 +134,7 @@
 					<wxPanel wxs="wxsmith/ConnectionStatusPanel.wxs" src="connectionStatusPanel.cpp" hdr="connectionStatusPanel.h" fwddecl="0" i18n="1" name="ConnectionStatusPanel" language="CPP" />
 					<wxPanel wxs="wxsmith/TabPanel.wxs" src="tabPanel.cpp" hdr="tabPanel.h" fwddecl="0" i18n="1" name="TabPanel" language="CPP" />
 					<wxPanel wxs="wxsmith/DevicePanel.wxs" src="devicePanel.cpp" hdr="devicePanel.h" fwddecl="0" i18n="1" name="DevicePanel" language="CPP" />
+					<wxPanel wxs="wxsmith/DataFrameStatusPanel.wxs" src="dataFrameStatusPanel.cpp" hdr="dataFrameStatusPanel.h" fwddecl="0" i18n="1" name="DataFrameStatusPanel" language="CPP" />
 				</resources>
 			</wxsmith>
 			<DoxyBlocks>

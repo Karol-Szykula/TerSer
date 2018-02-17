@@ -18,7 +18,6 @@
 
 #include "ConnectionSettingsFrame.h"
 #include "bufferedasyncserial/BufferedAsyncSerial.h"
-#include "devicegridwidget/devicegridwidget.h"
 #include "bufferedasyncserial/serialoptions.h"
 #include "terSerUI.h"
 
@@ -168,8 +167,6 @@ class terFrame: public wxFrame
 		*/
         ConnectionSettingsFrame * connectionSettingsFrame;	// frame for connection settings
 
-
-
         //! An wxTimer object for serial read sample interval.
         wxTimer SerialReadTimer;
 
@@ -181,9 +178,6 @@ class terFrame: public wxFrame
 
 		//! An object which stores serial device options.
 		SerialOptions serialOptions;
-
-		//! A widget for devices displaying.
-		DeviceGridWidget * deviceGridWidget;
 
 		//SerialTerminalHandler
 		//SerialServerHandler
