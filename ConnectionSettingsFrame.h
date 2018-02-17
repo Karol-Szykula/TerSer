@@ -59,17 +59,12 @@ class ConnectionSettingsFrame: public wxFrame
 		wxTextCtrl* TextCtrl1;
 		wxTextCtrl* TextCtrl2;
 		wxTextCtrl* TextCtrl3;
-		wxTextCtrl* TextCtrl4;
-		wxTextCtrl* TextCtrl5;
 		wxTreebook* Treebook1;
 		//*)
 
 	protected:
 
 		//(*Identifiers(ConnectionSettingsFrame)
-		static const long ID_CHECKBOX1;
-		static const long ID_CHECKBOX2;
-		static const long ID_PANEL5;
 		static const long ID_STATICTEXT1;
 		static const long ID_TEXTCTRL1;
 		static const long ID_STATICTEXT2;
@@ -83,6 +78,9 @@ class ConnectionSettingsFrame: public wxFrame
 		static const long ID_STATICTEXT6;
 		static const long ID_CHOICE6;
 		static const long ID_PANEL2;
+		static const long ID_CHECKBOX1;
+		static const long ID_CHECKBOX2;
+		static const long ID_PANEL5;
 		static const long ID_STATICTEXT7;
 		static const long ID_TEXTCTRL2;
 		static const long ID_STATICTEXT8;
@@ -90,9 +88,7 @@ class ConnectionSettingsFrame: public wxFrame
 		static const long ID_STATICTEXT9;
 		static const long ID_TEXTCTRL4;
 		static const long ID_STATICTEXT10;
-		static const long ID_TEXTCTRL5;
 		static const long ID_STATICTEXT11;
-		static const long ID_TEXTCTRL6;
 		static const long ID_PANEL3;
 		static const long ID_TREEBOOK1;
 		static const long ID_BUTTON1;
