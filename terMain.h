@@ -16,7 +16,6 @@
 
 #include "ConnectionSettingsFrame.h"
 #include "bufferedasyncserial/BufferedAsyncSerial.h"
-#include "devicegridwidget/devicegridwidget.h"
 #include "bufferedasyncserial/serialoptions.h"
 
 
@@ -171,8 +170,6 @@ class terFrame: public wxFrame
 		//! An object which stores serial device options.
 		SerialOptions serialOptions;
 
-		//! A widget for devices displaying.
-		DeviceGridWidget * deviceGridWidget;
 
 		//SerialTerminalHandler
 		//SerialServerHandler
