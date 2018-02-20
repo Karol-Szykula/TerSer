@@ -5,6 +5,7 @@
 #include <wx/frame.h>
 #include <wx/panel.h>
 #include <wx/sizer.h>
+#include <wx/toolbar.h>
 //*)
 
 #include "connectionStatusPanel.h"
@@ -30,6 +31,7 @@ class TerSerUI: public wxFrame
 		TabPanel* Panel7;
 		wxFlexGridSizer* FlexGridSizer1;
 		wxPanel* Panel1;
+		wxToolBar* ToolBar1;
 		//*)
 
 		//(*Identifiers(TerSerUI)
@@ -39,6 +41,7 @@ class TerSerUI: public wxFrame
 		static const long ID_PANEL6;
 		static const long ID_PANEL7;
 		static const long ID_PANEL1;
+		static const long ID_TOOLBAR1;
 		//*)
 
 		//(*Handlers(TerSerUI)
