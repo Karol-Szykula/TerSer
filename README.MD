@@ -3,6 +3,6 @@ Application to communication with devices connected to a PC trough serial connec
 
 COMPILATION
 ===========
-Needs Code::Blocks
-Boost 1.65 static build
+Needs Code::Blocks,
+Boost 1.65 static build,
 wxWidgets 3.1 static build
