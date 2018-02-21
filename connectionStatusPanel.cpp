@@ -51,7 +51,7 @@ ConnectionStatusPanel::ConnectionStatusPanel(wxWindow* parent,wxWindowID id,cons
 	StaticText4 = new wxStaticText(Panel2, ID_STATICTEXT4, _("-"), wxDefaultPosition, wxSize(53,32), wxALIGN_CENTRE, _T("ID_STATICTEXT4"));
 	StaticBoxSizer5->Add(StaticText4, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
 	BoxSizer3->Add(StaticBoxSizer5, 1, wxRIGHT|wxEXPAND, 2);
-	BoxSizer2->Add(BoxSizer3, 2, wxALL|wxEXPAND, 0);
+	BoxSizer2->Add(BoxSizer3, 1, wxALL|wxEXPAND, 0);
 	BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
 	StaticBoxSizer3 = new wxStaticBoxSizer(wxHORIZONTAL, Panel2, _("Status"));
 	StaticText2 = new wxStaticText(Panel2, ID_STATICTEXT2, _("N/A"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE, _T("ID_STATICTEXT2"));
