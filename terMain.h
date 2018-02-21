@@ -82,10 +82,8 @@ class terFrame: public wxFrame
         static const long ID_TEXTCTRL2;
         static const long ID_TEXTCTRL1;
         static const long ID_PANEL2;
-        static const long ID_PANEL3;
         static const long ID_NOTEBOOK1;
         static const long ID_PANEL1;
-        static const long ID_MENUITEM1;
         static const long ID_MENUQUIT;
         static const long ID_MENUCONNECTION;
         static const long ID_MENUABOUT;
@@ -96,13 +94,10 @@ class terFrame: public wxFrame
         //*)
 
         //(*Declarations(terFrame)
-        wxBoxSizer* DevicesSizer;
         wxButton* ButtonConnect;
         wxMenu* MenuItem1;
         wxMenuItem* MenuItem2;
-        wxMenuItem* MenuItem3;
         wxNotebook* NotebookWidget;
-        wxPanel* DevicesPanelWidget;
         wxPanel* FramePanel;
         wxPanel* TerminalPanelWidget;
         wxStaticText* LabelConnectionStatus;

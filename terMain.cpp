@@ -55,10 +55,8 @@ const long terFrame::ID_STATICTEXT1 = wxNewId();
 const long terFrame::ID_TEXTCTRL2 = wxNewId();
 const long terFrame::ID_TEXTCTRL1 = wxNewId();
 const long terFrame::ID_PANEL2 = wxNewId();
-const long terFrame::ID_PANEL3 = wxNewId();
 const long terFrame::ID_NOTEBOOK1 = wxNewId();
 const long terFrame::ID_PANEL1 = wxNewId();
-const long terFrame::ID_MENUITEM1 = wxNewId();
 const long terFrame::ID_MENUQUIT = wxNewId();
 const long terFrame::ID_MENUCONNECTION = wxNewId();
 const long terFrame::ID_MENUABOUT = wxNewId();
@@ -132,14 +130,7 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     TerminalPanelWidget->SetSizer(TerminalSizer);
     TerminalSizer->Fit(TerminalPanelWidget);
     TerminalSizer->SetSizeHints(TerminalPanelWidget);
-    DevicesPanelWidget = new wxPanel(NotebookWidget, ID_PANEL3, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL|wxWANTS_CHARS, _T("ID_PANEL3"));
-    DevicesPanelWidget->Disable();
-    DevicesSizer = new wxBoxSizer(wxHORIZONTAL);
-    DevicesPanelWidget->SetSizer(DevicesSizer);
-    DevicesSizer->Fit(DevicesPanelWidget);
-    DevicesSizer->SetSizeHints(DevicesPanelWidget);
     NotebookWidget->AddPage(TerminalPanelWidget, _("Terminal"), false);
-    NotebookWidget->AddPage(DevicesPanelWidget, _("Devices"), false);
     FramePanelSizer->Add(NotebookWidget, 1, wxALL|wxEXPAND, 0);
     FramePanel->SetSizer(FramePanelSizer);
     FramePanelSizer->Fit(FramePanel);
@@ -148,8 +139,6 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     SetSizer(FrameSizer);
     menuBar = new wxMenuBar();
     menuFile = new wxMenu();
-    MenuItem3 = new wxMenuItem(menuFile, ID_MENUITEM1, _("New Ui"), wxEmptyString, wxITEM_NORMAL);
-    menuFile->Append(MenuItem3);
     menuItemQuit = new wxMenuItem(menuFile, ID_MENUQUIT, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
     menuFile->Append(menuItemQuit);
     menuBar->Append(menuFile, _("&File"));
@@ -169,8 +158,8 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     statusBar->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(statusBar);
     toolBar = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_HORIZONTAL|wxNO_BORDER, _T("ID_TOOLBAR1"));
-    ToolBarItem1 = toolBar->AddTool(wxID_PROPERTIES , _("Connection"), wxBitmap(wxImage(_T("D:\\programowanie\\C++\\CodeBlocks\\wx_t\\ter\\properties.png"))), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
-    toolBarItemQuit = toolBar->AddTool(ID_TOOLBARITEMQUIT, _("Quit"), wxBitmap(wxImage(_T("D:\\programowanie\\C++\\CodeBlocks\\wx_t\\ter\\quit.png"))), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem1 = toolBar->AddTool(wxID_PROPERTIES , _("Connection"), _wxGetBitmapFromMemory(properties_png, sizeof(properties_png)), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    toolBarItemQuit = toolBar->AddTool(ID_TOOLBARITEMQUIT, _("Quit"), _wxGetBitmapFromMemory(quit_png, sizeof(quit_png)), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     toolBar->Realize();
     SetToolBar(toolBar);
     FrameSizer->Fit(this);
@@ -178,7 +167,6 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
 
     Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&terFrame::OnButtonConnectClick);
     Connect(ID_TEXTCTRL2,wxEVT_COMMAND_TEXT_ENTER,(wxObjectEventFunction)&terFrame::OnTerminalSendTextEnter);
-    Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnToolBarNewUiClicked);
     Connect(ID_MENUQUIT,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnQuit);
     Connect(ID_MENUCONNECTION,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnToolBarSettingsClicked);
     Connect(ID_MENUABOUT,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&terFrame::OnAbout);
