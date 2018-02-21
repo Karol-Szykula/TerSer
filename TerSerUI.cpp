@@ -42,13 +42,13 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	Panel2 = new ConnectionStatusPanel(Panel1, ID_PANEL2, wxDefaultPosition, wxSize(109,58), wxTAB_TRAVERSAL, _T("ID_PANEL2"));
 	Panel2->SetMinSize(wxSize(-1,-1));
 	BoxSizer7->Add(Panel2, 1, wxALL|wxEXPAND, 0);
-	BoxSizer3->Add(BoxSizer7, 1, wxALL|wxEXPAND, 5);
+	BoxSizer3->Add(BoxSizer7, 1, wxRIGHT|wxEXPAND, 5);
 	BoxSizer8 = new wxBoxSizer(wxHORIZONTAL);
 	Panel3 = new ServerStatusPanel(Panel1, ID_PANEL3, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL3"));
 	Panel3->SetMinSize(wxSize(-1,-1));
 	BoxSizer8->Add(Panel3, 1, wxALL|wxEXPAND, 0);
-	BoxSizer3->Add(BoxSizer8, 1, wxALL|wxEXPAND, 5);
-	BoxSizer2->Add(BoxSizer3, 2, wxALL|wxEXPAND, 0);
+	BoxSizer3->Add(BoxSizer8, 1, wxALL|wxEXPAND, 0);
+	BoxSizer2->Add(BoxSizer3, 2, wxTOP|wxLEFT|wxRIGHT|wxEXPAND, 5);
 	BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
 	BoxSizer5 = new wxBoxSizer(wxVERTICAL);
 	Panel5 = new DevicePanel(Panel1, ID_PANEL5, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL5"));
@@ -65,8 +65,8 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	Panel7 = new TabPanel(Panel1, ID_PANEL7, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL7"));
 	BoxSizer10->Add(Panel7, 1, wxALL|wxEXPAND, 0);
 	BoxSizer6->Add(BoxSizer10, 1, wxALL|wxEXPAND, 5);
-	BoxSizer4->Add(BoxSizer6, 2, wxALL|wxEXPAND, 5);
-	BoxSizer2->Add(BoxSizer4, 7, wxALL|wxEXPAND, 5);
+	BoxSizer4->Add(BoxSizer6, 2, wxALL|wxEXPAND, 0);
+	BoxSizer2->Add(BoxSizer4, 7, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND, 0);
 	Panel1->SetSizer(BoxSizer2);
 	BoxSizer2->Fit(Panel1);
 	BoxSizer2->SetSizeHints(Panel1);
