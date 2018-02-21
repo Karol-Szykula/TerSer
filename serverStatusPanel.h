@@ -21,6 +21,7 @@ class ServerStatusPanel: public wxPanel
 		wxStaticText* StaticText1;
 		wxStaticText* StaticText2;
 		wxStaticText* StaticText3;
+		wxStaticText* StaticText4;
 		//*)
 
 		//(*Identifiers(ServerStatusPanel)
@@ -28,6 +29,7 @@ class ServerStatusPanel: public wxPanel
 		static const long ID_STATICTEXT2;
 		static const long ID_STATICTEXT3;
 		static const long ID_PANEL1;
+		static const long ID_STATICTEXT4;
 		//*)
 
 		//(*Handlers(ServerStatusPanel)
