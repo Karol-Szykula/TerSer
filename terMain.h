@@ -77,8 +77,6 @@ class terFrame: public wxFrame
         //(*Identifiers(terFrame)
         static const long ID_STATICTEXT2;
         static const long ID_STATICTEXT3;
-        static const long ID_STATICTEXT4;
-        static const long ID_STATICTEXT5;
         static const long ID_BUTTON1;
         static const long ID_STATICTEXT1;
         static const long ID_TEXTCTRL2;
@@ -108,9 +106,7 @@ class terFrame: public wxFrame
         wxPanel* FramePanel;
         wxPanel* TerminalPanelWidget;
         wxStaticText* LabelConnectionStatus;
-        wxStaticText* LabelServerStatus;
         wxStaticText* StaticText1;
-        wxStaticText* StaticText3;
         wxStaticText* TerminalSendLabel;
         wxStatusBar* statusBar;
         wxTextCtrl* TerminalSendTextCtrl;

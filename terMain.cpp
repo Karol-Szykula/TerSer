@@ -50,8 +50,6 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 //(*IdInit(terFrame)
 const long terFrame::ID_STATICTEXT2 = wxNewId();
 const long terFrame::ID_STATICTEXT3 = wxNewId();
-const long terFrame::ID_STATICTEXT4 = wxNewId();
-const long terFrame::ID_STATICTEXT5 = wxNewId();
 const long terFrame::ID_BUTTON1 = wxNewId();
 const long terFrame::ID_STATICTEXT1 = wxNewId();
 const long terFrame::ID_TEXTCTRL2 = wxNewId();
@@ -110,10 +108,6 @@ terFrame::terFrame(wxWindow* parent,wxWindowID id)
     FlexGridSizer4->Add(StaticText1, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     LabelConnectionStatus = new wxStaticText(FramePanel, ID_STATICTEXT3, _("DISCONNECTED"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT3"));
     FlexGridSizer4->Add(LabelConnectionStatus, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText3 = new wxStaticText(FramePanel, ID_STATICTEXT4, _("Server:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT4"));
-    FlexGridSizer4->Add(StaticText3, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    LabelServerStatus = new wxStaticText(FramePanel, ID_STATICTEXT5, _("STOPPED"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT5"));
-    FlexGridSizer4->Add(LabelServerStatus, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     FlexGridSizer2->Add(FlexGridSizer4, 1, wxALL|wxEXPAND, 0);
     FlexGridSizer5 = new wxFlexGridSizer(0, 1, 0, 0);
     FlexGridSizer5->AddGrowableCol(0);
