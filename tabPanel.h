@@ -5,6 +5,8 @@
 #include <wx/notebook.h>
 #include <wx/panel.h>
 #include <wx/sizer.h>
+#include <wx/stattext.h>
+#include <wx/textctrl.h>
 //*)
 
 class TabPanel: public wxPanel
@@ -20,9 +22,15 @@ class TabPanel: public wxPanel
 		//(*Declarations(TabPanel)
 		wxNotebook* Notebook1;
 		wxPanel* Panel1;
+		wxStaticText* StaticText1;
+		wxTextCtrl* TextCtrl1;
+		wxTextCtrl* terminalSendCtrl;
 		//*)
 
 		//(*Identifiers(TabPanel)
+		static const long ID_STATICTEXT1;
+		static const long ID_TEXTCTRL1;
+		static const long ID_TEXTCTRL2;
 		static const long ID_PANEL1;
 		static const long ID_NOTEBOOK1;
 		//*)
