@@ -21,6 +21,8 @@ END_EVENT_TABLE()
 TabPanel::TabPanel(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size,
          long style, const wxString& name)
 {
+    m_parent = parent;
+
 	//(*Initialize(TabPanel)
 	wxBoxSizer* BoxSizer1;
 	wxBoxSizer* BoxSizer2;
@@ -35,11 +37,11 @@ TabPanel::TabPanel(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wx
 	FlexGridSizer1->AddGrowableCol(1);
 	StaticText1 = new wxStaticText(Panel1, ID_STATICTEXT1, _("Send:"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE, _T("ID_STATICTEXT1"));
 	FlexGridSizer1->Add(StaticText1, 1, wxALL|wxEXPAND, 5);
-	TextCtrl1 = new wxTextCtrl(Panel1, ID_TEXTCTRL1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
-	FlexGridSizer1->Add(TextCtrl1, 1, wxALL|wxEXPAND, 5);
+	sendTextWidget = new wxTextCtrl(Panel1, ID_TEXTCTRL1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
+	FlexGridSizer1->Add(sendTextWidget, 1, wxALL|wxEXPAND, 5);
 	BoxSizer2->Add(FlexGridSizer1, 0, wxALL|wxEXPAND, 5);
-	terminalSendCtrl = new wxTextCtrl(Panel1, ID_TEXTCTRL2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL2"));
-	BoxSizer2->Add(terminalSendCtrl, 1, wxALL|wxEXPAND, 5);
+	terminalTextWidget = new wxTextCtrl(Panel1, ID_TEXTCTRL2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL2"));
+	BoxSizer2->Add(terminalTextWidget, 1, wxALL|wxEXPAND, 5);
 	Panel1->SetSizer(BoxSizer2);
 	BoxSizer2->Fit(Panel1);
 	BoxSizer2->SetSizeHints(Panel1);
@@ -55,5 +57,13 @@ TabPanel::~TabPanel()
 {
 	//(*Destroy(TabPanel)
 	//*)
+}
+
+void TabPanel::appendReceivedTextToTerminal(std::string inText)
+{
+    //! \todo appendReceivedTextToTerminal function needs a switch to add new line character to the terminal window
+    TerminalTextCtrlWidget->AppendText("<<<");				// add direction sign
+    terminalTextWidget->AppendText(inText);
+     git commit -m "Add function which appends text to the terminal widget"
 }
 

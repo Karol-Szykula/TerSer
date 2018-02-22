@@ -1,6 +1,8 @@
 #ifndef TABPANEL_H
 #define TABPANEL_H
 
+#include <string>
+
 //(*Headers(TabPanel)
 #include <wx/notebook.h>
 #include <wx/panel.h>
@@ -14,17 +16,21 @@ class TabPanel: public wxPanel
 	public:
 
 		TabPanel(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size,
-         long style, const wxString& name);
+                long style, const wxString& name);
 		virtual ~TabPanel();
 
+		void appendReceivedTextToTerminal(std::string inText);
+
 	private:
+
+	    wxWindow * m_parent;
 
 		//(*Declarations(TabPanel)
 		wxNotebook* Notebook1;
 		wxPanel* Panel1;
 		wxStaticText* StaticText1;
-		wxTextCtrl* TextCtrl1;
-		wxTextCtrl* terminalSendCtrl;
+		wxTextCtrl* sendTextWidget;
+		wxTextCtrl* terminalTextWidget;
 		//*)
 
 		//(*Identifiers(TabPanel)
