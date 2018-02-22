@@ -3,6 +3,7 @@
 
 //(*Headers(TerSerUI)
 #include <wx/frame.h>
+#include <wx/menu.h>
 #include <wx/panel.h>
 #include <wx/sizer.h>
 #include <wx/toolbar.h>
@@ -30,6 +31,13 @@ class TerSerUI: public wxFrame
 		ServerStatusPanel* Panel3;
 		TabPanel* Panel7;
 		wxFlexGridSizer* FlexGridSizer1;
+		wxMenu* Menu1;
+		wxMenu* Menu3;
+		wxMenu* Menu4;
+		wxMenuBar* MenuBar1;
+		wxMenuItem* Menu2;
+		wxMenuItem* MenuItem1;
+		wxMenuItem* MenuItem2;
 		wxPanel* Panel1;
 		wxToolBar* ToolBar1;
 		//*)
@@ -42,6 +50,9 @@ class TerSerUI: public wxFrame
 		static const long ID_PANEL7;
 		static const long ID_PANEL1;
 		static const long ID_TOOLBAR1;
+		static const long ID_MENUITEM1;
+		static const long ID_MENUITEM3;
+		static const long ID_MENUITEM2;
 		//*)
 
 		//(*Handlers(TerSerUI)
