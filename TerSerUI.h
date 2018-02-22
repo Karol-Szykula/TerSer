@@ -18,7 +18,7 @@ class TerSerUI: public wxFrame
 {
 	public:
 
-		TerSerUI(wxWindow* parent, wxWindowID  id);
+		TerSerUI(wxWindow* parent, wxWindowID  id = -1);
 		virtual ~TerSerUI();
 
 	private:

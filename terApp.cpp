@@ -8,6 +8,7 @@
  **************************************************************/
 
 #include "terApp.h"
+#include "TerSerUI.h"
 
 
 
@@ -25,7 +26,7 @@ bool terApp::OnInit()
     wxInitAllImageHandlers();
     if ( wxsOK )
     {
-    	terFrame* Frame = new terFrame(0);
+    	TerSerUI* Frame = new TerSerUI(0);
     	Frame->Show();
     	SetTopWindow(Frame);
     }
