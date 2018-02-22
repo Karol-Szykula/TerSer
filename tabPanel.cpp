@@ -62,8 +62,7 @@ TabPanel::~TabPanel()
 void TabPanel::appendReceivedTextToTerminal(std::string inText)
 {
     //! \todo appendReceivedTextToTerminal function needs a switch to add new line character to the terminal window
-    TerminalTextCtrlWidget->AppendText("<<<");				// add direction sign
+    terminalTextWidget->AppendText("<<<");				// add direction sign
     terminalTextWidget->AppendText(inText);
-     git commit -m "Add function which appends text to the terminal widget"
 }
 
