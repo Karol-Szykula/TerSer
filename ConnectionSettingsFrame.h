@@ -140,7 +140,7 @@ class ConnectionSettingsFrame: public wxFrame
         void saveStopBitsFromWidget();
         void saveFlowControlFromWidget();
 
-		terFrame * parentFrame;
+		wxFrame * parentFrame;
 		SerialOptions serialOptions;
 
 		DECLARE_EVENT_TABLE()

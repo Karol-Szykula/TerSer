@@ -1,10 +1,13 @@
 #include "terSerUI.h"
 
-
+#include <wx/msgdlg.h>
 
 
 
 //(*InternalHeaders(TerSerUI)
+#include <wx/artprov.h>
+#include <wx/bitmap.h>
+#include <wx/image.h>
 #include <wx/intl.h>
 #include <wx/string.h>
 //*)
@@ -16,6 +19,7 @@
 const long TerSerUI::ID_PANEL6 = wxNewId();
 const long TerSerUI::ID_PANEL7 = wxNewId();
 const long TerSerUI::ID_PANEL1 = wxNewId();
+const long TerSerUI::ID_TOOLBARITEM1 = wxNewId();
 const long TerSerUI::ID_TOOLBAR1 = wxNewId();
 const long TerSerUI::ID_MENUITEM1 = wxNewId();
 const long TerSerUI::ID_MENUITEM3 = wxNewId();
@@ -29,6 +33,11 @@ END_EVENT_TABLE()
 
 TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 {
+    m_serialReadTimer.SetOwner( this );
+	this->Connect( m_serialReadTimer.GetId(), wxEVT_TIMER, wxTimerEventHandler( TerSerUI::OnTimerSerialRead ), NULL, this );
+	this->Center();
+
+
 	//(*Initialize(TerSerUI)
 	wxBoxSizer* BoxSizer10;
 	wxBoxSizer* BoxSizer1;
@@ -79,6 +88,10 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	BoxSizer2->SetSizeHints(Panel1);
 	BoxSizer1->Add(Panel1, 1, wxALL|wxEXPAND, 0);
 	SetSizer(BoxSizer1);
+	ToolBar1 = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_HORIZONTAL|wxNO_BORDER, _T("ID_TOOLBAR1"));
+	ToolBarItem1 = ToolBar1->AddTool(ID_TOOLBARITEM1, _("Connect"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_MISSING_IMAGE")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+	ToolBar1->Realize();
+	SetToolBar(ToolBar1);
 	MenuBar1 = new wxMenuBar();
 	Menu1 = new wxMenu();
 	Menu2 = new wxMenuItem(Menu1, ID_MENUITEM1, _("Quit"), wxEmptyString, wxITEM_NORMAL);
@@ -100,6 +113,10 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	Center();
 
 	Panel6->Connect(wxEVT_PAINT,(wxObjectEventFunction)&TerSerUI::OnPanel6Paint,0,this);
+	Connect(ID_TOOLBARITEM1,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&TerSerUI::OnButtonConnectClick);
+	Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&TerSerUI::OnQuit);
+	Connect(ID_MENUITEM3,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&TerSerUI::OnMenuSettingsConnectionClicked);
+	Connect(ID_MENUITEM2,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&TerSerUI::OnAbout);
 	//*)
 }
 
@@ -112,4 +129,102 @@ TerSerUI::~TerSerUI()
 
 void TerSerUI::OnPanel6Paint(wxPaintEvent& event)
 {
+}
+
+void TerSerUI::OnMenuSettingsConnectionClicked(wxCommandEvent& event)
+{
+	m_connectionSettingsFrame = new ConnectionSettingsFrame(this, ID_CONSETFRAME);
+	m_connectionSettingsFrame->setSerialOptions(this->getSerialOptions());
+	m_connectionSettingsFrame->setRelative(this);
+	m_connectionSettingsFrame->SetTitle(wxT("Connection settings"));
+	m_connectionSettingsFrame->Show(true);
+
+	//ConnectionSettingsFrame * connectionSettingsFrameDebug;
+	//wxWindowID ID_CONSETFRAMEDEBUG;
+	//connectionSettingsFrameDebug = new ConnectionSettingsFrame(this, ID_CONSETFRAMEDEBUG);
+	//connectionSettingsFrameDebug->setRelative(this);
+	//connectionSettingsFrameDebug->Show(true);
+}
+
+void TerSerUI::setSerialOptions(SerialOptions newSerialOptions)
+{
+	m_serialOptions = newSerialOptions;
+	//m_serialOptions = connectionSettingsFrame->getSerialOptions();
+	//connectionSettingsFrame->setSerialOptions(m_serialOptions);
+	//connectionSettingsFrameDebug->setSerialOptions(m_serialOptions);
+}
+
+SerialOptions TerSerUI::getSerialOptions()
+{
+	return m_serialOptions;
+}
+
+void TerSerUI::OnButtonConnectClick(wxCommandEvent& event)
+{
+
+	if(m_serialConnection.isOpen() == false)
+	{
+		try{
+
+		m_serialConnection.open(m_serialOptions.getPortName(), m_serialOptions.getBaudRate(), m_serialOptions.getParity(),
+							m_serialOptions.getDataBits(), m_serialOptions.getFlowControl(), m_serialOptions.getStopBits());
+		}catch(boost::system::system_error& e)
+		{
+		    std::string err(e.what());
+		}
+
+		if(m_serialConnection.isOpen() == true)   // if serial connection opened
+		{
+			m_serialReadTimer.Start(30, wxTIMER_CONTINUOUS);
+			//!\todo LabelConnectionStatus has to be changed to a label in connectionStatusPanel
+			//LabelConnectionStatus->SetLabel(wxT("CONNECTED"));
+		}else if(m_serialConnection.isOpen() == false)    // if serial connection failed to open
+		{
+		    wxMessageDialog *dial = new wxMessageDialog(this,
+                                                  wxT("Cannot connect to specified port"),
+                                                  wxT("Error"), wxOK | wxICON_ERROR);
+            dial->ShowWindowModal();
+		}
+
+	}else if(m_serialConnection.isOpen() == true)
+	{
+		try{
+
+		m_serialConnection.close();
+
+		}catch(boost::system::system_error& e)
+		{}
+
+		if(m_serialConnection.isOpen() == false)
+		{
+			m_serialReadTimer.Stop();
+            //!\todo LabelConnectionStatus has to be changed to a label in connectionStatusPanel
+			//LabelConnectionStatus->SetLabel(wxT("DISCONNECTED"));
+		}
+	}
+}
+
+void TerSerUI::OnTimerSerialRead(wxTimerEvent  & event)
+{
+	if(m_serialConnection.isOpen() == true)
+	{
+		m_serialReceived = m_serialConnection.readString();
+		//! \todo TerminalTextCtrlWidget has to be changed to a textCtrlWidget to a parser object
+		//TerminalTextCtrlWidget->AppendText(serialReceived);
+	}
+}
+
+
+void TerSerUI::OnAbout(wxCommandEvent& event)
+{
+    wxString label = _("Author: ");
+	label += "Karol Szykula";
+    //wxString msg = wxT("Author: ");
+
+    wxMessageBox(label, _("About"));
+}
+
+void TerSerUI::OnQuit(wxCommandEvent& event)
+{
+    this->Close();
 }

@@ -81,18 +81,13 @@ class terFrame: public wxFrame
         //(*Identifiers(terFrame)
         static const long ID_STATICTEXT2;
         static const long ID_STATICTEXT3;
-        static const long ID_STATICTEXT4;
-        static const long ID_STATICTEXT5;
         static const long ID_BUTTON1;
-        static const long ID_BUTTON2;
         static const long ID_STATICTEXT1;
         static const long ID_TEXTCTRL2;
         static const long ID_TEXTCTRL1;
         static const long ID_PANEL2;
-        static const long ID_PANEL3;
         static const long ID_NOTEBOOK1;
         static const long ID_PANEL1;
-        static const long ID_MENUITEM1;
         static const long ID_MENUQUIT;
         static const long ID_MENUCONNECTION;
         static const long ID_MENUABOUT;
@@ -103,20 +98,15 @@ class terFrame: public wxFrame
         //*)
 
         //(*Declarations(terFrame)
-        wxBoxSizer* DevicesSizer;
         wxButton* ButtonConnect;
-        wxButton* ButtonStartServer;
+        wxMenu* Menu1;
         wxMenu* MenuItem1;
         wxMenuItem* MenuItem2;
-        wxMenuItem* MenuItem3;
         wxNotebook* NotebookWidget;
-        wxPanel* DevicesPanelWidget;
         wxPanel* FramePanel;
         wxPanel* TerminalPanelWidget;
         wxStaticText* LabelConnectionStatus;
-        wxStaticText* LabelServerStatus;
         wxStaticText* StaticText1;
-        wxStaticText* StaticText3;
         wxStaticText* TerminalSendLabel;
         wxStatusBar* statusBar;
         wxTextCtrl* TerminalSendTextCtrl;
@@ -139,12 +129,7 @@ class terFrame: public wxFrame
         */
 		void OnTimerSerialRead(wxTimerEvent  & event);
 
-		//! A private function, the function converts an array with raw data to bitmap.
-        /*!
-			\param data is unsigned char array type.
-			\param length is int type
-        */
-		inline wxBitmap _wxGetBitmapFromMemory(const unsigned char *data, int length);
+
 
 		//void startSerialReadTimer();
 		//void stopSerialReadTimer();
@@ -179,8 +164,13 @@ class terFrame: public wxFrame
 		//! An object which stores serial device options.
 		SerialOptions serialOptions;
 
-		//SerialTerminalHandler
-		//SerialServerHandler
+
+		//! A private function, the function converts an array with raw data to bitmap.
+        /*!
+			\param data is unsigned char array type.
+			\param length is int type
+        */
+		inline wxBitmap _wxGetBitmapFromMemory(const unsigned char *data, int length);
 
 		//! A macro which declares events.
         DECLARE_EVENT_TABLE()

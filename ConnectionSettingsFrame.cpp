@@ -264,7 +264,8 @@ ConnectionSettingsFrame::~ConnectionSettingsFrame()
 void ConnectionSettingsFrame::OnConnectionSettingsOkButtonClick(wxCommandEvent& event)
 {
 	saveValuesFromWindow();
-    parentFrame->setSerialOptions(serialOptions);
+	//! \todo parentFrame has to be changed to a TerSerUI frame
+    //parentFrame->setSerialOptions(serialOptions);
 	this->Close(true);
 }
 
