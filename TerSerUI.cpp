@@ -84,6 +84,8 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	Menu2 = new wxMenuItem(Menu1, ID_MENUITEM1, _("Quit"), wxEmptyString, wxITEM_NORMAL);
 	Menu1->Append(Menu2);
 	MenuBar1->Append(Menu1, _("File"));
+	Menu5 = new wxMenu();
+	MenuBar1->Append(Menu5, _("View"));
 	Menu3 = new wxMenu();
 	MenuItem2 = new wxMenuItem(Menu3, ID_MENUITEM3, _("Connection"), wxEmptyString, wxITEM_NORMAL);
 	Menu3->Append(MenuItem2);

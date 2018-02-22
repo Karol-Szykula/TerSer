@@ -34,6 +34,7 @@ class TerSerUI: public wxFrame
 		wxMenu* Menu1;
 		wxMenu* Menu3;
 		wxMenu* Menu4;
+		wxMenu* Menu5;
 		wxMenuBar* MenuBar1;
 		wxMenuItem* Menu2;
 		wxMenuItem* MenuItem1;
