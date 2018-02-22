@@ -1,4 +1,4 @@
-Application to communication with devices connected to a PC trough serial connection. MIT license.
+Application to communication with devices connected to a PC through serial connection. MIT license.
 
 
 COMPILATION
