@@ -48,7 +48,7 @@ ServerStatusPanel::ServerStatusPanel(wxWindow* parent,wxWindowID id,const wxPoin
 	BoxSizer1->Fit(Panel1);
 	BoxSizer1->SetSizeHints(Panel1);
 	StaticBoxSizer1->Add(Panel1, 1, wxALL|wxEXPAND, 0);
-	StaticBoxSizer5 = new wxStaticBoxSizer(wxHORIZONTAL, this, _("Server status"));
+	StaticBoxSizer5 = new wxStaticBoxSizer(wxHORIZONTAL, this, _("Status"));
 	StaticText4 = new wxStaticText(this, ID_STATICTEXT4, _("N/A"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE, _T("ID_STATICTEXT4"));
 	StaticBoxSizer5->Add(StaticText4, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
 	StaticBoxSizer1->Add(StaticBoxSizer5, 1, wxALL|wxEXPAND, 0);
