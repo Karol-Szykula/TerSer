@@ -274,7 +274,7 @@ void ConnectionSettingsFrame::OnConnectionSettingsCancelButtonClick(wxCommandEve
 	this->Close(true);
 }
 
-void ConnectionSettingsFrame::setRelative(terFrame * parent)
+void ConnectionSettingsFrame::setRelative(wxFrame * parent)
 {
 	if(parent != NULL);
 		parentFrame = parent;

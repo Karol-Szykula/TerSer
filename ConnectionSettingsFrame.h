@@ -24,7 +24,7 @@ class ConnectionSettingsFrame: public wxFrame
 		ConnectionSettingsFrame(wxWindow* parent,wxWindowID id=wxID_ANY);
 		virtual ~ConnectionSettingsFrame();
 
-		void setRelative(terFrame * parent);
+		void setRelative(wxFrame * parent);
 		void setSerialOptions(SerialOptions newSerialOptions);
 
 
