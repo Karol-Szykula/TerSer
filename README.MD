@@ -4,5 +4,5 @@ Application to communication with devices connected to a PC through serial conne
 COMPILATION
 ===========
 Needs Code::Blocks,
-Boost 1.65 static build,
-wxWidgets 3.1 static build
+Boost 1.65,
+wxWidgets 3.1
