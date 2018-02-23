@@ -259,3 +259,17 @@ bool TerSerUI::isSerialOpen()
     return m_serialConnection.isOpen();
 }
 
+void TerSerUI::stopSerialReadTimer()
+{
+    m_serialReadTimer.Stop();
+}
+
+void TerSerUI::startSerialReadTimer()
+{
+    m_serialReadTimer.Start();
+}
+
+
+
+
+

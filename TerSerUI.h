@@ -67,6 +67,12 @@ class TerSerUI: public wxFrame
         */
         bool isSerialOpen();
 
+        //! A private function, it stops the serial read timer.
+        void stopSerialReadTimer();
+
+        //! A private function, it starts the serial read timer.
+        void startSerialReadTimer();
+
 
 		//! An id variable for connection settings frame.
         wxWindowID ID_CONSETFRAME;
