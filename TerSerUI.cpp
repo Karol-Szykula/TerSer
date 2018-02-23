@@ -2,7 +2,31 @@
 
 #include <wx/msgdlg.h>
 
+//helper functions
+enum wxbuildinfoformat {
+    short_f, long_f };
 
+wxString wxbuildinfo(wxbuildinfoformat format)
+{
+    wxString wxbuild(wxVERSION_STRING);
+
+    if (format == long_f )
+    {
+#if defined(__WXMSW__)
+        wxbuild << _T("-Windows");
+#elif defined(__UNIX__)
+        wxbuild << _T("-Linux");
+#endif
+
+#if wxUSE_UNICODE
+        wxbuild << _T("-Unicode build");
+#else
+        wxbuild << _T("-ANSI build");
+#endif // wxUSE_UNICODE
+    }
+
+    return wxbuild;
+}
 
 //(*InternalHeaders(TerSerUI)
 #include <wx/artprov.h>
@@ -228,3 +252,10 @@ void TerSerUI::OnQuit(wxCommandEvent& event)
 {
     this->Close();
 }
+
+
+bool TerSerUI::isSerialOpen()
+{
+    return m_serialConnection.isOpen();
+}
+

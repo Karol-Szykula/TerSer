@@ -61,6 +61,11 @@ class TerSerUI: public wxFrame
         */
 		void OnTimerSerialRead(wxTimerEvent  & event);
 
+		//! A private function, it allow checking whether serial connection is open.
+        /*!
+			\return bool type.
+        */
+        bool isSerialOpen();
 
 
 		//! An id variable for connection settings frame.
