@@ -16,10 +16,7 @@
 #include "serverStatusPanel.h"
 
 #include <wx/timer.h>
-
 #include <vector>
-
-#include <boost/scoped_ptr.hpp>
 
 #include "ConnectionSettingsFrame.h"
 #include "bufferedasyncserial/BufferedAsyncSerial.h"
@@ -103,6 +100,8 @@ class TerSerUI: public wxFrame
 		//! An object which stores serial device options.
 		SerialOptions m_serialOptions;
 
+		friend class TabPanel;
+
 //==========================================================================
 //==========================================================================
 
@@ -111,7 +110,7 @@ class TerSerUI: public wxFrame
 		DeviceControlPanel* Panel6;
 		DevicePanel* Panel5;
 		ServerStatusPanel* Panel3;
-		TabPanel* Panel7;
+		TabPanel* tabPanel;
 		wxFlexGridSizer* FlexGridSizer1;
 		wxMenu* Menu1;
 		wxMenu* Menu3;

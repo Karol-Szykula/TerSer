@@ -1,14 +1,14 @@
-/* 
+/*
  * File:   BufferedAsyncSerial.h
  * Author: Terraneo Federico
  * Distributed under the Boost Software License, Version 1.0.
  * Created on January 6, 2011, 3:31 PM
  */
 
-#include "AsyncSerial.h"
-
 #ifndef BUFFEREDASYNCSERIAL_H
 #define	BUFFEREDASYNCSERIAL_H
+
+#include "AsyncSerial.h"
 
 class BufferedAsyncSerial: public AsyncSerial
 {

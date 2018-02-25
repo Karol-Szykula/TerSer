@@ -102,8 +102,8 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	FlexGridSizer1->Add(Panel6, 1, wxALL|wxEXPAND, 0);
 	BoxSizer6->Add(FlexGridSizer1, 1, wxALL|wxEXPAND, 5);
 	BoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
-	Panel7 = new TabPanel(Panel1, ID_PANEL7, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL7"));
-	BoxSizer10->Add(Panel7, 1, wxALL|wxEXPAND, 0);
+	tabPanel = new TabPanel(Panel1, ID_PANEL7, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL7"));
+	BoxSizer10->Add(tabPanel, 1, wxALL|wxEXPAND, 0);
 	BoxSizer6->Add(BoxSizer10, 1, wxALL|wxEXPAND, 5);
 	BoxSizer4->Add(BoxSizer6, 2, wxALL|wxEXPAND, 0);
 	BoxSizer2->Add(BoxSizer4, 7, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND, 0);
@@ -136,12 +136,12 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	BoxSizer1->SetSizeHints(this);
 	Center();
 
-	Panel6->Connect(wxEVT_PAINT,(wxObjectEventFunction)&TerSerUI::OnPanel6Paint,0,this);
 	Connect(ID_TOOLBARITEM1,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&TerSerUI::OnButtonConnectClick);
 	Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&TerSerUI::OnQuit);
 	Connect(ID_MENUITEM3,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&TerSerUI::OnMenuSettingsConnectionClicked);
 	Connect(ID_MENUITEM2,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&TerSerUI::OnAbout);
 	//*)
+
 }
 
 TerSerUI::~TerSerUI()

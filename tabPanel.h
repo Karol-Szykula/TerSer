@@ -2,6 +2,8 @@
 #define TABPANEL_H
 
 #include <string>
+#include <boost/weak_ptr.hpp>
+
 
 //(*Headers(TabPanel)
 #include <wx/notebook.h>
@@ -22,6 +24,8 @@ class TabPanel: public wxPanel
 		void appendReceivedTextToTerminal(std::string inText);
 
 	private:
+
+	    void OnTerminalSendTextEnter(wxCommandEvent& event);
 
 	    wxWindow * m_parent;
 
