@@ -1,6 +1,5 @@
 Application to communication with devices connected to a PC through serial connection. MIT license.
 
-
 COMPILATION
 ===========
 Needs Code::Blocks,
