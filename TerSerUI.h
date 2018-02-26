@@ -9,18 +9,19 @@
 #include <wx/toolbar.h>
 //*)
 
+#include <wx/timer.h>
+#include <vector>
+
+#include "headers/terSerLogic.h"
+
 #include "connectionStatusPanel.h"
 #include "tabPanel.h"
 #include "devicePanel.h"
 #include "deviceControlPanel.h"
 #include "serverStatusPanel.h"
-
-#include <wx/timer.h>
-#include <vector>
-
 #include "ConnectionSettingsFrame.h"
-#include "bufferedasyncserial/BufferedAsyncSerial.h"
-#include "bufferedasyncserial/serialoptions.h"
+
+#include <boost/shared_ptr.hpp>
 
 class TerSerUI: public wxFrame
 {
@@ -48,15 +49,17 @@ class TerSerUI: public wxFrame
 		*/
         ConnectionSettingsFrame * m_connectionSettingsFrame;	// frame for connection settings
 
+        TerSerLogic terSerLogic;
+
 
 //==========================================================================
 //==========================================================================
 
 		//(*Declarations(TerSerUI)
-		ConnectionStatusPanel* Panel2;
-		DeviceControlPanel* Panel6;
-		DevicePanel* Panel5;
-		ServerStatusPanel* Panel3;
+		ConnectionStatusPanel* connectionStatusPanel;
+		DeviceControlPanel* deviceControlPanel;
+		DevicePanel* devicePanel;
+		ServerStatusPanel* serverStatusPanel;
 		TabPanel* tabPanel;
 		wxFlexGridSizer* FlexGridSizer1;
 		wxMenu* Menu1;
