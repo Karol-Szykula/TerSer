@@ -156,60 +156,19 @@ TerSerUI::~TerSerUI()
 
 
 void TerSerUI::OnMenuSettingsConnectionClicked(wxCommandEvent& event)
-{/*
+{
 	m_connectionSettingsFrame = new ConnectionSettingsFrame(this, ID_CONSETFRAME);
-	m_connectionSettingsFrame->setSerialOptions(this->getSerialOptions());
+	m_connectionSettingsFrame->setSerialOptions(terSerLogic.getSerialOptions());
 	m_connectionSettingsFrame->setRelative(this);
 	m_connectionSettingsFrame->SetTitle(wxT("Connection settings"));
 	m_connectionSettingsFrame->Show(true);
-*/
+
 }
 
 
 void TerSerUI::OnButtonConnectClick(wxCommandEvent& event)
-{/*
-
-	if(m_serialConnection.isOpen() == false)
-	{
-		try{
-
-		m_serialConnection.open(m_serialOptions.getPortName(), m_serialOptions.getBaudRate(), m_serialOptions.getParity(),
-							m_serialOptions.getDataBits(), m_serialOptions.getFlowControl(), m_serialOptions.getStopBits());
-		}catch(boost::system::system_error& e)
-		{
-		    std::string err(e.what());
-		}
-
-		if(m_serialConnection.isOpen() == true)   // if serial connection opened
-		{
-			m_serialReadTimer.Start(30, wxTIMER_CONTINUOUS);
-			//!\todo LabelConnectionStatus has to be changed to a label in connectionStatusPanel
-			//LabelConnectionStatus->SetLabel(wxT("CONNECTED"));
-		}else if(m_serialConnection.isOpen() == false)    // if serial connection failed to open
-		{
-		    wxMessageDialog *dial = new wxMessageDialog(this,
-                                                  wxT("Cannot connect to specified port"),
-                                                  wxT("Error"), wxOK | wxICON_ERROR);
-            dial->ShowWindowModal();
-		}
-
-	}else if(m_serialConnection.isOpen() == true)
-	{
-		try{
-
-		m_serialConnection.close();
-
-		}catch(boost::system::system_error& e)
-		{}
-
-		if(m_serialConnection.isOpen() == false)
-		{
-			m_serialReadTimer.Stop();
-            //!\todo LabelConnectionStatus has to be changed to a label in connectionStatusPanel
-			//LabelConnectionStatus->SetLabel(wxT("DISCONNECTED"));
-		}
-	}
-	*/
+{
+    terSerLogic.connectToSerial();
 }
 
 
@@ -217,7 +176,6 @@ void TerSerUI::OnAbout(wxCommandEvent& event)
 {
     wxString label = _("Author: ");
 	label += "Karol Szykula";
-    //wxString msg = wxT("Author: ");
 
     wxMessageBox(label, _("About"));
 }
