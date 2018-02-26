@@ -4,8 +4,8 @@
 
 TerSerLogic::TerSerLogic()
 {
-    //m_serialReadTimer.SetOwner( this );
-	//this->Connect( m_serialReadTimer.GetId(), wxEVT_TIMER, wxTimerEventHandler( TerSerLogic::OnTimerSerialRead ), NULL, this );
+    m_serialReadTimer.SetOwner( this );
+	this->Connect( m_serialReadTimer.GetId(), wxEVT_TIMER, wxTimerEventHandler( TerSerLogic::OnTimerSerialRead ), NULL, this );
 }
 TerSerLogic::~TerSerLogic() {}
 
@@ -30,7 +30,7 @@ SerialOptions TerSerLogic::getSerialOptions()
 }
 
 void TerSerLogic::connectToSerial()
-{/*
+{
     if(m_serialConnection.isOpen() == false)
 	{
 		try{
@@ -68,7 +68,7 @@ void TerSerLogic::connectToSerial()
 			//LabelConnectionStatus->SetLabel(wxT("DISCONNECTED"));
 		}
 	}
-	*/
+
 }
 
 void TerSerLogic::disconnectFromSerial()

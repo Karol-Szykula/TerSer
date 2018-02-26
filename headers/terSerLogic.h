@@ -15,7 +15,7 @@
 #include <boost/shared_ptr.hpp>
 
 
-class TerSerLogic //: public wxEvtHandler
+class TerSerLogic : public wxEvtHandler
 {
 public:
         TerSerLogic();
