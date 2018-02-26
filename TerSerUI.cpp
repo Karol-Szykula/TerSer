@@ -144,6 +144,7 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	terSerLogic.setRelativeDevicePanel(devicePanel);
 	terSerLogic.setRelativeDeviceControlPanel(deviceControlPanel);
 	terSerLogic.setRelativeServerStatusPanel(serverStatusPanel);
+	terSerLogic.setRelativeConnectionStatusPanel(connectionStatusPanel);
 
 }
 
