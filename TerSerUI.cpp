@@ -57,8 +57,6 @@ END_EVENT_TABLE()
 
 TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 {
-    m_serialReadTimer.SetOwner( this );
-	this->Connect( m_serialReadTimer.GetId(), wxEVT_TIMER, wxTimerEventHandler( TerSerUI::OnTimerSerialRead ), NULL, this );
 	this->Center();
 
 
@@ -151,40 +149,19 @@ TerSerUI::~TerSerUI()
 }
 
 
-void TerSerUI::OnPanel6Paint(wxPaintEvent& event)
-{
-}
-
 void TerSerUI::OnMenuSettingsConnectionClicked(wxCommandEvent& event)
-{
+{/*
 	m_connectionSettingsFrame = new ConnectionSettingsFrame(this, ID_CONSETFRAME);
 	m_connectionSettingsFrame->setSerialOptions(this->getSerialOptions());
 	m_connectionSettingsFrame->setRelative(this);
 	m_connectionSettingsFrame->SetTitle(wxT("Connection settings"));
 	m_connectionSettingsFrame->Show(true);
-
-	//ConnectionSettingsFrame * connectionSettingsFrameDebug;
-	//wxWindowID ID_CONSETFRAMEDEBUG;
-	//connectionSettingsFrameDebug = new ConnectionSettingsFrame(this, ID_CONSETFRAMEDEBUG);
-	//connectionSettingsFrameDebug->setRelative(this);
-	//connectionSettingsFrameDebug->Show(true);
+*/
 }
 
-void TerSerUI::setSerialOptions(SerialOptions newSerialOptions)
-{
-	m_serialOptions = newSerialOptions;
-	//m_serialOptions = connectionSettingsFrame->getSerialOptions();
-	//connectionSettingsFrame->setSerialOptions(m_serialOptions);
-	//connectionSettingsFrameDebug->setSerialOptions(m_serialOptions);
-}
-
-SerialOptions TerSerUI::getSerialOptions()
-{
-	return m_serialOptions;
-}
 
 void TerSerUI::OnButtonConnectClick(wxCommandEvent& event)
-{
+{/*
 
 	if(m_serialConnection.isOpen() == false)
 	{
@@ -226,16 +203,7 @@ void TerSerUI::OnButtonConnectClick(wxCommandEvent& event)
 			//LabelConnectionStatus->SetLabel(wxT("DISCONNECTED"));
 		}
 	}
-}
-
-void TerSerUI::OnTimerSerialRead(wxTimerEvent  & event)
-{
-	if(m_serialConnection.isOpen() == true)
-	{
-		m_serialReceived = m_serialConnection.readString();
-		//! \todo TerminalTextCtrlWidget has to be changed to a textCtrlWidget to a parser object
-		//TerminalTextCtrlWidget->AppendText(serialReceived);
-	}
+	*/
 }
 
 
@@ -252,24 +220,5 @@ void TerSerUI::OnQuit(wxCommandEvent& event)
 {
     this->Close();
 }
-
-
-bool TerSerUI::isSerialOpen()
-{
-    return m_serialConnection.isOpen();
-}
-
-void TerSerUI::stopSerialReadTimer()
-{
-    m_serialReadTimer.Stop();
-}
-
-void TerSerUI::startSerialReadTimer()
-{
-    m_serialReadTimer.Start();
-}
-
-
-
 
 
