@@ -14,6 +14,11 @@
 #include "../bufferedasyncserial/serialoptions.h"
 #include <boost/shared_ptr.hpp>
 
+#include "../tabPanel.h"
+#include "../devicePanel.h"
+#include "../deviceControlPanel.h"
+#include "../serverStatusPanel.h"
+
 
 class TerSerLogic : public wxEvtHandler
 {
@@ -37,7 +42,13 @@ public:
 
         void disconnectFromSerial();
 
-        void setRelativeMainFrame(boost::shared_ptr<wxFrame* > mainFrame);
+        void setRelativeTabPanel(boost::shared_ptr<TabPanel* > newPtrTabPanel);
+
+        void setRelativeDevicePanel(boost::shared_ptr<DevicePanel* > newPtrDeviceControlPanel);
+
+        void setRelativeDeviceControlPanel(boost::shared_ptr<DeviceControlPanel* > newPtrDeviceControlPanel);
+
+        void setRelativeServerStatusPanel(boost::shared_ptr<ServerStatusPanel* > newPtrServerStatusPanel);
 
 private:
 
@@ -80,7 +91,13 @@ private:
 		//! An object which stores serial device options.
 		SerialOptions m_serialOptions;
 
-		boost::shared_ptr<wxFrame* > ptrMainFrame;
+		boost::shared_ptr<TabPanel* > ptrTabPanel;
+
+		boost::shared_ptr<DevicePanel* > ptrDevicePanel;
+
+		boost::shared_ptr<DeviceControlPanel* > ptrDeviceControlPanel;
+
+		boost::shared_ptr<ServerStatusPanel* > ptrServerStatusPanel;
 
 };
 

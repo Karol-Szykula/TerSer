@@ -76,11 +76,26 @@ void TerSerLogic::disconnectFromSerial()
     connectToSerial();
 }
 
-void TerSerLogic::setRelativeMainFrame(boost::shared_ptr<wxFrame* > mainFrame)
+void TerSerLogic::setRelativeTabPanel(boost::shared_ptr<TabPanel* > newPtrTabPanel)
 {
-    ptrMainFrame = mainFrame;
+    ptrTabPanel = newPtrTabPanel;
 }
 
+void TerSerLogic::setRelativeDevicePanel(boost::shared_ptr<DevicePanel* > newPtrDeviceControlPanel)
+{
+    ptrDevicePanel = newPtrDeviceControlPanel;
+
+}
+
+void TerSerLogic::setRelativeDeviceControlPanel(boost::shared_ptr<DeviceControlPanel* > newPtrDeviceControlPanel)
+{
+    ptrDeviceControlPanel = newPtrDeviceControlPanel;
+}
+
+void TerSerLogic::setRelativeServerStatusPanel(boost::shared_ptr<ServerStatusPanel* > newPtrServerStatusPanel)
+{
+    ptrServerStatusPanel = newPtrServerStatusPanel;
+}
 
 
 
