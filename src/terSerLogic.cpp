@@ -1,6 +1,6 @@
 #include "../headers/terSerLogic.h"
 
-#include <wx/msgdlg.h>
+
 
 TerSerLogic::TerSerLogic()
 {

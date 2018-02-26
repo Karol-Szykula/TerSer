@@ -1,12 +1,19 @@
 #ifndef TERSERLOGIC_H
 #define TERSERLOGIC_H
 
-#include <boost/shared_ptr.hpp>
 #include <wx/timer.h>
 #include <vector>
 
+#include <wx/msgdlg.h>
+
+#ifdef _WIN32
+    #include <winsock2.h> // include for boost::asio in asyncserial
+#endif
+
 #include "../bufferedasyncserial/BufferedAsyncSerial.h"
 #include "../bufferedasyncserial/serialoptions.h"
+#include <boost/shared_ptr.hpp>
+
 
 class TerSerLogic //: public wxEvtHandler
 {

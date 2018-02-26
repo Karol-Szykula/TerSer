@@ -16,9 +16,7 @@
 
 #include <wx/app.h>
 
-#ifdef _WIN32
-    #include <winsock2.h> // include for boost::asio in asyncserial
-#endif
+
 
 //!  A main application class, based on wxApp wxWidgets class.
 /*!
