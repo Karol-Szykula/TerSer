@@ -50,6 +50,14 @@ public:
 
         void setRelativeServerStatusPanel(boost::shared_ptr<ServerStatusPanel* > newPtrServerStatusPanel);
 
+        bool isSerialConnectionOpen();
+
+        //! A public function, it stops the serial read timer.
+        void stopSerialReadTimer();
+
+        //! A public function, it starts the serial read timer.
+        void startSerialReadTimer();
+
 private:
 
         //! A private member function, callback function for the AsyncSerial library.
@@ -70,12 +78,6 @@ private:
 			\return bool type.
         */
         bool isSerialOpen();
-
-        //! A private function, it stops the serial read timer.
-        void stopSerialReadTimer();
-
-        //! A private function, it starts the serial read timer.
-        void startSerialReadTimer();
 
 
 

@@ -84,7 +84,6 @@ void TerSerLogic::setRelativeTabPanel(boost::shared_ptr<TabPanel* > newPtrTabPan
 void TerSerLogic::setRelativeDevicePanel(boost::shared_ptr<DevicePanel* > newPtrDeviceControlPanel)
 {
     ptrDevicePanel = newPtrDeviceControlPanel;
-
 }
 
 void TerSerLogic::setRelativeDeviceControlPanel(boost::shared_ptr<DeviceControlPanel* > newPtrDeviceControlPanel)
@@ -97,6 +96,10 @@ void TerSerLogic::setRelativeServerStatusPanel(boost::shared_ptr<ServerStatusPan
     ptrServerStatusPanel = newPtrServerStatusPanel;
 }
 
+bool TerSerLogic::isSerialConnectionOpen()
+{
+    return m_serialConnection.isOpen();
+}
 
 
 
