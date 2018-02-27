@@ -40,6 +40,11 @@ void TerSerLogic::connectToSerial()
 		}catch(boost::system::system_error& e)
 		{
 		    std::string err(e.what());
+
+		    wxMessageDialog *dial = new wxMessageDialog(NULL,
+                                                  wxT("Cannot connect to specified port"),
+                                                  wxT("Error"), wxOK | wxICON_ERROR);
+            dial->ShowWindowModal();
 		}
 
 		if(m_serialConnection.isOpen() == true)   // if serial connection opened
@@ -47,9 +52,6 @@ void TerSerLogic::connectToSerial()
 			m_serialReadTimer.Start(30, wxTIMER_CONTINUOUS);
 			//!\todo LabelConnectionStatus has to be changed to a label in connectionStatusPanel
 			//LabelConnectionStatus->SetLabel(wxT("CONNECTED"));
-		}else if(m_serialConnection.isOpen() == false)    // if serial connection failed to open
-		{
-
 		}
 
 	}else if(m_serialConnection.isOpen() == true)
@@ -76,24 +78,29 @@ void TerSerLogic::disconnectFromSerial()
     connectToSerial();
 }
 
-void TerSerLogic::setRelativeTabPanel(boost::shared_ptr<TabPanel* > newPtrTabPanel)
+void TerSerLogic::setRelativeTabPanel(TabPanel* newPtrTabPanel)
 {
     ptrTabPanel = newPtrTabPanel;
 }
 
-void TerSerLogic::setRelativeDevicePanel(boost::shared_ptr<DevicePanel* > newPtrDeviceControlPanel)
+void TerSerLogic::setRelativeDevicePanel(DevicePanel* newPtrDeviceControlPanel)
 {
     ptrDevicePanel = newPtrDeviceControlPanel;
 }
 
-void TerSerLogic::setRelativeDeviceControlPanel(boost::shared_ptr<DeviceControlPanel* > newPtrDeviceControlPanel)
+void TerSerLogic::setRelativeDeviceControlPanel(DeviceControlPanel* newPtrDeviceControlPanel)
 {
     ptrDeviceControlPanel = newPtrDeviceControlPanel;
 }
 
-void TerSerLogic::setRelativeServerStatusPanel(boost::shared_ptr<ServerStatusPanel* > newPtrServerStatusPanel)
+void TerSerLogic::setRelativeServerStatusPanel(ServerStatusPanel* newPtrServerStatusPanel)
 {
     ptrServerStatusPanel = newPtrServerStatusPanel;
+}
+
+void TerSerLogic::setRelativeConnectionStatusPanel(ConnectionStatusPanel * newPtrConnectionStatusPanel)
+{
+    ptrConnectionStatusPanel = newPtrConnectionStatusPanel;
 }
 
 bool TerSerLogic::isSerialConnectionOpen()
