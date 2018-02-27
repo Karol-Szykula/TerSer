@@ -25,8 +25,6 @@ class TabPanel: public wxPanel
 
 	private:
 
-	    void OnTerminalSendTextEnter(wxCommandEvent& event);
-
 	    wxWindow * m_parent;
 
 		//(*Declarations(TabPanel)

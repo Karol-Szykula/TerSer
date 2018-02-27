@@ -66,28 +66,3 @@ void TabPanel::appendReceivedTextToTerminal(std::string inText)
     terminalTextWidget->AppendText(inText);
 }
 
-void TabPanel::OnTerminalSendTextEnter(wxCommandEvent& event)
-{
-	wxString enteredText = "";
-    enteredText = sendTextWidget->GetValue();	//get text from user
-    sendTextWidget->Clear();			// clear input widget
-
-
-	if(serialConnection.isOpen() == true)
-		{
-
-			std::string enteredSTDStr = enteredText.ToStdString();
-			enteredSTDStr += "\r\n";
-
-			SerialReadTimer.Stop();
-			serialConnection.writeString(enteredSTDStr);
-			SerialReadTimer.Start(true);
-
-			terminalTextWidget->AppendText("<<<");				// add direction sign
-			terminalTextWidget->AppendText(enteredSTDStr);    // append the text to the message window
-			//terminalTextWidget->AppendText("\n");
-		}
-
-
-}
-
