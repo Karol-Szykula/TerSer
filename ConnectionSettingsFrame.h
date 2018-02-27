@@ -14,6 +14,7 @@
 //*)
 
 #include "bufferedasyncserial/serialoptions.h"
+#include "headers/terSerLogic.h"
 
 class terFrame;
 
@@ -24,7 +25,7 @@ class ConnectionSettingsFrame: public wxFrame
 		ConnectionSettingsFrame(wxWindow* parent,wxWindowID id=wxID_ANY);
 		virtual ~ConnectionSettingsFrame();
 
-		void setRelative(wxFrame * parent);
+		void setRelativeTerSerLogic(TerSerLogic * newTerSerLogic);
 		void setSerialOptions(SerialOptions newSerialOptions);
 
 
@@ -138,7 +139,7 @@ class ConnectionSettingsFrame: public wxFrame
         void saveStopBitsFromWidget();
         void saveFlowControlFromWidget();
 
-		wxFrame * parentFrame;
+		TerSerLogic * terSerLogicRelative;
 		SerialOptions serialOptions;
 
 		DECLARE_EVENT_TABLE()
