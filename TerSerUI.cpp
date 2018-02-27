@@ -159,7 +159,7 @@ void TerSerUI::OnMenuSettingsConnectionClicked(wxCommandEvent& event)
 {
 	m_connectionSettingsFrame = new ConnectionSettingsFrame(this, ID_CONSETFRAME);
 	m_connectionSettingsFrame->setSerialOptions(terSerLogic.getSerialOptions());
-	m_connectionSettingsFrame->setRelative(this);
+	m_connectionSettingsFrame->setRelativeTerSerLogic(&terSerLogic);
 	m_connectionSettingsFrame->SetTitle(wxT("Connection settings"));
 	m_connectionSettingsFrame->Show(true);
 
