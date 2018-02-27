@@ -99,6 +99,7 @@
 		<Unit filename="deviceControlPanel.h" />
 		<Unit filename="devicePanel.cpp" />
 		<Unit filename="devicePanel.h" />
+		<Unit filename="headers/terSerLogic.h" />
 		<Unit filename="images/properties.h" />
 		<Unit filename="images/quit.h" />
 		<Unit filename="resource.rc">
@@ -106,6 +107,7 @@
 		</Unit>
 		<Unit filename="serverStatusPanel.cpp" />
 		<Unit filename="serverStatusPanel.h" />
+		<Unit filename="src/terSerLogic.cpp" />
 		<Unit filename="tabPanel.cpp" />
 		<Unit filename="tabPanel.h" />
 		<Unit filename="terApp.cpp" />
