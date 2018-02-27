@@ -19,6 +19,7 @@
 					<Add option="-fno-keep-inline-dllexport" />
 					<Add option="-pthread" />
 					<Add option="-Wno-strict-aliasing" />
+					<Add option="-DWIN32_LEAN_AND_MEAN" />
 					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
 					<Add directory="$(WXWIN)/lib/gcc_lib" />
 					<Add directory="$(BOOST)" />
@@ -112,8 +113,6 @@
 		<Unit filename="tabPanel.h" />
 		<Unit filename="terApp.cpp" />
 		<Unit filename="terApp.h" />
-		<Unit filename="terMain.cpp" />
-		<Unit filename="terMain.h" />
 		<Unit filename="wxsmith/ConnectionSettingsFrame.wxs" />
 		<Unit filename="wxsmith/ConnectionStatusPanel.wxs" />
 		<Unit filename="wxsmith/DeviceControlPanel.wxs" />
