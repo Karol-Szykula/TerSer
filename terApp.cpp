@@ -11,9 +11,7 @@
 #include "TerSerUI.h"
 
 
-
 //(*AppHeaders
-#include "terMain.h"
 #include <wx/image.h>
 //*)
 
