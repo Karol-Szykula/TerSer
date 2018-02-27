@@ -1,5 +1,5 @@
 #include "ConnectionSettingsFrame.h"
-#include "terMain.h"
+
 
 //(*InternalHeaders(ConnectionSettingsFrame)
 #include <wx/intl.h>
@@ -257,8 +257,10 @@ ConnectionSettingsFrame::~ConnectionSettingsFrame()
 void ConnectionSettingsFrame::OnConnectionSettingsOkButtonClick(wxCommandEvent& event)
 {
 	saveValuesFromWindow();
-	//! \todo parentFrame has to be changed to a TerSerUI frame
-    //parentFrame->setSerialOptions(serialOptions);
+
+	if(terSerLogicRelative != NULL)
+        terSerLogicRelative->setSerialOptions(this->getSerialOptions());
+
 	this->Close(true);
 }
 
@@ -268,10 +270,10 @@ void ConnectionSettingsFrame::OnConnectionSettingsCancelButtonClick(wxCommandEve
 	this->Close(true);
 }
 
-void ConnectionSettingsFrame::setRelative(wxFrame * parent)
+void ConnectionSettingsFrame::setRelativeTerSerLogic(TerSerLogic * newTerSerLogic)
 {
-	if(parent != NULL);
-		parentFrame = parent;
+	if(newTerSerLogic != NULL)
+		terSerLogicRelative = newTerSerLogic;
 }
 
 void ConnectionSettingsFrame::setSerialOptions(SerialOptions newSerialOptions)
@@ -318,7 +320,7 @@ void ConnectionSettingsFrame::updatePortNameOnWidget()
 	ConnectionSettingsPortNameWidget->AppendText(serialOptions.getPortName());
 }
 
-/// @TODO write choosing of option with some sort of enum class
+//! \todo write choosing of option with some sort of enum class
 void ConnectionSettingsFrame::updateBaudRateOnWidget()
 {
 	switch(serialOptions.getBaudRate())
