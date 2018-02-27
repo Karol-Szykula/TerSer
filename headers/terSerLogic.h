@@ -14,6 +14,7 @@
 #include "../bufferedasyncserial/serialoptions.h"
 #include <boost/shared_ptr.hpp>
 
+#include "../connectionStatusPanel.h"
 #include "../tabPanel.h"
 #include "../devicePanel.h"
 #include "../deviceControlPanel.h"
@@ -42,13 +43,15 @@ public:
 
         void disconnectFromSerial();
 
-        void setRelativeTabPanel(boost::shared_ptr<TabPanel* > newPtrTabPanel);
+        void setRelativeTabPanel(TabPanel* newPtrTabPanel);
 
-        void setRelativeDevicePanel(boost::shared_ptr<DevicePanel* > newPtrDeviceControlPanel);
+        void setRelativeDevicePanel(DevicePanel* newPtrDeviceControlPanel);
 
-        void setRelativeDeviceControlPanel(boost::shared_ptr<DeviceControlPanel* > newPtrDeviceControlPanel);
+        void setRelativeDeviceControlPanel(DeviceControlPanel* newPtrDeviceControlPanel);
 
-        void setRelativeServerStatusPanel(boost::shared_ptr<ServerStatusPanel* > newPtrServerStatusPanel);
+        void setRelativeServerStatusPanel(ServerStatusPanel* newPtrServerStatusPanel);
+
+        void setRelativeConnectionStatusPanel(ConnectionStatusPanel * newPtrConnectionStatusPanel);
 
         bool isSerialConnectionOpen();
 
@@ -93,13 +96,15 @@ private:
 		//! An object which stores serial device options.
 		SerialOptions m_serialOptions;
 
-		boost::shared_ptr<TabPanel* > ptrTabPanel;
+		TabPanel* ptrTabPanel;
 
-		boost::shared_ptr<DevicePanel* > ptrDevicePanel;
+		DevicePanel* ptrDevicePanel;
 
-		boost::shared_ptr<DeviceControlPanel* > ptrDeviceControlPanel;
+		DeviceControlPanel* ptrDeviceControlPanel;
 
-		boost::shared_ptr<ServerStatusPanel* > ptrServerStatusPanel;
+		ServerStatusPanel* ptrServerStatusPanel;
+
+		ConnectionStatusPanel * ptrConnectionStatusPanel;
 
 };
 
