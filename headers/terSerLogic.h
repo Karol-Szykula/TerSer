@@ -43,6 +43,17 @@ public:
 
         void disconnectFromSerial();
 
+        bool isSerialConnectionOpen();
+
+        //! A public function, it stops the serial read timer.
+        void stopSerialReadTimer();
+
+        //! A public function, it starts the serial read timer.
+        void startSerialReadTimer();
+
+        void writeStringToSerial(std::string inText);
+
+
         void setRelativeTabPanel(TabPanel* newPtrTabPanel);
 
         void setRelativeDevicePanel(DevicePanel* newPtrDeviceControlPanel);
@@ -52,14 +63,6 @@ public:
         void setRelativeServerStatusPanel(ServerStatusPanel* newPtrServerStatusPanel);
 
         void setRelativeConnectionStatusPanel(ConnectionStatusPanel * newPtrConnectionStatusPanel);
-
-        bool isSerialConnectionOpen();
-
-        //! A public function, it stops the serial read timer.
-        void stopSerialReadTimer();
-
-        //! A public function, it starts the serial read timer.
-        void startSerialReadTimer();
 
 private:
 

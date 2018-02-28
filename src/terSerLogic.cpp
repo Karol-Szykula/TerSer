@@ -108,6 +108,19 @@ bool TerSerLogic::isSerialConnectionOpen()
     return m_serialConnection.isOpen();
 }
 
+void TerSerLogic::writeStringToSerial(std::string inText)
+{
+    m_serialConnection.writeString(inText);
+}
 
+void TerSerLogic::stopSerialReadTimer()
+{
+    m_serialReadTimer.Stop();
+}
+
+void TerSerLogic::startSerialReadTimer()
+{
+    m_serialReadTimer.Start();
+}
 
 
