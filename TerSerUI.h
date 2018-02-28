@@ -32,6 +32,8 @@ class TerSerUI: public wxFrame
 
 	private:
 
+	    void OnTerminalSendTextEnter(wxCommandEvent& event);
+
 		//! An id variable for connection settings frame.
         wxWindowID ID_CONSETFRAME;
 
@@ -70,6 +72,7 @@ class TerSerUI: public wxFrame
 		wxMenuItem* Menu2;
 		wxMenuItem* MenuItem1;
 		wxMenuItem* MenuItem2;
+		wxMenuItem* MenuItem3;
 		wxPanel* Panel1;
 		wxToolBar* ToolBar1;
 		wxToolBarToolBase* ToolBarItem1;
@@ -85,6 +88,7 @@ class TerSerUI: public wxFrame
 		static const long ID_TOOLBARITEM1;
 		static const long ID_TOOLBAR1;
 		static const long ID_MENUITEM1;
+		static const long ID_MENUITEM4;
 		static const long ID_MENUITEM3;
 		static const long ID_MENUITEM2;
 		//*)
@@ -94,6 +98,7 @@ class TerSerUI: public wxFrame
 		void OnButtonConnectClick(wxCommandEvent& event);
 		void OnMenuSettingsConnectionClicked(wxCommandEvent& event);
 		void OnQuit(wxCommandEvent& event);
+		void OnMenuViewTerminalClicked(wxCommandEvent& event);
 		//*)
 
 		DECLARE_EVENT_TABLE()

@@ -46,6 +46,7 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 const long TerSerUI::ID_TOOLBARITEM1 = wxNewId();
 const long TerSerUI::ID_TOOLBAR1 = wxNewId();
 const long TerSerUI::ID_MENUITEM1 = wxNewId();
+const long TerSerUI::ID_MENUITEM4 = wxNewId();
 const long TerSerUI::ID_MENUITEM3 = wxNewId();
 const long TerSerUI::ID_MENUITEM2 = wxNewId();
 //*)
@@ -57,8 +58,6 @@ END_EVENT_TABLE()
 
 TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 {
-	this->Center();
-
 	//(*Initialize(TerSerUI)
 	wxBoxSizer* BoxSizer10;
 	wxBoxSizer* BoxSizer1;
@@ -66,9 +65,9 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	wxBoxSizer* BoxSizer3;
 	wxBoxSizer* BoxSizer4;
 	wxBoxSizer* BoxSizer5;
-	wxBoxSizer* BoxSizer6;
 	wxBoxSizer* BoxSizer7;
 	wxBoxSizer* BoxSizer8;
+	wxBoxSizer* deviceControlSizer;
 
 	Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
 	BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
@@ -91,18 +90,18 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	devicePanel = new DevicePanel(Panel1, ID_PANEL5, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL5"));
 	BoxSizer5->Add(devicePanel, 1, wxALL|wxEXPAND, 0);
 	BoxSizer4->Add(BoxSizer5, 1, wxALL|wxEXPAND, 5);
-	BoxSizer6 = new wxBoxSizer(wxVERTICAL);
+	deviceControlSizer = new wxBoxSizer(wxVERTICAL);
 	FlexGridSizer1 = new wxFlexGridSizer(0, 0, 0, 0);
 	FlexGridSizer1->AddGrowableCol(0);
 	FlexGridSizer1->AddGrowableRow(0);
 	deviceControlPanel = new DeviceControlPanel(Panel1, ID_PANEL6, wxDefaultPosition, wxSize(161,123), wxTAB_TRAVERSAL, _T("ID_PANEL6"));
 	FlexGridSizer1->Add(deviceControlPanel, 1, wxALL|wxEXPAND, 0);
-	BoxSizer6->Add(FlexGridSizer1, 1, wxALL|wxEXPAND, 5);
+	deviceControlSizer->Add(FlexGridSizer1, 1, wxALL|wxEXPAND, 5);
 	BoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
 	tabPanel = new TabPanel(Panel1, ID_PANEL7, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL7"));
 	BoxSizer10->Add(tabPanel, 1, wxALL|wxEXPAND, 0);
-	BoxSizer6->Add(BoxSizer10, 1, wxALL|wxEXPAND, 5);
-	BoxSizer4->Add(BoxSizer6, 2, wxALL|wxEXPAND, 0);
+	deviceControlSizer->Add(BoxSizer10, 1, wxALL|wxEXPAND, 5);
+	BoxSizer4->Add(deviceControlSizer, 2, wxALL|wxEXPAND, 0);
 	BoxSizer2->Add(BoxSizer4, 7, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND, 0);
 	Panel1->SetSizer(BoxSizer2);
 	BoxSizer2->Fit(Panel1);
@@ -119,6 +118,8 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 	Menu1->Append(Menu2);
 	MenuBar1->Append(Menu1, _("File"));
 	Menu5 = new wxMenu();
+	MenuItem3 = new wxMenuItem(Menu5, ID_MENUITEM4, _("Terminal"), wxEmptyString, wxITEM_CHECK);
+	Menu5->Append(MenuItem3);
 	MenuBar1->Append(Menu5, _("View"));
 	Menu3 = new wxMenu();
 	MenuItem2 = new wxMenuItem(Menu3, ID_MENUITEM3, _("Connection"), wxEmptyString, wxITEM_NORMAL);
@@ -135,16 +136,24 @@ TerSerUI::TerSerUI(wxWindow* parent, wxWindowID  id)
 
 	Connect(ID_TOOLBARITEM1,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&TerSerUI::OnButtonConnectClick);
 	Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&TerSerUI::OnQuit);
+	Connect(ID_MENUITEM4,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&TerSerUI::OnMenuViewTerminalClicked);
 	Connect(ID_MENUITEM3,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&TerSerUI::OnMenuSettingsConnectionClicked);
 	Connect(ID_MENUITEM2,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&TerSerUI::OnAbout);
 	//*)
 
+	this->Center();
 
 	terSerLogic.setRelativeTabPanel(tabPanel);
+
 	terSerLogic.setRelativeDevicePanel(devicePanel);
+
 	terSerLogic.setRelativeDeviceControlPanel(deviceControlPanel);
+
 	terSerLogic.setRelativeServerStatusPanel(serverStatusPanel);
+
 	terSerLogic.setRelativeConnectionStatusPanel(connectionStatusPanel);
+
+	tabPanel->Bind(wxEVT_TEXT_ENTER, &TerSerUI::OnTerminalSendTextEnter, this);
 
 }
 
@@ -158,9 +167,13 @@ TerSerUI::~TerSerUI()
 void TerSerUI::OnMenuSettingsConnectionClicked(wxCommandEvent& event)
 {
 	m_connectionSettingsFrame = new ConnectionSettingsFrame(this, ID_CONSETFRAME);
+
 	m_connectionSettingsFrame->setSerialOptions(terSerLogic.getSerialOptions());
+
 	m_connectionSettingsFrame->setRelativeTerSerLogic(&terSerLogic);
+
 	m_connectionSettingsFrame->SetTitle(wxT("Connection settings"));
+
 	m_connectionSettingsFrame->Show(true);
 
 }
@@ -184,5 +197,34 @@ void TerSerUI::OnQuit(wxCommandEvent& event)
 {
     this->Close();
 }
+
+void TerSerUI::OnTerminalSendTextEnter(wxCommandEvent& event)
+{
+    std::string enteredText = tabPanel->getTextFromSendWidget(); //get text from user
+
+	if(terSerLogic.isSerialConnectionOpen())
+    {
+        enteredText += "\r\n";
+
+        terSerLogic.stopSerialReadTimer();
+        terSerLogic.writeStringToSerial(enteredText);
+        terSerLogic.startSerialReadTimer();
+
+        tabPanel->appendTextToTerminal("<<<");          // add direction sign
+        tabPanel->appendTextToTerminal(enteredText);    // append the text to the message window
+    }
+}
+
+
+void TerSerUI::OnMenuViewTerminalClicked(wxCommandEvent& event)
+{
+    if(tabPanel->IsShown())
+        tabPanel->Hide();
+    else
+        tabPanel->Show();
+
+    this->GetSizer()->Layout();
+}
+
 
 
