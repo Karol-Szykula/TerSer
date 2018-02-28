@@ -6,6 +6,7 @@
 
 
 //(*Headers(TabPanel)
+#include <wx/button.h>
 #include <wx/notebook.h>
 #include <wx/panel.h>
 #include <wx/sizer.h>
@@ -21,13 +22,16 @@ class TabPanel: public wxPanel
                 long style, const wxString& name);
 		virtual ~TabPanel();
 
-		void appendReceivedTextToTerminal(std::string inText);
+		void appendTextToTerminal(std::string inText);
+
+		std::string getTextFromSendWidget();
 
 	private:
 
 	    wxWindow * m_parent;
 
 		//(*Declarations(TabPanel)
+		wxButton* Button1;
 		wxNotebook* Notebook1;
 		wxPanel* Panel1;
 		wxStaticText* StaticText1;
@@ -38,6 +42,7 @@ class TabPanel: public wxPanel
 		//(*Identifiers(TabPanel)
 		static const long ID_STATICTEXT1;
 		static const long ID_TEXTCTRL1;
+		static const long ID_BUTTON1;
 		static const long ID_TEXTCTRL2;
 		static const long ID_PANEL1;
 		static const long ID_NOTEBOOK1;
